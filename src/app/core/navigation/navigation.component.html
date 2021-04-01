@@ -1,0 +1,31 @@
+<div class="position-absolute">
+    <div class="navbar mt-5 pl-5 w-20 float-left align-items-baseline">
+        <div class="nav-item">
+            <a class="text-danger" href="/">Home</a>
+            <div *ngFor="let category of sportCategories" class="nav-item text-danger">
+                <a class="text-danger" (click)="getChild(category)">
+                    {{ category.name }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="navbar mt-5 pl-5 w-18 float-left bg-light align-items-baseline" style="z-index: " *ngFor="let layer of layers">
+        <div class="nav-item" *ngFor="let comp of layer">
+            <div class="text-danger" *ngFor="let t of comp" (click)="getChild(t)">
+                {{ t.name }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="position-relative d-print-none">
+    <div class="navbar mt-5 pl-5 w-20 float-left align-items-baseline">
+        <div class="nav-item">
+            <a class="text-danger">Home</a>
+            <div *ngFor="let category of sportCategories" class="nav-item text-danger">
+                <a class="text-danger" (click)="getChild(category)">
+                    {{ category.name }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
