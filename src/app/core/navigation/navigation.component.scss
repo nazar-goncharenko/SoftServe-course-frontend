@@ -1,0 +1,25 @@
+.navbar{
+  height: 100vh;
+}
+
+.link{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+a{
+  font-weight: bold;
+  font-size: 80%;
+}
+a:hover{
+  cursor: pointer;
+}
+
+.nav-link{
+  font-weight: normal;
+  cursor: pointer;
+  font-size: 90%;
+}

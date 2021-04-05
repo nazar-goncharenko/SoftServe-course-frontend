@@ -7,43 +7,25 @@ import {log} from 'util';
 @Component({
         selector: 'app-navigation',
         templateUrl: './navigation.component.html',
+        styleUrls: ['./navigation.component.scss']
     }
 )
 export class NavigationComponent implements OnInit {
 
+    beforeCategories = [
+        {name: 'Home', url: '/'},
+    ];
+
+    afterCategories = [
+        {name: 'TeamHub', ulr: '/teamHub'},
+        {name: 'LifeStyle', ulr: '/lifeStyle'},
+        {name: 'dealbook', ulr: '/dealbook'},
+        {name: 'video', ulr: '/video'}
+    ];
+
     layers = [];
 
     sportCategories: Array<SportCategory>;
-    //     new Set([
-    //     {
-    //         name: 'NFL', description: 'HOKEY', id: 1, children: new Set<SportCategory>(
-    //             [
-    //                 {
-    //                     name: 'AFC East', parent: null, id: 4, children: new Set<SportCategory>([
-    //                         {
-    //                             name: 'SubCategory2', description: 'HOKEY', id: 66, children: new Set<SportCategory>([
-    //                                 {name: 'Something layer2', parent: null, children: null, id: 55, description: 'some desc'}
-    //                             ]), parent: null
-    //                         }
-    //                     ]), description: 'ssdsd'
-    //                 },
-    //                 {
-    //                     name: 'AFC North', parent: null, id: 5, children: new Set<SportCategory>(
-    //                         [
-    //                             {
-    //                                 name: 'SubCategory1', description: 'HOKEY', id: 6, children: new Set<SportCategory>([
-    //                                     {name: 'Something layer1', parent: null, children: null, id: 15, description: 'some desc'}
-    //                                 ]), parent: null
-    //                             }
-    //                         ]), description: 'ssdsd'
-    //                 }]), parent: null
-    //     },
-    //     {
-    //         name: 'Tennis', description: 'Tennis', id: 2, children: new Set<SportCategory>(
-    //             [{name: 'BigTennis', description: 'tennis', id: 10, parent: null, children: null}]
-    //         ), parent: null
-    //     }
-    // ]);
 
     constructor(private sportCategoryService: SportCategoryService) {
     }
@@ -106,7 +88,7 @@ export class NavigationComponent implements OnInit {
     }
 
     private last_layer_action(): void{
-        this.layers = [];
+        this.clearLayers();
         return;
     }
 
