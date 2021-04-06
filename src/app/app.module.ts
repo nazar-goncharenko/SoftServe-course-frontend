@@ -1,30 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-
-import { HomeComponent } from './home/pages/home/home.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'profile/:userId', component: UserProfileComponent },
-    ])
-  ],
   declarations: [
-    AppComponent,
-    UserProfileComponent
+    AppComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CoreModule
+        CoreModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
