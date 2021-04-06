@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row gutters-sm">
+    <div class="tabs centered" *ngIf="user">
+      <div class="tabs">
+        <div class="tab-2">
+          <label for="tab2-1">Personal</label>
+          <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin">
+
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0" id="det">user details: </h4>
+                  </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0" id="det">name</h4>
+                  </div>
+                  <div class="col-sm-9">
+                    {{ user.username }}
+                  </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0">email</h4>
+                  </div>
+                  <div class="col-sm-9">
+                    {{ user.email }}
+                  </div>
+                </div>
+
+                <hr>
+                <button class="button btt">Save</button>
+                <button class="button btt-bad">Delete profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="tab-2">
+          <label for="tab2-2">Password</label>
+          <input id="tab2-2" name="tabs-two" type="radio">
+          <div>
+            <h4>Tab email</h4>
+            <p>{{ user.email }}</p>
+          </div>
+        </div>
+
+        <div class="tab-2">
+          <label for="tab2-3">My surveys</label>
+          <input id="tab2-3" name="tabs-two" type="radio">
+          <div>
+            <h4>Tab photoUrl</h4>
+            <p>{{ user.photoUrl }}</p>
+          </div>
+        </div>
+
+
+        <div class="tab-2">
+          <label for="tab2-4">Favourite</label>
+          <input id="tab2-4" name="tabs-two" type="radio">
+          <div>
+            <h4>Tab photoUrl</h4>
+            <p>{{ user.photoUrl }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
