@@ -5,10 +5,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
+import { PhotoComponent } from './modules/adminside/photo/photo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PhotoComponent
   ],
     imports: [
         BrowserModule,
