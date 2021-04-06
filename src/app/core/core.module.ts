@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
@@ -5,16 +6,25 @@ import { FooterComponent } from './footer/footer.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {NavigationComponent} from './navigation/navigation.component';
+import {RouterModule} from '@angular/router';
+
 
 @NgModule({
-    declarations: [HeaderComponent, FooterComponent],
+    declarations: [HeaderComponent, FooterComponent, NavigationComponent],
     exports: [
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        NavigationComponent
     ],
     imports: [
         CommonModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        RouterModule,
     ]
 })
 export class CoreModule { }
