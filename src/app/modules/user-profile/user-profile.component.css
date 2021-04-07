@@ -1,6 +1,8 @@
-img {
-  width: 100%;
-  margin-top: 15px;
+team {
+  float: left;
+}
+.desc {
+  display: inline;
 }
 
 h1 {
@@ -16,34 +18,40 @@ h4 {
   color: rgb(0, 0, 0);
 }
 
-.padding {
-  padding-top: 1rem;
-}
-
-.round {
-  border-radius: 25px;
+p {
+  color: #38321b;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Container holding the image and the text */
 .container {
-  margin-top: 5%;
-  margin-left: 30%;
+  margin: 2% 30% 15% 30%;
+   border: 5px solid #333;
 }
 
 .centered {
   position: relative;
-  color: rgb(0, 0, 0);
 }
 
-.uno {
-  position: relative;
-}
-
-form {
-  font-size: 17px;
+#teamname,
+form h4 {
   text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 15px;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+form input {
+  width: 100%;
+  font-size: 17px;
+  padding: 10px 10px;
+}
+
+form input placeholder {
+  font-size: 5px;
 }
 
 .row {
@@ -51,23 +59,21 @@ form {
 }
 
 .card-body {
-  padding: 20px;
-  color: rgb(0, 0, 0);
+  margin-top: 1rem;
 }
 
 .button {
-  border-color: rgb(7, 28, 33);
+  border-color: rgb(0, 0, 0);
   border-width: 0.01px;
-  color: rgb(7, 28, 33);
+  color: rgb(0, 0, 0);
   padding: 8px 24px;
   text-align: center;
-  text-decoration: none;
   font-size: 15px;
   margin-top: 5%;
   margin-left: 15%;
   cursor: pointer;
   position: relative;
-  z-index:0;
+  z-index: 0;
 }
 .btt:hover {
   background-color: rgb(40, 74, 15);
@@ -78,40 +84,8 @@ form {
   color: rgb(255, 255, 255);
 }
 
-#det {
-  font-variant: small-caps;
-}
-
-body {
-  background: #000000;
-  color: #efedef;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.5em;
-  margin: 0;
-  padding: 10px;
-}
-h1 {
-  font-size: 40px;
-  line-height: 0.8em;
-  color: rgba(0, 0, 0, 0.2);
-}
-a {
-  background: #fd264f;
-  color: #fff;
-  display: block;
-  font-size: 12px;
-  line-height: 1em;
-  margin: 0;
-  padding: 5px 110px;
-  position: fixed;
-  top: 20px;
-  right: -100px;
-  text-align: center;
-  text-decoration: none;
-  transform: rotate(45deg);
+#pass {
+  margin-left: 27%;
 }
 
 input:focus,
@@ -132,11 +106,9 @@ select:focus {
 
 .tabs [class^="tab"] label,
 .tabs [class*=" tab"] label {
-  color: #000000;
   cursor: pointer;
   display: block;
   font-size: 0.7em;
-  font-weight: 775;
   line-height: 1em;
   text-align: center;
 }
@@ -183,9 +155,9 @@ select:focus {
 }
 
 .tabs .tab-2 img {
-   width: 105px; /* I took the width from your post and placed it in css */
-   height: 105px;
-   border-radius: 50%;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
 }
 
 .tabs .tab-2 [type="radio"] + div {
@@ -200,4 +172,12 @@ select:focus {
 }
 .tabs .tab-2:last-child [type="radio"]:checked + div {
   margin-left: -100%;
+}
+
+/* problem here */
+.box1 {
+  /*background: #f0f0f0; 
+    border: 1px solid #000;  */
+  width: 400px !important;
+  padding: 10px;
 }
