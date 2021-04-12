@@ -1,0 +1,4 @@
+<div>
+    <app-banners-list [banners]="banners" (selectedBannerChanged)="setSelectedBanner($event)" ></app-banners-list>
+    <app-edit-banner [banner]="selectedBanner"></app-edit-banner>
+</div>

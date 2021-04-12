@@ -1,0 +1,30 @@
+<div class="container banner-list pb-1" >
+    <div class="banner-list-title h-100 pt-2 pb-3 mb-3">
+        <div class="float-left w-50">
+            <p>BANNER NAME</p>
+        </div>
+        <div class="float-right w-50">
+            <div class="w-50 d-inline-flex">
+                <p>STATUS</p>
+            </div>
+            <div class="w-50 d-inline-flex">
+                <p>PUBLISHED IN</p>
+            </div>
+        </div>
+    </div>
+    <div class="row d-block">
+        <div *ngFor="let b of banners; let i = index" class="pl-0 pr-0">
+            <app-banner-item [banner]="b" (click)="selectBannerAt(i)"></app-banner-item>
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="file">Choose File</label>-->
+                    <!--                        <input type="file"-->
+                    <!--                               id="file"-->
+                    <!--                               (change)="handleFileInput($event.target.files)">-->
+                    <!--                    </div>-->
+
+        </div>
+    </div>
+
+</div>
+
