@@ -1,0 +1,168 @@
+<div class="container row">
+    <div class="tabs centered" *ngIf="user">
+
+        <!-- User Personal !-->
+
+        <div class="tab-2">
+            <label for="tab2-1">Personal</label>
+            <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+            <div class="box1">
+                <div class="col-md-8">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <img src="{{ user.photoUrl }}">
+                                <input type="file" id="img" name="img" accept="image/*">
+                                <input type="submit" formaction="/user/{{user.id}}/avatar">     <!-- Problem !-->
+                            </div>
+                        </div>
+
+
+                        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h4 class="mb-0">name</h4>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" [(ngModel)]="user.username"
+                                           class="form-control"
+                                           id="username"
+                                           name="username"
+                                           required #username="ngModel"
+                                           placeholder="{{ user.username }}">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h4 class="mb-0">email</h4>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" [(ngModel)]="user.email"
+                                           class="form-control"
+                                           id="email"
+                                           name="email"
+                                           required #email="ngModel"
+                                           autocomplete="email"
+                                           placeholder="{{ user.email }}">
+                                </div>
+                            </div>
+                        </form>
+
+                        <button type="submit" class="button btt">Save</button>
+                        <button class="button btt-bad">!Delete profile</button> <!-- need to delete not update !-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password !-->
+
+        <div class="tab-2">
+            <label for="tab2-2">Password</label>
+            <input id="tab2-2" name="tabs-two" type="radio">
+            <div class="box1">
+                <div class="col-md-8">
+
+                    <div class="card-body">
+
+                        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h4 class="mb-0">old password</h4>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="password"
+                                           name="old_pass"
+                                           placeholder="Enter your old password here"
+                                           autocomplete="current-password">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h4 class="mb-0">new password</h4>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="password"
+                                           name="new_pass"
+                                           placeholder="8+ uppercase and lowercase letter, number"
+                                           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h4 class="mb-0">password confirmation</h4>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="password" [(ngModel)]="user.password"
+                                           class="form-control"
+                                           id="password"
+                                           name="password"
+                                           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
+                                           placeholder="Enter new password again"
+                                           required #password="ngModel">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="button btt">Change password</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Surveys -->
+
+        <div class="tab-2">
+            <label for="tab2-3">My surveys</label>
+            <input id="tab2-3" name="tabs-two" type="radio">
+            <div class="box1">
+                <div class="col-md-8">
+                    survey.text
+                    <!-- <div class="card-body" *ngFor="let survey of userSurveys">
+                      <div class="row">
+                        <div class="col-sm-9">
+                          {{survey.text}}
+                        </div>
+                      </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        !
+
+        <!-- Favourite -->
+
+        <div class="tab-2">
+            <label for="tab2-4">Favourite</label>
+            <input id="tab2-4" name="tabs-two" type="radio">
+            <div class="box1">
+                <h4 class="mb-0">Your followed teams</h4>
+                <div class="col-md-8">
+                    userFav
+                    <!--  <div class="card-body" *ngFor="let fav of userFav">
+                       <div class="row">
+
+                       <div class="col-sm-2 team">
+                           <img src="{{ fav.photo }}">
+                         </div>
+                         <div class="col-sm-2 desc">
+                           <h4 id="teamname" class="mb-0">{{fav.name}}</h4>
+                         </div>
+                         <div class="col-sm-8 desc">
+                           <p>{{fav.description}}</p>
+                         </div>
+                       </div>
+                     </div>-->
+                </div>
+            </div>
+        </div>
+        !-->
+
+    </div>
+</div>
