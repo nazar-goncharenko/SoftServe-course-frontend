@@ -1,3 +1,54 @@
+.main-article {
+  object-fit: cover;
+  width: min-content;
+  margin-bottom: 44px;
+}
+.main-article img {
+  width: 813px;
+  height: 460px;
+  object-fit: cover;
+}
+.main-article .img-container {
+  margin-left: 12.5px;
+}
 
+.container-fluid {
+  width: max-content;
+  margin-left: 253px;
+}
+
+.article-col-container {
+  width: 202px;
+  height: 294px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+.article-col-container img {
+  object-fit: cover;
+  width: 177px;
+  height: 128px;
+}
+.article-col-container .img-container {
+  text-align: center;
+  padding: 11px 0 14px;
+}
+.article-col-container .title,
+.article-col-container .description {
+  margin: 0 12.5px;
+}
+.article-col-container .title {
+  font-weight: 700;
+  color: #2B2F43;
+}
+.article-col-container .description {
+  font-weight: 400;
+  color: #7F7B7B;
+}
+.article-col-container:hover {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=home.component.css.map */

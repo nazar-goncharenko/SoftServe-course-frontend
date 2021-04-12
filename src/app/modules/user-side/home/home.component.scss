@@ -1,0 +1,62 @@
+.main-article {
+  object-fit: cover;
+  width: min-content;
+  margin-bottom: 44px;
+
+  img {
+    width: 813px;
+    height: 460px;
+    object-fit: cover;
+  }
+
+  .img-container {
+    margin-left: 12.5px;
+  }
+
+}
+
+.container-fluid {
+  width: max-content;
+  margin-left: 253px;
+}
+
+.article-col-container {
+  width: 202px;
+  height: 294px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    width: 177px;
+    height: 128px;
+  }
+
+  .img-container {
+    text-align: center;
+    padding: 11px 0 14px;
+  }
+
+  .title,
+  .description {
+    margin: 0 12.5px;
+  }
+
+  .title {
+    font-weight: 700;
+    color: #2B2F43;
+  }
+
+  .description {
+    font-weight: 400;
+    color: #7F7B7B;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
+    cursor: pointer;
+  }
+
+}
