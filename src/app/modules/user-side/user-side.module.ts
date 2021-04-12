@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
+import {HeaderComponent} from './templates/header/header.component';
+import {FooterComponent} from './templates/footer/footer.component';
+import {NavigationComponent} from './templates/navigation/navigation.component';
 import {CommonModule} from '@angular/common';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import {NavigationComponent} from './navigation/navigation.component';
 import {RouterModule} from '@angular/router';
 
 
@@ -18,4 +18,5 @@ import {RouterModule} from '@angular/router';
         RouterModule,
     ]
 })
-export class CoreModule { }
+export class UserSideModule {
+}

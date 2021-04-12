@@ -1,7 +1,6 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
-import {SportCategory} from '../../shared/interfaces/sportCategory';
-import {SportCategoryService} from '../services/sportCategory.service';
-import {log} from 'util';
+import {SportCategory} from '../../../../shared/interfaces/sportCategory';
+import {SportCategoryService} from '../../../../services/sportCategory.service';
 
 
 @Component({

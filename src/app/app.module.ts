@@ -3,10 +3,11 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './modules/home/pages/home/home.component';
-import {CoreModule} from './core/core.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {HomeComponent} from './modules/user-side/home/home.component';
+import {ModulesModule} from './modules/modules.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
+import {UserSideModule} from './modules/user-side/user-side.module';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,12 @@ import {HttpClientModule} from '@angular/common/http';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CoreModule,
+        ModulesModule,
         FontAwesomeModule,
-        HttpClientModule
+        HttpClientModule,
+        UserSideModule
     ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HomeComponent]
 })
 export class AppModule { }
