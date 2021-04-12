@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {SportCategory} from '../shared/interfaces/sportCategory';
+import {AppConstants} from '../shared/app.constants';
 
 
 @Injectable({
@@ -12,6 +13,6 @@ export class SportCategoryService {
     }
 
     getNullParent(): any {
-        return this.httpClient.get<Array<SportCategory>>('http://localhost:8081/sportCategory/basicNavigationList');
+        return this.httpClient.get<Array<SportCategory>>(AppConstants.API_URL + '/sportCategory/basicNavigationList');
     }
 }
