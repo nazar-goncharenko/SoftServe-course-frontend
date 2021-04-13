@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../../shared/model/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../core/services/user.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,16 +11,23 @@ import {UserService} from '../../../core/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  user;
-  userIdFromRoute;
+  user: User;
+  currUser;
+  userIdFromRoute: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private userService: UserService) {
-    this.user = new User();
+    this.user = {
+      id: null,
+    username: null,
+    email: null,
+    password: null,
+    photoUrl: null
+    };
   }
 
-  onSubmit(): void {
+  updateUser(): void {
     this.userService.save(this.user, this.userIdFromRoute).subscribe(result => this.gotoUserList());
   }
 
@@ -36,7 +44,7 @@ export class UserProfileComponent implements OnInit {
     this.userIdFromRoute = Number(routeParams.get('user_id'));
 
     // Find the user that correspond with the id provided in route.
-    this.user = this.userService.getUserById(this.userIdFromRoute);
+    this.currUser = this.userService.getUserById(this.userIdFromRoute);
   }
 
 }

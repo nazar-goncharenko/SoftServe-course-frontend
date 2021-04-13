@@ -1,8 +1,9 @@
 <div class="container row">
-    <div class="tabs centered" *ngIf="user">
+    <div class="tabs centered" *ngIf="currUser">
 
         <!-- User Personal !-->
-
+<h1>{{currUser.username}}</h1>
+        <h1>{{user.username}}</h1>
         <div class="tab-2">
             <label for="tab2-1">Personal</label>
             <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
@@ -19,7 +20,7 @@
                         </div>
 
 
-                        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                        <form (ngSubmit)="updateUser()" #userForm="ngForm">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h4 class="mb-0">name</h4>
@@ -51,14 +52,14 @@
                             </div>
                         </form>
 
-                        <button type="submit" class="button btt">Save</button>
-                        <button class="button btt-bad">!Delete profile</button> <!-- need to delete not update !-->
+                        <button (click)="updateUser()"  class="button btt">Save</button>
+                        <button class="button btt-bad">Delete profile</button> <!-- (click)="Delete()" !-->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Password !-->
+        <!-- Password   pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" !-->
 
         <div class="tab-2">
             <label for="tab2-2">Password</label>
@@ -68,7 +69,7 @@
 
                     <div class="card-body">
 
-                        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                        <form (ngSubmit)="updateUser()" #userForm="ngForm">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h4 class="mb-0">old password</h4>
@@ -88,8 +89,7 @@
                                 <div class="col-sm-9">
                                     <input type="password"
                                            name="new_pass"
-                                           placeholder="8+ uppercase and lowercase letter, number"
-                                           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}">
+                                           placeholder="8+ uppercase and lowercase letter, number">
                                 </div>
                             </div>
 
@@ -102,13 +102,12 @@
                                            class="form-control"
                                            id="password"
                                            name="password"
-                                           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
                                            placeholder="Enter new password again"
                                            required #password="ngModel">
                                 </div>
                             </div>
 
-                            <button type="submit" class="button btt">Change password</button>
+                            <button (click)="updateUser()" class="button btt">Change password</button>
 
                         </form>
                     </div>

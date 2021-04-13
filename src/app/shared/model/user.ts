@@ -9,7 +9,7 @@ export class User {
     password: string;
     photoUrl: string;
 
-    favourites: Array<SportCategory>;
+    favourites?: Array<SportCategory>;
     // userSurveys: Array<Survey>;
     // userBanners: Array<Banner>;
     // userComments: Array<Comment>;
