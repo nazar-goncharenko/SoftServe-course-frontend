@@ -7,11 +7,13 @@ import { BannersListComponent } from './components/banners-list/banners-list.com
 import { PredefinedCategoriesSettingsComponent } from './components/predefined-categories-settings/predefined-categories-settings.component';
 import { NewBannerComponent } from './components/new-banner/new-banner.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BannersHeaderComponent} from "./components/banners-header/banners-header.component";
+import {CategoryItemComponent} from "./components/category-item/category-item.component";
 
 
 
 @NgModule({
-  declarations: [BannersManagementComponent, EditBannerComponent, BannerItemComponent, BannersListComponent, PredefinedCategoriesSettingsComponent, NewBannerComponent],
+    declarations: [BannersManagementComponent, EditBannerComponent, BannerItemComponent, BannersListComponent, PredefinedCategoriesSettingsComponent, NewBannerComponent, BannersHeaderComponent, CategoryItemComponent],
   exports: [
       BannerItemComponent,
       BannersListComponent,

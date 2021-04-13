@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Banner} from "../../../../../shared/interfaces/banner";
 import {BannerService} from "../../../../../services/banners.service";
+import {SportCategory} from "../../../../../shared/interfaces/sportCategory";
 
 @Component({
   selector: 'app-banners-management',
@@ -9,6 +10,7 @@ import {BannerService} from "../../../../../services/banners.service";
 })
 export class BannersManagementComponent implements OnInit {
   banners: Banner[];
+  predefined: SportCategory[];
   selectedBanner: Banner;
 
   constructor(private bannerService: BannerService) { }
@@ -16,6 +18,9 @@ export class BannersManagementComponent implements OnInit {
   ngOnInit(): void {
     this.bannerService.getBanners().subscribe(data => {
       this.banners = data;
+    });
+    this.bannerService.getPredefined().subscribe(data => {
+      this.predefined = data;
     });
   }
 

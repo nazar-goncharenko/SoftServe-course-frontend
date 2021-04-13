@@ -1,1 +1,20 @@
-<p>predefined-categories-settings works!</p>
+<div class="predefined-ann bg-white w-100 m-0">
+    <p>PREDEFINED BANNERS</p>
+</div>
+<div class="container categories-list mb-5" >
+    <div class="predefined-list-title h-100 pt-3 pb-4 mb-3">
+        <div class="float-left w-50">
+            <p>CATEGORY NAME</p>
+        </div>
+        <div class="float-right w-50">
+            <p>SHOW/HIDE</p>
+        </div>
+    </div>
+    <div class="row d-block">
+        <div *ngFor="let pc of predefinedCategories; let i = index" class="pl-0 pr-0">
+            <app-category-item [predefinedCategory]="pc"></app-category-item>
+        </div>
+    </div>
+
+</div>
+

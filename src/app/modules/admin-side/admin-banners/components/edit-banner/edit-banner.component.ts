@@ -15,17 +15,20 @@ class HttpErrorResponse {
 export class EditBannerComponent implements OnInit {
 
   @Input() banner: Banner;
+  uploadFile: File = null;
 
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
-    this.getBanner();
+  }
 
+  handleFileInput(files: FileList) {
+      this.uploadFile = files[0];
   }
 
     async editBanner(){
-        await this.bannerService.updateBanner(this.banner).subscribe(
-
+        await this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
+            data => console.log(data)
         );
     }
 

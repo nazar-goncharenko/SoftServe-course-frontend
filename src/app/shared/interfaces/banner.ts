@@ -6,4 +6,5 @@ export interface Banner {
     imgPath: string;
     status: string;
     category: SportCategory;
+    lastUpdated: string;
 }
