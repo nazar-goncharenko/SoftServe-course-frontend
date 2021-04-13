@@ -18,7 +18,6 @@ export class BannerService {
         return this.http.get<SportCategory[]>(`${this.apiServerUrl}/banners/predefinedCategories`);
     }
 
-
     public getBanner(id : number): Observable<Banner> {
         return this.http.get<Banner>(`${this.apiServerUrl}/banners/${id}`);
     }
@@ -27,9 +26,10 @@ export class BannerService {
         return this.http.get<Banner>(`${this.apiServerUrl}/banners/${id}`);
     }
 
-    public updateBanner(banner: Banner, file: File): Observable<string> {
+    public updateBanner(banner: Banner, file: File): Observable<Banner> {
         const formData: FormData = new FormData();
         formData.append('file', file);
-        return this.http.put<string>(`${this.apiServerUrl}/banners/update/${banner.id}?title=${banner.title}`, formData);
+        formData.append('title', banner.title)
+        return this.http.put<Banner>(`${this.apiServerUrl}/banners/update/${banner.id}`, formData);
     }
 }

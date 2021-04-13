@@ -1,12 +1,18 @@
-.list-item{
+.list-item {
   width: 99.6%;
   background-color: white;
   height: 50px;
   margin: 0 1.5px 1px;
 }  p{
-     padding-left: 5%;
-     display: inline;
-     font-size: 14px;
-     height: auto;
-   }
-
+    padding-left: 5%;
+    display: inline;
+    font-size: 14px;
+    height: auto;
+  }
+.banner-list-title p{
+  padding-left: 5%;
+  display: inline;
+  font-weight: bold;
+  padding-bottom: 1px;
+  font-size: 12px;
+}
