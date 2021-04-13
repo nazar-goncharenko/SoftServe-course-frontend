@@ -65,12 +65,24 @@ $article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
 }
 
 .article-col-container {
+  position: relative;
   width: 202px;
   height: 294px;
   margin-right: 10px;
   display: inline-block;
   vertical-align: top;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: $article-common-shadow;
+    -moz-box-shadow: $article-common-shadow;
+    -webkit-box-shadow: $article-common-shadow;
+    cursor: pointer;
+  }
+
+  &:hover .a-c-ico {
+    display: block;
+  }
 
   img {
     object-fit: cover;
@@ -98,11 +110,12 @@ $article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
     color: #7F7B7B;
   }
 
-  &:hover {
-    box-shadow: $article-common-shadow;
-    -moz-box-shadow: $article-common-shadow;
-    -webkit-box-shadow: $article-common-shadow;
-    cursor: pointer;
+  .a-c-ico {
+    color: #C63638;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+    display: none;
   }
 
 }

@@ -11,6 +11,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 export class HomeComponent implements OnInit {
 
   articles: Article[];
+  arrowRightIco = faArrowRight;
 
   constructor(private articleService: ArticleService) { }
 
