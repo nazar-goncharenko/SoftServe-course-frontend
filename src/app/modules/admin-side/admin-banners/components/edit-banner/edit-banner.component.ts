@@ -15,6 +15,7 @@ class HttpErrorResponse {
 export class EditBannerComponent implements OnInit {
 
   @Input() banner: Banner;
+  uploadFile: File = null;
 
   constructor(private bannerService: BannerService){}
 
@@ -23,9 +24,13 @@ export class EditBannerComponent implements OnInit {
 
   }
 
-    async editBanner(){
-        await this.bannerService.updateBanner(this.banner).subscribe(
+  handleFileInput(files: FileList) {
+      this.uploadFile = files[0];
+  }
 
+    async editBanner(){
+        await this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
+            data => console.log(data)
         );
     }
 

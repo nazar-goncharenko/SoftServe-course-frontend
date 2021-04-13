@@ -1,11 +1,20 @@
 <div class="banner-card test" *ngIf="banner">
     <form #editForm="ngForm" (ngSubmit)="editBanner()">
         <div class="form-group">
-            <input type="text" [(ngModel)]="banner.title" name="title" class="form-control" id="title"  placeholder="Name">
+            <input type="text" [(ngModel)]="banner.title" name="title" class="form-control title-field" id="title"  placeholder="Name">
+            <div class="dropzone">
+                <img src="../../../../assets/add_picture.svg" class="upload-icon"  alt=""/>
+                <input type="file" (change)="handleFileInput($event.target.files)" name="file" id="file" class="upload-input" />
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >Save changes</button>
+        <div>
+            <button type="reset" class="cancel-button" >Cancel</button>
+            <button type="submit" class="save-button" >Save</button>
         </div>
     </form>
+    <div class="banner-date inside outside">
+        <p>Last updated {{banner.lastUpdated}} </p>
+    </div>
 </div>
+
 

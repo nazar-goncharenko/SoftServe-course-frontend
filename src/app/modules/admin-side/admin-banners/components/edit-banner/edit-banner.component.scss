@@ -1,10 +1,15 @@
+$light-accent-color:  #f2f2f2;
+
 .banner-card {
-  width: 20vw;
+  width: 19vw;
   margin-right: 7%;
   float: right;
   display: inline;
-  height: 20vw;
-  background-color: #f2f2f2;
+  height: 25vw;
+  background-color: $light-accent-color;
+  position: fixed;
+  right: 1%;
+  top: 22.5%;
 } p{
     padding-left: 5%;
     display: inline;
@@ -12,8 +17,88 @@
     font-size: 12px;
   }
 
-.test {
-  position: fixed;
-  right: 1%;
-  top: 7.5%;
+.banner-date{
+  background-color: white;
+  width: 100%;
+  color: #b2b2b2;
+} p{
+    padding: 0;
+    font-weight: normal;
+    font-style: italic;
+  }
+.outside {
+  position:relative;
+}
+.inside {
+  position: absolute;
+  bottom: 0;
+}
+
+.title {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #999;
+  text-align: center;
+}
+
+.dropzone {
+  background-color: white;
+  width: 99%;
+  margin-left: 0.5%;
+  height: 15vw;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.upload-icon {
+  width: 50%;
+  height: 50%;
+  margin-top: 15%;
+}
+
+.title-field{
+  background-color: $light-accent-color;
+  width: 92%;
+  height: 30px;
+  margin: 4%;
+  padding: 1% 2%;
+  border: solid 2px #d4d9e2;
+  border-radius: 0;
+}
+
+.upload-input {
+  position: relative;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.save-button{
+  position: absolute;
+  display: inline;
+  right: 5%;
+  bottom: 11%;
+  background: #d72130;
+  color: white;
+  border: 0;
+  height: 30px;
+  width: 30%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cancel-button{
+  display: inline;
+  position: absolute;
+  right: 40%;
+  height: 30px;
+  bottom: 11%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  color: #d72130;
+  border: 0;
 }

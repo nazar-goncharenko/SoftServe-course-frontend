@@ -15,16 +15,7 @@
     <div class="row d-block">
         <div *ngFor="let b of banners; let i = index" class="pl-0 pr-0">
             <app-banner-item [banner]="b" (click)="selectBannerAt(i)"></app-banner-item>
-
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label for="file">Choose File</label>-->
-                    <!--                        <input type="file"-->
-                    <!--                               id="file"-->
-                    <!--                               (change)="handleFileInput($event.target.files)">-->
-                    <!--                    </div>-->
-
         </div>
     </div>
-
 </div>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SportCategory} from "../../../../../shared/interfaces/sportCategory";
 
 @Component({
   selector: 'app-predefined-categories-settings',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./predefined-categories-settings.component.scss']
 })
 export class PredefinedCategoriesSettingsComponent implements OnInit {
+
+  @Input() predefinedCategories: SportCategory[];
 
   constructor() { }
 
