@@ -1,0 +1,35 @@
+<div class="container-fluid m-auto photo-info">
+    <form #addForm="ngForm" (ngSubmit)="uploadFile()">
+        <div class="custom-file">
+            <label for="img">+Add picture or drop it right here</label>
+            <input type="file"
+                   class="form-control"
+                   id="img"
+                   (change)="handleFileInput($event)">
+        </div>
+        <div class="form-group">
+            <label for="alt">alt</label>
+            <input type="text" [(ngModel)]="photo.alt" name="alt" class="form-control" id="alt" required>
+        </div>
+        <div class="form-group">
+            <label for="photoTitle">photo title</label>
+            <input type="text" [(ngModel)]="photo.photoTitle" name="photoTitle" class="form-control" id="photoTitle" required>
+        </div>
+        <div class="form-group">
+            <label for="description">short description</label>
+            <input type="text" [(ngModel)]="photo.description" name="description" class="form-control" id="description" required>
+        </div>
+        <div class="form-group">
+            <label for="author">author</label>
+            <input type="text" [(ngModel)]="photo.author" name="author" class="form-control" id="author" required>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" [checked]="photo.isShown" (change)="photo.isShown = !photo.isShown" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Show on the main page</label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save all changes</button>
+    </form>
+</div>
+
+
