@@ -5,23 +5,16 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
-import { AddPhotoComponent } from './modules/adminside/photo/add-photo.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AddPhotoComponent
+    AppComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         CoreModule,
-        HttpClientModule,
-        NoopAnimationsModule,
-        ReactiveFormsModule,
-        FormsModule
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
