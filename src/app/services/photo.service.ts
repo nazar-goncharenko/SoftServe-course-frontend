@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {PhotoDTO} from '../../shared/interfaces/photo';
+import { PhotoDTO } from '../shared/interfaces/photo';
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,9 @@
 <div class="container-fluid m-auto photo-info">
     <form #addForm="ngForm" (ngSubmit)="uploadFile()">
-        <div class="custom-file">
-            <label for="img">+Add picture or drop it right here</label>
-            <input type="file"
-                   class="form-control"
-                   id="img"
-                   (change)="handleFileInput($event)">
+
+        <div class="dropzone">
+            <img src="../../../../assets/add_picture.svg" class="upload-icon"  alt=""/>
+            <input type="file" (change)="handleFileInput($event)" name="file" id="file" class="upload-input" />
         </div>
         <div class="form-group">
             <label for="alt">alt</label>

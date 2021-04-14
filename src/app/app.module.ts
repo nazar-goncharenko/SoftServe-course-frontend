@@ -3,20 +3,27 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CoreModule} from './core/core.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
+import {ModuleModule} from './modules/module.module';
+import {AdminSideModule} from './modules/admin-side/admin-side.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+    declarations: [
+        AppComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CoreModule,
-        HttpClientModule
+        ModuleModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        FormsModule,
+        AdminSideModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

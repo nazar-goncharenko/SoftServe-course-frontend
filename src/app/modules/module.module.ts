@@ -10,6 +10,7 @@ import { HomeComponent } from './user-side/home/home.component';
 @NgModule({
     declarations: [HomeComponent, HeaderComponent, NavigationComponent, FooterComponent],
     exports: [
+        HeaderComponent
     ],
     imports: [
         CommonModule,

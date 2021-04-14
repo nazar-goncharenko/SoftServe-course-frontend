@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../../../core/services/photo.service';
 import { PhotoDTO } from '../../../shared/interfaces/photo';
+import { PhotoService } from '../../../services/photo.service';
 
 @Component({
   selector: 'app-photo',
@@ -39,7 +39,6 @@ export class AddPhotoComponent implements OnInit {
                     error => console.log(error));
             },
             error => console.log(error));
-
     }
 
   ngOnInit(): void {
