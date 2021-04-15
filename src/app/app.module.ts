@@ -25,4 +25,5 @@ import {UserSideModule} from './modules/user-side/user-side.module';
   providers: [],
   bootstrap: [AppComponent, HomeComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
