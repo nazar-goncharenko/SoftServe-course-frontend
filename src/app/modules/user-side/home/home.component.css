@@ -9943,6 +9943,9 @@ h3 {
 .header {
   height: 83px;
   margin-bottom: 83px;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
 }
 
 .bg-caption {
