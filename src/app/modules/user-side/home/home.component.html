@@ -17,8 +17,8 @@
         </div>
     </div>
 
-    <!--container-fluid ml-0-->
-    <div class="content">
+    <!--  REMOVE PADDING  -->
+    <div class="content pb-2">
         <div class="article-col-container" *ngFor="let article of articles | slice:0:4">
             <div class="img-container"><img src="assets/img/football.PNG" alt=""></div>
             <div class="title">{{article.title}}</div>
@@ -33,5 +33,4 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>-->
-<app-navigation></app-navigation>
 <app-footer></app-footer>
