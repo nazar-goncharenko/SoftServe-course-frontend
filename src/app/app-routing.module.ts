@@ -5,6 +5,7 @@ import {LoginComponent} from './modules/user-side/login/login.component';
 import {Forgot_passwordComponent} from './modules/user-side/forgot_password/forgot_password.component';
 import {RegistrationComponent} from './modules/user-side/registration/registration.component';
 
+
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},

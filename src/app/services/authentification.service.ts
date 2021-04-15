@@ -29,17 +29,14 @@ export class AuthentificationService implements OnInit{
             this.baseUrl+this.loginUrl,
             JSON.stringify(requestLoginDTO),
             this.httpOptions
-        ).pipe(
-            retry(1),
-            catchError(this.handleError)
         )
     }
 
-    handleError(error) {
-        let errorMessage = `Error Code: ${error.status} - ${error.error.error} \nMessage: ${error.error.message}`;
-        window.alert(errorMessage);
-        return throwError(errorMessage);
-    }
+    // handleError(error) {
+    //     let errorMessage = `Error Code: ${error.status} - ${error.error.error} \nMessage: ${error.error.message}`;
+    //     window.alert(errorMessage);
+    //     return throwError(errorMessage);
+    // }
 
     ngOnInit(): void {
     }

@@ -1,35 +1,41 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<app-footer></app-footer>
-<div class="sidenav">
-    <div class="login-main-text">
-        <h2>Application<br></h2>
-        <p>Register on our site</p>
-    </div>
-</div>
-<div class="main">
-    <div class="col-md-6 col-sm-12">
-        <div class="login-form">
-            <form>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <label for="email"></label><input type="text" class="form-control" name="username" [(ngModel)]="email" id="username"
-                                                      placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <label for="email"></label><input type="text" class="form-control" name="email" [(ngModel)]="username" id="email"
-                                                      placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <label for="password"></label><input type="password" class="form-control" name="password" [(ngModel)]="password" id="password"
-                                                         placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-secondary">Register</button>
-            </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <h3>Registration</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-danger" *ngIf="registrationForm.controls['username'].errors && submitted">
+                <div *ngIf="registrationForm.controls['username'].errors.required">First Name is required</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="registrationForm.controls['password'].errors  && submitted">
+                <div *ngIf="registrationForm.controls['password'].errors.required">Last Name is required</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="registrationForm.controls['email'].errors  && submitted">
+                <div *ngIf="registrationForm.controls['email'].errors.required">Email is required</div>
+                <div *ngIf="registrationForm.controls['email'].errors.email">Please Enter Valid Email Format</div>
+            </div>
         </div>
     </div>
+    <form [formGroup]="registrationForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" placeholder="password" class="form-control" id="password" formControlName="password">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="username" placeholder="username" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" formControlName="email" placeholder="Email" class="form-control" id="email">
+                </div>
+                <button type="button" [disabled]="buttonRegister==false" (click)="register()" style="padding:10px 250px; background-color: purple; color: white"
+                        class="btn ">Register</button>
+            </div>
+            <div class="col-md-6">
+                <div *ngIf="visible==true">
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

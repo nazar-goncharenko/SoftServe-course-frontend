@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
               //  if (data.responseCode == '200') {
                     sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('email', this.loginData.getEmail());
+                sessionStorage.setItem('role', JSON.stringify(data));
 
              //   }
                 this.router.navigateByUrl('/');

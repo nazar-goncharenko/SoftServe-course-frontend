@@ -1,17 +1,33 @@
 export class User {
     email : string;
     password : string;
+    username : string
+    role : string;
 
-    public setEmail(p_UserName : string) {
-        this.email = p_UserName;
+    public setRole(role : string) {
+        this.role = role;
+    }
+
+    public getRole() : string {
+        return this.role;
+    }
+
+    public setEmail(email : string) {
+        this.email = email;
     }
 
     public getEmail() : string {
         return this.email;
     }
+    public setUsername(username : string) {
+        this.username = username;
+    }
 
-    public setPassword(p_Password : string) {
-        this.password = p_Password;
+    public getUsername() : string {
+        return this.username;
+    }
+    public setPassword(password : string) {
+        this.password = password;
     }
 
     public getPassword() : string {

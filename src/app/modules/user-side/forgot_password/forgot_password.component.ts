@@ -18,13 +18,13 @@ export class Forgot_passwordComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    doLogin() {
-        const resp = this.service.login(this.loginData);
-        resp.subscribe(data => {
-            this.router.navigate(['/']);
-        },
-            error => {
-                this.invalidLogin = true
-            });
-    }
+    // doLogin() {
+    //     const resp = this.service.login(this.loginData);
+    //     resp.subscribe(data => {
+    //         this.router.navigate(['/']);
+    //     },
+    //         error => {
+    //             this.invalidLogin = true
+    //         });
+    // }
 }
