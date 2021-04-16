@@ -19,7 +19,6 @@ export class AddPhotoComponent implements OnInit {
         isShown: false
     };
     img: File = null;
-    id: any;
 
     // tslint:disable-next-line:typedef
     handleFileInput(event) {
@@ -29,14 +28,11 @@ export class AddPhotoComponent implements OnInit {
     // tslint:disable-next-line:typedef
     uploadFile() {
         const formData: FormData = new FormData();
+        formData.append('photoDTO', JSON.stringify(this.photo));
+        formData.append('img', this.img);
 
-        this.photoService.postPhotoDTO(this.photo).subscribe(data => {
-                formData.append('id', JSON.stringify(data));
-                formData.append('img', this.img);
-                this.photoService.postFile(formData).subscribe(response => {
-                        console.log(response);
-                    },
-                    error => console.log(error));
+        this.photoService.postPhoto(formData).subscribe(data => {
+            console.log(data);
             },
             error => console.log(error));
     }

@@ -8,16 +8,12 @@ import { PhotoDTO } from '../shared/interfaces/photo';
 })
 export class PhotoService {
 
-  private baseUrl = 'http://localhost:8081/admin';
+  private baseUrl = 'http://localhost:8082/admin';
 
   constructor(private http: HttpClient) { }
 
-  postPhotoDTO(photo: PhotoDTO): Observable<object> {
-    return this.http.post(this.baseUrl, photo);
-  }
-
-  postFile(formData: FormData): Observable<object> {
-    return this.http.put<any>(this.baseUrl, formData);
+  postPhoto(formData: FormData): Observable<object> {
+    return this.http.post(this.baseUrl, formData);
   }
 
 }
