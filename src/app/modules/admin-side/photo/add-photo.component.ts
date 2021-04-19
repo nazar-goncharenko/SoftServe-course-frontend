@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoDTO } from '../../../shared/interfaces/photo';
 import { PhotoService } from '../../../services/photo.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-photo',
@@ -26,7 +27,7 @@ export class AddPhotoComponent implements OnInit {
     }
 
     // tslint:disable-next-line:typedef
-    uploadFile() {
+    uploadFile(form: NgForm) {
         const formData: FormData = new FormData();
         formData.append('photoDTO', JSON.stringify(this.photo));
         formData.append('img', this.img);
@@ -35,6 +36,8 @@ export class AddPhotoComponent implements OnInit {
             console.log(data);
             },
             error => console.log(error));
+
+        form.resetForm();
     }
 
   ngOnInit(): void {

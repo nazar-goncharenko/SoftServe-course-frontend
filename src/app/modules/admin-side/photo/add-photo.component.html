@@ -1,5 +1,5 @@
 <div class="container-fluid m-auto photo-info">
-    <form #addForm="ngForm" (ngSubmit)="uploadFile()">
+    <form #addForm="ngForm" (ngSubmit)="uploadFile(addForm)">
 
         <div class="dropzone">
             <img src="../../../../assets/add_picture.svg" class="upload-icon"  alt=""/>
