@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import {ModuleModule} from './modules/module.module';
+import {UserService} from './services/user.service';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -16,9 +18,10 @@ import {ModuleModule} from './modules/module.module';
         AppRoutingModule,
         ModuleModule,
         FontAwesomeModule,
-        HttpClientModule
+        HttpClientModule,
+        NoopAnimationsModule,
     ],
-    providers: [],
+    providers: [UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
