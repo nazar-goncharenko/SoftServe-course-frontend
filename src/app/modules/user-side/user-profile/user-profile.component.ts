@@ -39,6 +39,10 @@ export class UserProfileComponent implements OnInit {
 
     updateUser(): void {
         this.userService.updateAll(this.userIdFromRoute, this.uploadFile, this.updateUserForm.value);
+        this.router.navigate([`user/${this.userIdFromRoute}`])
+            .then(() => {
+                window.location.reload();
+            });
     }
 
 
