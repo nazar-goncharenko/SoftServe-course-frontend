@@ -7,7 +7,10 @@ import {HomeComponent} from './modules/user-side/home/home.component';
 import {ModulesModule} from './modules/modules.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
-import {UserSideModule} from './modules/user-side/user-side.module';
+import {ModuleModule} from './modules/module.module';
+import {UserService} from './services/user.service';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -20,10 +23,10 @@ import {UserSideModule} from './modules/user-side/user-side.module';
         ModulesModule,
         FontAwesomeModule,
         HttpClientModule,
-        UserSideModule
+        NoopAnimationsModule,
     ],
-  providers: [],
-  bootstrap: [AppComponent, HomeComponent]
+    providers: [UserService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

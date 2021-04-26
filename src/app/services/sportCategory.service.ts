@@ -14,6 +14,6 @@ export class SportCategoryService {
     }
 
     getNullParent(): any {
-        return this.httpClient.get<Array<SportCategory>>(AppConstants.API_URL + '/sportCategory/basicNavigationList');
+        return this.httpClient.get<Array<SportCategory>>('http://localhost:8082/sportCategory/basicNavigationList');
     }
 }
