@@ -12,6 +12,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AddArticleComponent } from './admin-side/add-article/add-article.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AddArticleComponent } from './admin-side/add-article/add-article.compon
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
+        FontAwesomeModule,
     ]
 })
 export class ModuleModule { }

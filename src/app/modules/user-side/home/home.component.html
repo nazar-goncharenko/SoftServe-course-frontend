@@ -8,10 +8,8 @@
 
 <div class="content-container">
     <div class="main-article" *ngIf="articles[0]">
-        <!--    {{articles[0]?.title}}-->
-        <!--    <img src="{{articles[0]?.imageName}}" alt="">-->
         <div class="img-container">
-            <img src="assets/img/basketball.PNG" alt="">
+            <img src="assets/img/{{articles[0].imagePath}}" alt="">
             <!--            <div class="corner-link">{{articles[0]?.category.name}}}</div>-->
             <div class="corner-link">NBA</div>
         </div>
@@ -19,8 +17,8 @@
 
     <!--  REMOVE PADDING  -->
     <div class="content pb-2">
-        <div class="article-col-container" *ngFor="let article of articles | slice:0:4">
-            <div class="img-container"><img src="assets/img/football.PNG" alt=""></div>
+        <div class="article-col-container" *ngFor="let article of articles | slice:1:5">
+            <div class="img-container"><img src="assets/img/{{article.imagePath}}" alt=""></div>
             <div class="title">{{article.title}}</div>
             <div class="description">{{article.description}}</div>
             <fa-icon class="a-c-ico" [icon]="arrowRightIco"></fa-icon>

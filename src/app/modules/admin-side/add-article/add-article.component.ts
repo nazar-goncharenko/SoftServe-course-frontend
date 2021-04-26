@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ArticleService} from '../../../services/article.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -12,7 +12,7 @@ export class AddArticleComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(public fb: FormBuilder, private articleService: ArticleService, private cd: ChangeDetectorRef) {
+  constructor(public fb: FormBuilder, private articleService: ArticleService) {
     this.createForm();
   }
 
