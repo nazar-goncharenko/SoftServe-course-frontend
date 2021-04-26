@@ -7,4 +7,8 @@
   font-family: Open Sans, serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 /*# sourceMappingURL=styles.css.map */
