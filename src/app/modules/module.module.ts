@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { AddArticleComponent } from './admin-side/add-article/add-article.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
         , NavigationComponent
         , FooterComponent
         , UserProfileComponent
-        , UserListComponent
+        , UserListComponent,
+        AddArticleComponent
     ],
     exports: [
     ],

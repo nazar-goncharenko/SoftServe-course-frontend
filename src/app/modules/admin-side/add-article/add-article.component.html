@@ -1,0 +1,8 @@
+<p>add-article works!</p>
+
+<form [formGroup]="formGroup" (ngSubmit)="addArticle()" action="">
+    <input type="file" (change)="onFileChange($event)">
+    <input type="text" formControlName="title">
+    <input type="text" formControlName="description">
+    <button type="submit">Save</button>
+</form>

@@ -2,6 +2,7 @@ export interface Article {
     id: number;
     title: string;
     description: string;
-    imageName?: string;
+    imgName?: string;
+    category: number;
     // comments?:
 }
