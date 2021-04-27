@@ -4,10 +4,14 @@
      </div>
      <div class="float-right w-50">
          <div class="w-50 d-inline-flex">
-             <p>{{banner?.status}}</p>
+             <select [(ngModel)]="banner.status" (ngModelChange)="bannerChanged()" class="form-control select-drop-down">
+                 <option *ngFor="let option of statuses" [value]="option.key">{{option.value}}</option>
+             </select>
          </div>
          <div class="w-50 d-inline-flex">
-             <p>{{banner?.category.name}}</p>
+             <select [(ngModel)]="banner.category.name" (ngModelChange)="bannerChanged()" class="form-control select-drop-down">
+                 <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+             </select>
          </div>
      </div>
 </div>

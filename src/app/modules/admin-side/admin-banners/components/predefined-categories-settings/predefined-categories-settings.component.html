@@ -12,7 +12,7 @@
     </div>
     <div class="row d-block">
         <div *ngFor="let pc of predefinedCategories; let i = index" class="pl-0 pr-0">
-            <app-category-item [predefinedCategory]="pc"></app-category-item>
+            <app-category-item [predefinedCategory]="pc" (categoryChange)="predefinedSetting($event)" (click)="selectCategoryAt(i)"></app-category-item>
         </div>
     </div>
 

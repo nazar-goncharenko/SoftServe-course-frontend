@@ -11,7 +11,6 @@ import {BannersHeaderComponent} from "./components/banners-header/banners-header
 import {CategoryItemComponent} from "./components/category-item/category-item.component";
 
 
-
 @NgModule({
     declarations: [BannersManagementComponent, EditBannerComponent, BannerItemComponent, BannersListComponent, PredefinedCategoriesSettingsComponent, NewBannerComponent, BannersHeaderComponent, CategoryItemComponent],
   exports: [

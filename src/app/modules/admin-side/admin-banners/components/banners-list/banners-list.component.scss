@@ -6,10 +6,36 @@
   margin-top: 0;
   padding-bottom: 1px;
 }
+.banner-list-menu{
+  width: 55%;
+  margin-left: 15%;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 1px;
+}
 .banner-list-title p{
   padding-left: 5%;
   display: inline;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 12px;
   height: auto;
+  color: #434c5d;
+  letter-spacing: 0.5px;
 }
+.open-closed-button{
+  right: 5%;
+  bottom: 9%;
+  background: white;
+  color: #7f8899;
+  border: 0;
+  height: 33px;
+  width: auto;
+  margin-right: 20px;
+  font-size: 11px;
+}
+
+.active {
+  color: red;
+  text-decoration: underline 2px red;
+}
+

@@ -1,3 +1,11 @@
+<div class="banner-list-menu mb-2">
+   <button class="open-closed-button"
+           [ngClass]="{'active': status.key == selectedStatus}"
+           *ngFor="let status of statuses"
+           (click)="getBannersByStatus(status.key)">
+       {{status.value | uppercase}}
+   </button>
+</div>
 <div class="container banner-list" >
     <div class="banner-list-title h-100 pt-3 pb-4 mb-3">
         <div class="float-left w-50">
@@ -14,7 +22,7 @@
     </div>
     <div class="row d-block">
         <div *ngFor="let b of banners; let i = index" class="pl-0 pr-0">
-            <app-banner-item [banner]="b" (click)="selectBannerAt(i)"></app-banner-item>
+            <app-banner-item [banner]="b" (bannerChange)="configureBanner($event)" (click)="selectBannerAt(i)"></app-banner-item>
         </div>
     </div>
 </div>
