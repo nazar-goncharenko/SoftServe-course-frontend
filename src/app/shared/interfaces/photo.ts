@@ -1,4 +1,5 @@
 export interface PhotoDTO {
+    photoUrl?: string;
     alt: string;
     photoTitle: string;
     description: string;

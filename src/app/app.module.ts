@@ -6,7 +6,6 @@ import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import {ModuleModule} from './modules/module.module';
-import {AdminSideModule} from './modules/admin-side/admin-side.module';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -19,8 +18,7 @@ import {FormsModule} from '@angular/forms';
         ModuleModule,
         FontAwesomeModule,
         HttpClientModule,
-        FormsModule,
-        AdminSideModule
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
