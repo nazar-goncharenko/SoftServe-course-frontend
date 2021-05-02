@@ -1,0 +1,83 @@
+<div class="col-12 pl-5 border-bottom">
+    <div class="container-fluid d-flex justify-content-between">
+        <h2 class="text-danger">Video</h2>
+        <div class="text-danger mr-md-4">
+            <button mat-raised-button color="warn" class="add-button" (click)="openDialog()">
+                + New Video
+            </button>
+        </div>
+    </div>
+</div>
+
+<app-admin-navigation></app-admin-navigation>
+<mat-card class="m-auto col-md-8 col-12">
+    <div class="text-right">
+        <div *ngIf="isSearch">
+            <span class="material-icons align-middle" (click)="toggleSearch()">
+            search
+            </span>
+            <input type="search" [(ngModel)]="input">
+        </div>
+        <span class="material-icons" *ngIf="!isSearch" (click)="toggleSearch()">
+        search
+        </span>
+    </div>
+    <div class="d-md-flex justify-content-between">
+        <mat-form-field appearance="fill" color="warn">
+            <mat-select [value]="views[0].name">
+                <mat-option *ngFor="let view of views" [value]='view.name' (click)="changeView(view.value)">
+                    {{view.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle class="flex-md-column mt-3" labelPosition="before" color="warn" [checked]="shareFromClass"
+                          (toggleChange)="allowSaveChange()">
+            Allow to share videos:
+            <span class="allowText">{{ shareAllow }}</span>
+        </mat-slide-toggle>
+    </div>
+    <div *ngFor="let video of videos | VideoPipe: input:type" class="container-fluid">
+        <mat-card class="home-card container-fluid">
+            <mat-card-content>
+                <div class="home-container">
+                    <a class="text-danger" [routerLink]="video.id">
+                        <video *ngIf="video.uploaded" disabled="true">
+                            <source
+                                    src="assets/videos/{{video.url}}"
+                                    type='video/mp4'>
+                        </video>
+                        <iframe *ngIf="!video.uploaded" [src]="video | safe"></iframe>
+                    </a>
+                    <div class="content">
+                        <div class="video-option-menu">
+                            <div class="video-option">
+                                <mat-select value="SomeValue">
+                                    <mat-option *ngIf="video.publish" class="custom-option" (click)="changePublish(video)">Unpublish</mat-option>
+                                    <mat-option *ngIf="!video.publish" class="custom-option" (click)="changePublish(video)">Publish</mat-option>
+                                    <mat-option class="custom-option" (click)="delete(video)">Delete</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <a class="text-danger" [routerLink]="video.id">
+                            <div class="content-title">
+                                <h3>{{ video.title }}</h3>
+                            </div>
+                            <div class="video-indecator" *ngIf="video.publish">
+                            <span class="published material-icons">
+                                brightness_1
+                            </span>
+                                Published
+                            </div>
+                            <div class="video-indecator" *ngIf="!video.publish">
+                            <span class="unpublished material-icons">
+                                brightness_1
+                            </span>
+                                Unpublished
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-card>

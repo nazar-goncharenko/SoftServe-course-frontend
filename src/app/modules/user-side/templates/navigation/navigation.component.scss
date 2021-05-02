@@ -1,5 +1,6 @@
 .navbar{
   height: 100vh;
+  z-index: 100;
 }
 
 .link{
@@ -12,7 +13,7 @@
 
 a{
   font-weight: bold;
-  font-size: 80%;
+  font-size: 100%;
 }
 a:hover{
   cursor: pointer;
