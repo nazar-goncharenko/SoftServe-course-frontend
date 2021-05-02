@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
         public loginClient: AuthentificationService,
         public router: Router
     ) {
+
+        //  console.log(this.router.getCurrentNavigation().extras.state);
     }
 
     ngOnInit() {
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
             userName: new FormControl('', [Validators.required, Validators.email]),
             password: new FormControl('', Validators.required),
         });
+        //this.loginForm=history.state;
     }
 
     login() {
@@ -37,18 +40,19 @@ export class LoginComponent implements OnInit {
             this.loginData = new User();
             this.loginData.setEmail(this.loginForm.get('userName').value);
             this.loginData.setPassword(this.loginForm.get('password').value);
-
             this.loginClient.login(this.loginData).subscribe((data: ResponseData) => {
                 console.log('RESPONSE DATA ' + JSON.stringify(data));
-                console.log(data.responseCode);
-              //  if (data.responseCode == '200') {
-                    sessionStorage.setItem('isLoggedIn', 'true');
+                //    console.log(data.responseCode);
+                var usr = JSON.stringify(data);
+                const obj = JSON.parse(usr);
+                console.log(obj.role);
+                sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('email', this.loginData.getEmail());
-                sessionStorage.setItem('role', JSON.stringify(data));
+                localStorage.setItem('role', obj.role);
 
-             //   }
+                //   }
                 this.router.navigateByUrl('/');
-             //   window.alert(data.responseMsg);
+                //   window.alert(data.responseMsg);
             }), error => {
                 console.log('An Error Occured ' + error);
             };
