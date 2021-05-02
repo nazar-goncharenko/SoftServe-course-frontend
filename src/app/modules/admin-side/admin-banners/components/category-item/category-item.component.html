@@ -1,10 +1,10 @@
 <div class="list-item pt-2 pb-2">
-    <div class="float-left w-50 pl-2">
+    <div class="float-left w-50 pl-2 pt-2">
         <p>{{predefinedCategory?.name}}</p>
     </div>
     <div class="float-right w-50 pl-2">
 <!--        <p>{{predefinedCategory?.showBanners}}</p>-->
-        <div class="form-check form-switch pl-5">
+        <div class="form-check form-switch switch pl-5">
             <input [(ngModel)]="predefinedCategory.showBanners" (ngModelChange)="categoryChanged()" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
             <label *ngIf="predefinedCategory.showBanners" class="form-check-label" for="flexSwitchCheckDefault">Show</label>
             <label *ngIf="!predefinedCategory.showBanners" class="form-check-label" for="flexSwitchCheckDefault">Hide</label>

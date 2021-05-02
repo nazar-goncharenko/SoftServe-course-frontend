@@ -23,7 +23,7 @@ export class BannersListComponent implements OnInit {
       this.selectedBannerChanged.emit(this.banners[index]);
   }
 
-  getBannersByStatus(newStatus: BannerStatusShort) {
+  getBannersByStatus(newStatus: string) {
     if (this.selectedStatus !== newStatus) {
       this.selectedStatus = newStatus;
       this.bannerService.getBannersByStatus(newStatus).subscribe(data => this.banners = data);
@@ -31,12 +31,7 @@ export class BannersListComponent implements OnInit {
   }
 
   get statuses() {
-    const result = [];
-    for(let option in BannerStatusShort) {
-      result.push({key: option, value: BannerStatusShort[option]});
-    }
-
-    return result;
+    return ['open', 'closed'];
   }
 
   configureBanner(banner: Banner) {

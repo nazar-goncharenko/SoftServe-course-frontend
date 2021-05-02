@@ -16,3 +16,15 @@
   padding-bottom: 1px;
   font-size: 12px;
 }
+.form-check-input:checked {
+  background-color: #d72130;
+  border-color: #bfbfbf;
+}
+.form-check-input:focus {
+  border-color: #bfbfbf;
+  outline: 0;
+  box-shadow: none;
+}
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}

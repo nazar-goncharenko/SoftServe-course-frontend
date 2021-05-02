@@ -7,6 +7,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import {ModuleModule} from './modules/module.module';
 import {AdminBannersModule} from "./modules/admin-side/admin-banners/admin-banners.module";
+import {UserService} from './services/user.service';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -18,9 +20,11 @@ import {AdminBannersModule} from "./modules/admin-side/admin-banners/admin-banne
         ModuleModule,
         FontAwesomeModule,
         HttpClientModule,
-        AdminBannersModule
+        AdminBannersModule,
+        HttpClientModule,
+        NoopAnimationsModule,
     ],
-    providers: [],
+    providers: [UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

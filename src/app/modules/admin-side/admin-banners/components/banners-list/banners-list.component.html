@@ -1,9 +1,9 @@
 <div class="banner-list-menu mb-2">
-   <button class="open-closed-button"
-           [ngClass]="{'active': status.key == selectedStatus}"
+    <button class="open-closed-button"
+           [ngClass]="{'active': status === selectedStatus}"
            *ngFor="let status of statuses"
-           (click)="getBannersByStatus(status.key)">
-       {{status.value | uppercase}}
+           (click)="getBannersByStatus(status)">
+       {{status | uppercase}}
    </button>
 </div>
 <div class="container banner-list" >

@@ -14,8 +14,8 @@ export class BannerService {
         return this.http.get<Banner[]>(`${this.apiServerUrl}/banners`);
     }
 
-    public getBannersByStatus(status: BannerStatusShort): Observable<Banner[]> {
-        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/${BannerStatusShort[status]}`);
+    public getBannersByStatus(status: string): Observable<Banner[]> {
+        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/${status}`);
     }
 
     // public getBannersClosed(): Observable<Banner[]> {

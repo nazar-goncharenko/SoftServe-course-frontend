@@ -23,6 +23,7 @@ export class BannerItemComponent implements OnInit {
       this.categories = data;
     })
   }
+
   get statuses() {
     const result = [];
     for (let option in BannerStatus) {

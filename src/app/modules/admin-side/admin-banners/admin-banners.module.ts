@@ -9,6 +9,7 @@ import { NewBannerComponent } from './components/new-banner/new-banner.component
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BannersHeaderComponent} from "./components/banners-header/banners-header.component";
 import {CategoryItemComponent} from "./components/category-item/category-item.component";
+import {ModuleModule} from "../../module.module";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {CategoryItemComponent} from "./components/category-item/category-item.co
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        ModuleModule
     ]
 })
 export class AdminBannersModule { }
