@@ -4,6 +4,8 @@ import {VideoFormComponent} from '../video-form/video-form.component';
 import {Router} from '@angular/router';
 import {VideoService} from '../../../../services/video.service';
 import {Video} from '../../../../shared/interfaces/video';
+import {VideoFormConfirmComponent} from '../video-form-confirm/video-form-confirm.component';
+import {FlashMessageComponent} from '../../flash-message/flash-message.component';
 
 @Component({
     selector: 'app-video',
@@ -20,6 +22,8 @@ export class AdminVideoComponent implements OnInit {
         {name: 'Published', value: true},
         {name: 'Unpublished', value: false}
     ];
+
+    messages = [];
 
     videos: Array<Video>;
 
@@ -68,21 +72,49 @@ export class AdminVideoComponent implements OnInit {
     openDialog(): void {
         // @ts-ignore
         const dialogRef = this.dialog.open(VideoFormComponent, {
-            width: document.body.offsetWidth * 0.5
+            width: document.body.offsetWidth * 0.45
         });
         dialogRef.afterClosed();
     }
 
     changePublish(video: Video): any {
-        video.publish = !video.publish;
-        this.videoService.saveVideo(video);
+        // @ts-ignore
+        const dialogRef = this.dialog.open(VideoFormConfirmComponent,
+            {
+                width: document.body.offsetWidth * 0.3,
+                minWidth: '200px',
+                data: {
+                    publish: true,
+                    video
+                }
+            });
+        dialogRef.afterClosed().subscribe(
+            response => {
+                this.messages.push(response);
+            }
+        );
     }
 
     delete(video: Video): any {
-        this.videos.splice(
-            this.videos.indexOf(video), 1
-        );
-        this.videoService.delete(video);
+        // @ts-ignore
+        const dialogRef = this.dialog.open(VideoFormConfirmComponent,
+            {
+                width: document.body.offsetWidth * 0.3,
+                minWidth: '200px',
+                data: {
+                    delete: true,
+                    video
+                }
+            });
+        dialogRef.afterClosed().subscribe(response => {
+            if (response.delete === true) {
+                this.videos.splice(
+                    this.videos.indexOf(video), 1
+                );
+                this.messages.push(response);
+            }
+        });
     }
+
 }
 

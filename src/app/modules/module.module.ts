@@ -26,6 +26,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {VideosComponent} from './user-side/video/videos/videos.component';
 import {VideoComponent} from './user-side/video/video/video.component';
 import {MatIconModule} from '@angular/material/icon';
+import { VideoFormConfirmComponent } from './admin-side/video/video-form-confirm/video-form-confirm.component';
+import { FlashMessageComponent } from './admin-side/flash-message/flash-message.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import {MatIconModule} from '@angular/material/icon';
         , AdminHomeComponent
         , VideosComponent
         , VideoComponent
+        , VideoFormConfirmComponent, FlashMessageComponent
     ],
     exports: [],
     imports: [

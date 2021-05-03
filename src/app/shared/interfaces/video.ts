@@ -5,6 +5,5 @@ export interface Video{
     uploaded: boolean;
     publish: boolean;
     showComments: boolean;
-    comments: any;
     [key: string]: any;
 }

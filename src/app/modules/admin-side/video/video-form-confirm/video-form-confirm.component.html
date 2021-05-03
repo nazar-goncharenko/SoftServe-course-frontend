@@ -1,0 +1,48 @@
+<div *ngIf="delete">
+    <div mat-dialog-title class="text-center">
+        <div class="circle">
+
+        </div>
+        <mat-icon class="material-icons-outlined text-white">
+            delete
+        </mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <mat-label class="text-center">
+            <h4><b>You are about to delete the video<br></b>
+                This video will be deleted from Sports Hub!<br>
+                Are you sure?
+            </h4>
+        </mat-label>
+    </div>
+    <div mat-dialog-actions class="float-right mt-0">
+        <button class="text-center bg-white text-danger" (click)="dialogRef.close()">Cancel</button>
+        <button class="text-center bg-danger text-white" (click)="deleteVideo()">Delete</button>
+    </div>
+</div>
+<div *ngIf="publish">
+    <div mat-dialog-title class="text-center">
+        <div class="circle" id="info">
+
+        </div>
+        <mat-icon class="material-icons-outlined text-white">
+            warning
+        </mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <mat-label class="text-center">
+            <h4 *ngIf="video.publish"><b>You are about to unpublish the video<br></b>
+                This video will be unpublished in Sports Hub!<br>
+                Are you sure?
+            </h4>
+            <h4 *ngIf="!video.publish"><b>You are about to publish the video<br></b>
+                This video will be published in Sports Hub!<br>
+                Are you sure?
+            </h4>
+        </mat-label>
+    </div>
+    <div mat-dialog-actions class="float-right mt-0">
+        <button class="text-center bg-white text-danger" (click)="dialogRef.close()">Cancel</button>
+        <button class="text-center bg-danger text-white" (click)="publishVideo()">Change</button>
+    </div>
+</div>

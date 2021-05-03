@@ -15,6 +15,7 @@ const routes: Routes = [
     {path: 'user/:user_id', component: UserProfileComponent},
     {path: 'users', component: UserListComponent},
     {path: 'videos', component: VideosComponent},
+    {path: 'sportCategory/:id', component: HomeComponent},
     {path: 'videos/:id', component: VideoComponent},
     {
         path: 'admin', component: AdminHomeComponent, children: [

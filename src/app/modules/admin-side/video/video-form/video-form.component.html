@@ -1,13 +1,13 @@
 <h1 mat-dialog-title class="text-center">Add new video</h1>
 <div mat-dialog-content class="container m-md-3">
     <mat-label>
-        <h4 class="text-secondary">ADD URL</h4>
+        <h4 class="text-secondary mt-5">ADD URL</h4>
         <label class="w-100 justify-content-center">
             <input id="url-input" [(ngModel)]="formVideo.url" (change)="checkUrlInput()" type="text" placeholder="Add new url"/>
         </label>
     </mat-label>
     <mat-label *ngIf="!formVideo.url">
-        <h4 class="text-secondary">UPLOAD</h4>
+        <h4 class="text-secondary mt-4">UPLOAD</h4>
         <label id="upload-label" class="w-80" for="upload-video">
             <div class="upload-section">
                 <span *ngIf="file" class="file-input">{{ file.name }}</span>

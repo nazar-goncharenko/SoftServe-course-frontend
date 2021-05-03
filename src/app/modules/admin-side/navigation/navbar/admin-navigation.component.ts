@@ -38,9 +38,4 @@ export class AdminNavigationComponent implements OnInit {
             }
         });
     }
-
-    getShowCells(): number {
-        const width = document.body.offsetWidth;
-        return Math.ceil(width / 300);
-    }
 }

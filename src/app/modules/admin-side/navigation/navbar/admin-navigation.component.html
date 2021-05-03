@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <carousel class="example-list" [cellsToShow]="getShowCells()" height="10" *ngIf="categories.length" [arrowsOutside]="true">
+<div>
+    <carousel class="example-list" [cellWidth]="200" height="10" *ngIf="categories.length" [arrowsOutside]="true">
         <div class="carousel-cell example-box" *ngFor="let category of categories">
             <a class="text-danger" href="admin{{category.ulr}}">{{category.name | uppercase}}</a>
         </div>
