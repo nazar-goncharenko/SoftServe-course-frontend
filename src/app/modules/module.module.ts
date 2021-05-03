@@ -23,7 +23,7 @@ import {ResetComponent} from './user-side/reset_password/reset.component';
         RegistrationComponent,
         UserProfileComponent,
         ResetComponent,
-        UserListComponent],
+        UserListComponent,],
     exports: [],
     imports: [
         CommonModule,

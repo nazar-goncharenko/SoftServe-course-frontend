@@ -1,10 +1,10 @@
-import {User} from '../shared/interfaces/user';
 import {Observable, throwError} from 'rxjs';
 import {ResponseData} from '../modules/user-side/response-data';
 import {catchError, retry} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Reset_entity} from '../modules/user-side/reset_entity';
+import {User} from '../modules/user-side/user';
 
 const httpOptions = {
     headers: new HttpHeaders(
@@ -17,17 +17,17 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class ResetService {
+export class SendEmailService {
 
     baseUrl = "http://localhost:8082";
-    resetUrl = "/reset_password";
+    forgotUrl = "/forgot_password";
     constructor(
         private http: HttpClient
     ) { }
-    reset(resetEntity: Reset_entity): Observable<ResponseData> {
+    send(requestRegistrationDTO: User): Observable<ResponseData> {
         return this.http.post<ResponseData>(
-            this.baseUrl + this.resetUrl,
-            resetEntity,
+            this.baseUrl + this.forgotUrl,
+            requestRegistrationDTO,
             httpOptions
         ).pipe(
             retry(1),

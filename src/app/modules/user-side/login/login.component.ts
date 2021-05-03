@@ -11,7 +11,7 @@ import {ResponseData} from '../response-data';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+    role : string;
     loginForm: FormGroup;
     private submitted = false;
     private loginData: User;
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        let headers = new Headers();
         this.submitted = true;
         if (this.loginForm.invalid) {
             return;
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
                 var usr = JSON.stringify(data);
                 const obj = JSON.parse(usr);
                 console.log(obj.role);
+                this.role = obj.role;
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('email', this.loginData.getEmail());
                 localStorage.setItem('role', obj.role);

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
 import {User} from '../shared/interfaces/user';
 import {ResponseData} from '../modules/user-side/response-data';
@@ -15,8 +15,17 @@ export class UserService {
         this.userUrl = 'http://localhost:8082/user/';
     }
 
-    public findAll(): Observable<User[]> {      // only for ROLE = ADMIN
-        return this.http.get<User[]>('http://localhost:8082/users');
+    public findAll(): Observable<User[]> {          // only for ROLE = ADMIN
+        return this.http.get<User[]>('http://localhost:8082/users',
+            {
+                headers: new HttpHeaders(
+                    {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('Authorization')
+                    }
+                )
+            }
+        );
     }
 
     public getUserById(id: number): Observable<string[]> {
