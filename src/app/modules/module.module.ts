@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {MatButtonModule} from '@angular/material/button';
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
+        MatListModule,
+        MatRadioModule,
     ]
 })
 export class ModuleModule { }
