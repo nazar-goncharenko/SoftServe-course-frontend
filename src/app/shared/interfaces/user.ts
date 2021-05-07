@@ -8,7 +8,6 @@ export interface User {
     photoUrl: string;
 
     favourites?: Array<SportCategory>;
-     userSurveys: Array<any>;
-     userBanners: Array<any>;
-     userComments: Array<any>;
+    userBanners: Array<any>;
+    userComments: Array<any>;
 }

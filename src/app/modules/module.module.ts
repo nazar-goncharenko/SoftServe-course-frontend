@@ -14,6 +14,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
 
 @NgModule({
@@ -33,6 +35,8 @@ import {ResetComponent} from './user-side/reset_password/reset.component';
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
+        MatListModule,
+        MatRadioModule,
     ]
 })
 export class ModuleModule {
