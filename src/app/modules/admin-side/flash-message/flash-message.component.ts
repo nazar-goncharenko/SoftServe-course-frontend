@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit, Input} from '@angular/core';
+import {FlashMessage} from '../../../shared/interfaces/flashMessage';
 
 @Component({
     selector: 'app-flash-message',
@@ -8,7 +9,7 @@ import {Component, Inject, OnInit, Input} from '@angular/core';
 export class FlashMessageComponent implements OnInit {
 
     @Input()
-    messages: [];
+    messages: FlashMessage[];
 
     constructor() {
     }

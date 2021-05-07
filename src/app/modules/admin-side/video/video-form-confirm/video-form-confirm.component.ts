@@ -2,6 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Video} from '../../../../shared/interfaces/video';
 import {VideoService} from '../../../../services/video.service';
+import {FlashMessage} from '../../../../shared/interfaces/flashMessage';
+import {MessagesEnum} from '../../../../shared/interfaces/messagesEnum';
+import {Message} from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
     selector: 'app-video-form-confirm',
@@ -32,10 +35,9 @@ export class VideoFormConfirmComponent implements OnInit {
 
     deleteVideo(): void {
         this.videoService.delete(this.video);
+
         this.dialogRef.close({
-            delete: true,
-            title: 'Successful',
-            message: 'Video successfully deleted'
+            message: this.deleteMessage()
         });
     }
 
@@ -44,8 +46,25 @@ export class VideoFormConfirmComponent implements OnInit {
         this.videoService.saveVideo(this.video);
         this.dialogRef.close(
             {
-                title: 'Successful',
-                message: 'Video successfully changed'
+                message: this.publishMessage()
             });
+    }
+
+
+    deleteMessage(): FlashMessage {
+        const message = new FlashMessage();
+        message.title = 'Successful';
+        message.text = 'Video successfully deleted';
+        message.type = MessagesEnum.warn;
+        return message;
+    }
+
+
+    publishMessage(): FlashMessage {
+        const message = new FlashMessage();
+        message.title = 'Successful';
+        message.text = 'Video successfully changed';
+        message.type = MessagesEnum.successful;
+        return message;
     }
 }

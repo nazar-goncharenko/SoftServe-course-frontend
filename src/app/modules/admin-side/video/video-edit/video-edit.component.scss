@@ -33,11 +33,19 @@ a {
 
 input[type=text] {
   width: 80%;
-  outline: 1px solid #ffffff;
+  outline: none;
+  border-bottom: 1px solid #999999;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 input[type=text]:focus {
-  outline: 2px solid #ffffff;
+  outline: none;
+  border-bottom: 2px solid #229D1F;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 

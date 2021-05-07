@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {VideoService} from '../../../../services/video.service';
 import {Video} from '../../../../shared/interfaces/video';
 import {VideoFormConfirmComponent} from '../video-form-confirm/video-form-confirm.component';
-import {FlashMessageComponent} from '../../flash-message/flash-message.component';
+import {FlashMessage} from '../../../../shared/interfaces/flashMessage';
 
 @Component({
     selector: 'app-video',
@@ -23,7 +23,7 @@ export class AdminVideoComponent implements OnInit {
         {name: 'Unpublished', value: false}
     ];
 
-    messages = [];
+    messages: FlashMessage[] = [];
 
     videos: Array<Video>;
 
@@ -90,7 +90,7 @@ export class AdminVideoComponent implements OnInit {
             });
         dialogRef.afterClosed().subscribe(
             response => {
-                this.messages.push(response);
+                this.messages.push(response.message);
             }
         );
     }
@@ -111,7 +111,7 @@ export class AdminVideoComponent implements OnInit {
                 this.videos.splice(
                     this.videos.indexOf(video), 1
                 );
-                this.messages.push(response);
+                this.messages.push(response.message);
             }
         });
     }
