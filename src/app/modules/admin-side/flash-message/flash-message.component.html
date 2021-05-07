@@ -2,15 +2,15 @@
     <div *ngFor="let message of messages">
         <div class="row bg-white message">
             <div class="col-2 mt-3">
-                <mat-icon class="material-icons-outlined" id="success">
+                <span class="material-icons" id="success">
                     check_circle
-                </mat-icon>
+                </span>
             </div>
             <div class="col-10 mt-3">
                 <button class="close-btn" (click)="clear(message)">
-                    <mat-icon class="material-icons-outlined">
+                    <span class="material-icons">
                         clear
-                    </mat-icon>
+                    </span>
                 </button>
                 <b>{{message.title}}</b>
                 <h4>{{message.text}}</h4>

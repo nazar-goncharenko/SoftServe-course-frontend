@@ -6,6 +6,7 @@ import {VideoService} from '../../../../services/video.service';
 import {Video} from '../../../../shared/interfaces/video';
 import {VideoFormConfirmComponent} from '../video-form-confirm/video-form-confirm.component';
 import {FlashMessage} from '../../../../shared/interfaces/flashMessage';
+import {MessagesEnum} from '../../../../shared/interfaces/messagesEnum';
 
 @Component({
     selector: 'app-video',
@@ -107,7 +108,7 @@ export class AdminVideoComponent implements OnInit {
                 }
             });
         dialogRef.afterClosed().subscribe(response => {
-            if (response.delete === true) {
+            if (response.message.type === MessagesEnum.warn) {
                 this.videos.splice(
                     this.videos.indexOf(video), 1
                 );

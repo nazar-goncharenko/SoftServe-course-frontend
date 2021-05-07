@@ -11,7 +11,7 @@ import {ResponseData} from '../response-data';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    role : string;
+    role: string;
     loginForm: FormGroup;
     private submitted = false;
     private loginData: User;
@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
         //  console.log(this.router.getCurrentNavigation().extras.state);
     }
 
+    // tslint:disable-next-line:typedef
     ngOnInit() {
         this.loginForm = new FormGroup({
             userName: new FormControl('', [Validators.required, Validators.email]),

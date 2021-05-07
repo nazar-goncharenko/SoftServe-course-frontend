@@ -37,7 +37,7 @@ export class AuthentificationService implements OnInit {
             map(
                 userData => {
                     sessionStorage.setItem('email', requestLoginDTO.email);
-                    let authString = 'Basic ' + btoa(requestLoginDTO.email + ':' + requestLoginDTO.password);
+                    const authString = 'Basic ' + btoa(requestLoginDTO.email + ':' + requestLoginDTO.password);
                     sessionStorage.setItem('Authorization', authString);
                     return userData;
                 })
