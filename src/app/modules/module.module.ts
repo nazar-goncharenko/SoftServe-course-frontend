@@ -4,50 +4,28 @@ import {FooterComponent} from './user-side/templates/footer/footer.component';
 import {NavigationComponent} from './user-side/templates/navigation/navigation.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from './user-side/home/home.component';
+import {LoginComponent} from './user-side/login/login.component';
+import {Forgot_passwordComponent} from './user-side/forgot_password/forgot_password.component';
+import {RegistrationComponent} from './user-side/registration/registration.component';
+import { HomeComponent } from './user-side/home/home.component';
 import {UserProfileComponent} from './user-side/user-profile/user-profile.component';
 import {UserListComponent} from './user-side/user-list/user-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {AdminNavigationComponent} from './admin-side/navigation/navbar/admin-navigation.component';
-import {AdminVideoComponent} from './admin-side/video/video/video.component';
-import {VideoEditComponent} from './admin-side/video/video-edit/video-edit.component';
-import {VideoFormComponent} from './admin-side/video/video-form/video-form.component';
-import {VideoPipe} from '../pipes/video.pipe';
-import {SafePipe} from '../pipes/safe.pipe';
-import {AdminHomeComponent} from './admin-side/home/home.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
-import {MatDialogModule} from '@angular/material/dialog';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
-import {VideosComponent} from './user-side/video/videos/videos.component';
-import {VideoComponent} from './user-side/video/video/video.component';
-import {MatIconModule} from '@angular/material/icon';
-import { VideoFormConfirmComponent } from './admin-side/video/video-form-confirm/video-form-confirm.component';
-import { FlashMessageComponent } from './admin-side/flash-message/flash-message.component';
-
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+import {ResetComponent} from './user-side/reset_password/reset.component';
 
 @NgModule({
-    declarations: [HomeComponent
-        , HeaderComponent
-        , NavigationComponent
-        , FooterComponent
-        , UserProfileComponent
-        , UserListComponent
-        , AdminNavigationComponent
-        , AdminVideoComponent
-        , VideoEditComponent
-        , VideoFormComponent
-        , VideoPipe
-        , SafePipe
-        , AdminHomeComponent
-        , VideosComponent
-        , VideoComponent
-        , VideoFormConfirmComponent, FlashMessageComponent
-    ],
+    declarations: [HomeComponent, LoginComponent,
+        Forgot_passwordComponent, HeaderComponent,
+        NavigationComponent, FooterComponent,
+        RegistrationComponent,
+        UserProfileComponent,
+        ResetComponent,
+        UserListComponent,],
     exports: [],
     imports: [
         CommonModule,
@@ -57,12 +35,8 @@ import { FlashMessageComponent } from './admin-side/flash-message/flash-message.
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
-        MatSlideToggleModule,
-        MatSelectModule,
-        MatCardModule,
-        MatDialogModule,
-        IvyCarouselModule,
-        MatIconModule
+        MatListModule,
+        MatRadioModule,
     ]
 })
 export class ModuleModule {

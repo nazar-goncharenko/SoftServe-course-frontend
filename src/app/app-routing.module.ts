@@ -1,29 +1,25 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './modules/user-side/home/home.component';
+import {LoginComponent} from './modules/user-side/login/login.component';
+import {Forgot_passwordComponent} from './modules/user-side/forgot_password/forgot_password.component';
+import {RegistrationComponent} from './modules/user-side/registration/registration.component';
 import {UserProfileComponent} from './modules/user-side/user-profile/user-profile.component';
 import {UserListComponent} from './modules/user-side/user-list/user-list.component';
-import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
-import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-edit.component';
-import {AdminHomeComponent} from './modules/admin-side/home/home.component';
-import {VideosComponent} from './modules/user-side/video/videos/videos.component';
-import {VideoComponent} from './modules/user-side/video/video/video.component';
+import {ResetComponent} from './modules/user-side/reset_password/reset.component';
+import {RoleGuard} from './modules/security/RoleGuard';
 
 
 const routes: Routes = [
+    {path: '', component: HomeComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'forgot_password', component: Forgot_passwordComponent},
+    {path: 'registration', component: RegistrationComponent},
     {path: '', component: HomeComponent, pathMatch: 'full'},
     {path: 'user/:user_id', component: UserProfileComponent},
-    {path: 'users', component: UserListComponent},
-    {path: 'videos', component: VideosComponent},
-    {path: 'sportCategory/:id', component: HomeComponent},
-    {path: 'videos/:id', component: VideoComponent},
-    {
-        path: 'admin', component: AdminHomeComponent, children: [
-            {path: 'videos', component: AdminVideoComponent},
-            {path: 'videos/:id', component: VideoEditComponent}
-        ]
-    }
-];
+    {path: 'users', component: UserListComponent,canActivate:[RoleGuard]},
+    {path: 'reset_password',component: ResetComponent}
+    ];
 
 
 @NgModule({
