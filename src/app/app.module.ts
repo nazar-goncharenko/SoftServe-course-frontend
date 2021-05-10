@@ -9,6 +9,7 @@ import {ModuleModule} from './modules/module.module';
 import {AdminBannersModule} from "./modules/admin-side/admin-banners/admin-banners.module";
 import {UserService} from './services/user.service';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
         AdminBannersModule,
         HttpClientModule,
         NoopAnimationsModule,
+        FormsModule
     ],
     providers: [UserService],
     bootstrap: [AppComponent]

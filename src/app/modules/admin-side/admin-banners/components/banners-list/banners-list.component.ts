@@ -17,6 +17,7 @@ export class BannersListComponent implements OnInit {
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
+    this.bannerService.getBannersByStatus(this.selectedStatus).subscribe(data => this.banners = data);
   }
 
   selectBannerAt(index: number) {
@@ -37,5 +38,11 @@ export class BannersListComponent implements OnInit {
   configureBanner(banner: Banner) {
       this.bannerService.configureBanner(banner).subscribe(
           data => console.log(data));
+  }
+
+  onBannerDeleted(index: number): void {
+    this.banners = this.banners.filter((_, i) => i !== index);
+    this.selectedBanner = null;
+    this.selectedBannerChanged.emit();
   }
 }

@@ -6,7 +6,7 @@ import {SportCategory} from "../shared/interfaces/sportCategory";
 
 @Injectable({providedIn: 'root'})
 export class BannerService {
-    private apiServerUrl = "http://localhost:8081";
+    private apiServerUrl = "http://localhost:8082";
 
     constructor(private http: HttpClient){}
 
@@ -17,10 +17,6 @@ export class BannerService {
     public getBannersByStatus(status: string): Observable<Banner[]> {
         return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/${status}`);
     }
-
-    // public getBannersClosed(): Observable<Banner[]> {
-    //     return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/closed`);
-    // }
 
     public getPredefined(): Observable<SportCategory[]> {
         return this.http.get<SportCategory[]>(`${this.apiServerUrl}/banners/predefinedCategories`);
@@ -41,6 +37,18 @@ export class BannerService {
         return this.http.put<Banner>(`${this.apiServerUrl}/banners/update/${banner.id}`, formData);
     }
 
+    public createBanner(banner: Banner, file: File): Observable<Banner> {
+        const formData: FormData = new FormData();
+        formData.append('file', file);
+        formData.append('title', banner.title)
+        return this.http.post<Banner>(`${this.apiServerUrl}/banners`, formData);
+    }
+
+    public deleteBanner(banner: Banner): Observable<void> {
+        console.log('sending req...');
+        return this.http.delete<void>(`${this.apiServerUrl}/banners/${banner.id}`);
+    }
+
     public configureBanner(banner: Banner): Observable<Banner> {
         return this.http.put<Banner>(`${this.apiServerUrl}/banners/configure`, banner);
     }
@@ -52,6 +60,5 @@ export class BannerService {
     public predefinedSetting(category : SportCategory, state : String): Observable<SportCategory>{
         return this.http.put<SportCategory>(`${this.apiServerUrl}/banners/${state}?category=${category.name}`, "");
     }
-
 
 }

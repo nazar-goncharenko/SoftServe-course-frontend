@@ -5,27 +5,27 @@ import { EditBannerComponent } from './components/edit-banner/edit-banner.compon
 import { BannerItemComponent } from './components/banner-item/banner-item.component';
 import { BannersListComponent } from './components/banners-list/banners-list.component';
 import { PredefinedCategoriesSettingsComponent } from './components/predefined-categories-settings/predefined-categories-settings.component';
-import { NewBannerComponent } from './components/new-banner/new-banner.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BannersHeaderComponent} from "./components/banners-header/banners-header.component";
 import {CategoryItemComponent} from "./components/category-item/category-item.component";
 import {ModuleModule} from "../../module.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
-    declarations: [BannersManagementComponent, EditBannerComponent, BannerItemComponent, BannersListComponent, PredefinedCategoriesSettingsComponent, NewBannerComponent, BannersHeaderComponent, CategoryItemComponent],
+    declarations: [BannersManagementComponent, EditBannerComponent, BannerItemComponent, BannersListComponent, PredefinedCategoriesSettingsComponent, BannersHeaderComponent, CategoryItemComponent],
   exports: [
       BannerItemComponent,
       BannersListComponent,
       EditBannerComponent,
-      BannersManagementComponent,
-      NewBannerComponent
+      BannersManagementComponent
   ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        ModuleModule
+        ModuleModule,
+        FontAwesomeModule
     ]
 })
 export class AdminBannersModule { }

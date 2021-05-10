@@ -3,15 +3,34 @@
          <p>{{banner?.title}}</p>
      </div>
      <div class="float-right w-50">
-         <div class="w-50 d-inline-flex">
-             <select [(ngModel)]="banner.status" (ngModelChange)="bannerChanged()" class="form-control select-drop-down">
+         <div class="width-45 d-inline-flex">
+             <select [(ngModel)]="banner.status" (ngModelChange)="bannerChanged()" class="form-control status-select-drop-down">
                  <option *ngFor="let option of statuses" [ngValue]="option.key">{{option.value}}</option>
              </select>
          </div>
-         <div class="w-50 d-inline-flex">
-             <select [(ngModel)]="banner.category.name" (ngModelChange)="bannerChanged()" class="form-control select-drop-down">
-                 <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+         <div class="width-45 d-inline-flex">
+             <select [compareWith]="compareCategories" [ngModel]="banner.category ? banner.category : {name: ''}" (ngModelChange)="banner.category = $event; bannerChanged()" class="form-control category-select-drop-down">
+                 <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
              </select>
+         </div>
+         <div class="delete-button-trash">
+             <button class="btn btn-lg trash-button custom-svg-inline--fa" (click)="open(content)"><fa-icon [icon]="trash"></fa-icon></button>
          </div>
      </div>
 </div>
+
+<ng-template #content let-modal class="custom-modal-content">
+    <div class="ml-auto mr-auto mt-3">
+        <img src="../../../../assets/trash-popup.svg" alt="" />
+    </div>
+    <div class="modal-body">
+      <h4 class="font-weight-bold text-center mb-1">You are about to delete this banner!</h4>
+      <h4 class="text-center mb-1">This banner will be deleted</h4>
+        <h4  class="text-center mb-1">Are you sure?</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="cancel-button mt-3" aria-label="Close" (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button type="submit" class="delete-button mt-3" (click)="deleteBanner(banner)" >Delete</button>
+    </div>
+</ng-template>
+

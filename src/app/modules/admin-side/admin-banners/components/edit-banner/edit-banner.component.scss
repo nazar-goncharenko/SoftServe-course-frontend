@@ -9,7 +9,7 @@ $light-accent-color:  #f2f2f2;
   background-color: $light-accent-color;
   position: fixed;
   right: 1%;
-  top: 27%;
+  top: 26%;
 } p{
     padding-left: 5%;
     display: inline;
@@ -72,7 +72,7 @@ $light-accent-color:  #f2f2f2;
   top: -80px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 75%;
   opacity: 0;
   cursor: pointer;
 }
@@ -88,7 +88,6 @@ $light-accent-color:  #f2f2f2;
   height: 30px;
   width: 30%;
   font-size: 12px;
-  font-weight: bold;
 }
 
 .cancel-button{
@@ -98,8 +97,21 @@ $light-accent-color:  #f2f2f2;
   height: 30px;
   bottom: 11%;
   font-style: normal;
-  font-weight: bold;
   font-size: 12px;
   color: #d72130;
   border: 0;
 }
+
+.img-container{
+  position: fixed;
+  width: 100%;
+}
+
+.banner-title{
+  margin-left: 10%;
+  padding-top: 5%;
+} h6{
+    font-size: 14px;
+    font-style: normal;
+    color: #434c5d;
+  }

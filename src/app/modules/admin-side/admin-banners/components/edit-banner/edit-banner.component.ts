@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Banner} from "../../../../../shared/interfaces/banner";
 import {BannerService} from "../../../../../services/banners.service";
 
@@ -15,8 +15,10 @@ class HttpErrorResponse {
 export class EditBannerComponent implements OnInit {
 
   @Input() banner: Banner;
+  @Input() isNew: boolean;
   uploadFile: File = null;
-
+  @Input() isEditing: boolean;
+  @Output() isEditingChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
@@ -26,10 +28,18 @@ export class EditBannerComponent implements OnInit {
       this.uploadFile = files[0];
   }
 
-    async editBanner(){
-        await this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
-            data => console.log(data)
-        );
+    editBanner(){
+      if (!this.isNew) {
+          this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
+              data => console.log(data)
+          );
+          this.isEditing = false;
+      } else {
+          this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(
+              data => console.log(data)
+          )
+          this.isEditing = false;
+      }
     }
 
 

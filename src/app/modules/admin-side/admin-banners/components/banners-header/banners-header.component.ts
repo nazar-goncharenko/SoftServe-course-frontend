@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-banners-header',
@@ -6,6 +6,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./banners-header.component.scss']
 })
 export class BannersHeaderComponent implements OnInit {
+  @Output() addBanner: EventEmitter<any> = new EventEmitter<any>();
+
+  onButtonClick() {
+    this.addBanner.emit();
+  }
 
   constructor() { }
 

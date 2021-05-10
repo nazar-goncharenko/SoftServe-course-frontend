@@ -12,6 +12,8 @@ export class BannersManagementComponent implements OnInit {
   banners: Banner[];
   predefined: SportCategory[];
   selectedBanner: Banner;
+  isSelectedBannerNew: boolean = true;
+  isEditing: boolean;
 
   constructor(private bannerService: BannerService) { }
 
@@ -24,7 +26,13 @@ export class BannersManagementComponent implements OnInit {
     })
   }
 
-  setSelectedBanner(banner: Banner) {
+  setSelectedBanner(banner: Banner, isNew = false) {
+    this.isSelectedBannerNew = isNew;
     this.selectedBanner = banner;
+    this.isEditing = false;
+  }
+
+  addBanner() {
+    this.setSelectedBanner({title: ''}, true);
   }
 }

@@ -1,7 +1,7 @@
 <div>
     <app-header></app-header>
-    <app-banners-header></app-banners-header>
+    <app-banners-header (addBanner)="addBanner()"></app-banners-header>
     <app-banners-list [banners]="banners" (selectedBannerChanged)="setSelectedBanner($event)" ></app-banners-list>
-    <app-edit-banner [banner]="selectedBanner"></app-edit-banner>
+    <app-edit-banner [(isEditing)]="isEditing" [isNew]="isSelectedBannerNew" [banner]="selectedBanner"></app-edit-banner>
     <app-predefined-categories-settings [predefinedCategories]="predefined"></app-predefined-categories-settings>
 </div>

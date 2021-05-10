@@ -1,12 +1,12 @@
 import {SportCategory} from "./sportCategory";
 
 export interface Banner {
-    id: number;
+    id?: number;
     title: string;
-    imgPath: string;
-    status: string;
-    category: SportCategory;
-    lastUpdated: string;
+    imgPath?: string;
+    status?: string;
+    category?: SportCategory;
+    lastUpdated?: string;
 }
 
 export enum BannerStatusShort {

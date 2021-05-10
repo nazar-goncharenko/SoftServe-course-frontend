@@ -11,17 +11,86 @@
   height: 50px;
   margin: 0 1.5px 1px;
 }  p{
-  padding-left: 5%;
+  padding-left: 6%;
   display: inline;
   margin-top: 20px;
   font-size: 14px;
   height: auto;
 }
-.select-drop-down{
-  width: 60%;
-  height: 60%;
-  padding-top: 3px;
-  padding-bottom: 3px;
+.status-select-drop-down{
+  width: 80%;
+  height: 20%;
+  margin-top: 5px;
+  font-size: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   padding-left: 5%;
+  border-radius: 0;
+  border-color: white;
+  background-color: #d4e7f1;
 }
+
+.category-select-drop-down{
+  width: 80%;
+  height: 20%;
+  margin-top: 5px;
+  font-size: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5%;
+  border-radius: 0;
+  border-color: white;
+  background-color: #dfdfdf;
+}
+
+.trash-button{
+  display: inline;
+  margin: 0;
+  padding: 3px;
+}
+
+.cancel-button{
+  display: inline;
+  position: relative;
+  right: 40%;
+  height: 30px;
+  bottom: 12%;
+  font-style: normal;
+  font-size: 12px;
+  color: #d72130;
+  border: 0;
+  background-color: white;
+}
+
+.delete-button{
+  position: relative;
+  display: inline;
+  right: 5%;
+  bottom: 12%;
+  background: #d72130;
+  color: white;
+  border: 0;
+  height: 30px;
+  width: 30%;
+  font-size: 12px;
+}
+
+.delete-button-trash{
+  width: 30px;
+  display: inline;
+}
+
+.width-45{
+  width: 45%;
+}
+
+.custom-svg-inline--fa {
+  display: inline;
+  font-size: inherit;
+  height: 25px;
+  overflow: visible;
+  vertical-align: -0.125em;
+  color: #b2b2b2;
+}
+
 
