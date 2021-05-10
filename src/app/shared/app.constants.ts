@@ -21,4 +21,12 @@ export class AppConstants {
                 {name: 'TeamHub', ulr: '/teamHub'}
             ]
         };
+
+    public static languageOptions = [
+        {value: 1, viewValue: 'EN'},
+        {value: 2, viewValue: 'UA'},
+        {value: 2, viewValue: 'FR'},
+        {value: 3, viewValue: 'DE'}
+    ]
+
 }

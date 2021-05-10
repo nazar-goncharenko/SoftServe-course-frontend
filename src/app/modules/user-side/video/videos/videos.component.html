@@ -1,15 +1,17 @@
 <app-header></app-header>
 <app-navigation></app-navigation>
 <mat-card class="m-auto col-md-8 col-12">
-    <div class="text-right">
-        <div *ngIf="isSearch">
-            <span class="material-icons align-middle" (click)="toggleSearch()">
-            search
-            </span>
-            <input type="search" [(ngModel)]="input">
+    <div class="container-fluid text-end">
+        <div *ngIf="isSearch" class="search-div border border-1">
+            <div class="input-div">
+                    <span class="material-icons align-middle" (click)="toggleSearch()">
+                        search
+                    </span>
+                <input type="search" [(ngModel)]="input" placeholder="Type here to search">
+            </div>
         </div>
         <span class="material-icons" *ngIf="!isSearch" (click)="toggleSearch()">
-        search
+            search
         </span>
     </div>
     <div class="d-md-flex justify-content-between">

@@ -104,3 +104,34 @@ iframe {
   height: 250px;
   border: 0;
 }
+
+.search-div {
+  padding: 5px;
+  width: 60%;
+  text-align: right;
+  animation: show 0.4s;
+
+  .input-div {
+    padding: 0;
+    vertical-align: center;
+
+    input[type=search] {
+      width: 90%;
+      outline: none;
+      border: none;
+    }
+
+    span {
+      color: #999999;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      transform: scale(0, 0);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+}

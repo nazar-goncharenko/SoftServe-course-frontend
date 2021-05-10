@@ -1,17 +1,135 @@
-.share-button{
-   margin: 5px;
+
+.share-box {
+  margin-top: 24px;
 }
 
-.home-button {
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 25px;
-	background: #d93434;
-	padding: 10px 20px 10px 20px;
+.search-box {
+  margin-top: 28px;
+}
+
+.share-button {
+  margin: 5px;
+}
+
+.login-box{
+  margin-top: 20px;
+}
+
+.user-div {
+  margin-top: 20px;
+
+  ::ng-deep .mat-form-field {
+    padding: 0;
+    top: -5px;
+    width: 15px;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+  ::ng-deep .mat-select {
+    font-size: 12px;
+  }
+
+  .username-admin-div {
+    padding-right: 0;
+
+    .administrator-text {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .username-user-div{
+    padding-top: 8px;
+    padding-left: 0;
+    padding-right: 8px;
+  }
+
+  img{
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+  }
+}
+
+h2 {
+  margin: 24px 0 24px 0;
+
+}
+
+a {
   text-decoration: none;
-	border-radius: 0px;
-  &:hover {
-		background: #d10808;
-		text-decoration: none;
-	}
+}
+
+#header-name {
+  font-family: Open Sans, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0;
+
+}
+
+
+@media screen and (min-device-width: 768px) {
+
+  input[type=text] {
+    outline: none;
+    border: none;
+    width: 80%;
+
+    :hover {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-device-width: 768px) {
+  input[type=text] {
+    outline: none;
+    border: none;
+    width: 95%;
+
+    :hover {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+
+#search-icon {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+
+::ng-deep .language .mat-form-field {
+  width: 36px;
+}
+
+::ng-deep .language .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .language .mat-select {
+  font-size: 12px;
+}
+
+.login-btn {
+  padding: 5px 35px 5px 35px;
+  border: #d32f2f solid 1px;
+  border-radius: 0;
+}
+
+.sing-up-btn {
+  padding: 5px 35px 5px 35px;
 }

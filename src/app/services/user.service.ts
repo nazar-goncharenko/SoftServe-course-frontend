@@ -58,4 +58,7 @@ export class UserService {
     }
 
 
+    public getByEmail(email: string): Observable<User> {
+        return this.http.get<User>(this.userUrl + 'email/' + email);
+    }
 }

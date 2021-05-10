@@ -32,9 +32,10 @@ import {MatCardModule} from '@angular/material/card';
 import {VideoPipe} from '../pipes/video.pipe';
 import {SafePipe} from '../pipes/safe.pipe';
 import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
     declarations: [HomeComponent, LoginComponent,
@@ -71,7 +72,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         MatSelectModule,
         MatIconModule,
         IvyCarouselModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatAutocompleteModule
     ]
 })
 export class ModuleModule {

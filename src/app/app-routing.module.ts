@@ -27,7 +27,7 @@ const routes: Routes = [
     {path: 'videos', component: VideosComponent},
     {path: 'videos/:id', component: VideoComponent},
      {
-        path: 'admin', component: AdminHomeComponent, children: [
+        path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
             {path: 'videos', component: AdminVideoComponent},
             {path: 'videos/:id', component: VideoEditComponent}
         ]

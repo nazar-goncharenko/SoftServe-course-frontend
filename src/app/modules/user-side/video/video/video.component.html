@@ -37,15 +37,15 @@
         </div>
     </div>
     <div class="row" *ngIf="!video.showComments">
-        <div class="col h-25" *ngFor="let subVideo of videos | slice:2:4">
-            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded" class="bg-dark">
+        <div class="col h-25 container-fluid" *ngFor="let subVideo of videos | slice:2:4">
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded" class="bg-black">
                 <video class="mt-3 video" [src]="subVideo | safe">
                 </video>
                 <h2 class="title">
                     {{ subVideo.title }}
                 </h2>
             </a>
-            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded == false" class="bg-dark">
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded == false" class="bg-black">
                 <div class="m-0 p-0">
                     <iframe [src]="subVideo | safe"></iframe>
                 </div>

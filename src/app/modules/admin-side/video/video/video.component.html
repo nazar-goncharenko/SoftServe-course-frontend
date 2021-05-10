@@ -26,11 +26,13 @@
             <!--            Allow to share videos:-->
             <!--            <span class="allowText">{{ shareAllow }}</span>-->
             <!--        </mat-slide-toggle>-->
-            <div *ngIf="isSearch" class="search-div">
-            <span class="material-icons align-middle" (click)="toggleSearch()">
-            search
-            </span>
-                <input type="search" [(ngModel)]="input">
+            <div *ngIf="isSearch" class="search-div border border-1 align-self-center">
+                <div class="input-div">
+                    <span class="material-icons align-middle" (click)="toggleSearch()">
+                        search
+                    </span>
+                    <input type="search" [(ngModel)]="input" placeholder="Type here to search">
+                </div>
             </div>
             <span class="material-icons" *ngIf="!isSearch" (click)="toggleSearch()">
         search
