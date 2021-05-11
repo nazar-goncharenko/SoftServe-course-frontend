@@ -114,37 +114,6 @@ select {
   font-size: 12px;
 }
 
-/*
-::ng-deep .mat-slide-toggle-thumb {
-  background-color: #D4D9E2;
-  width: 10px !important;
-  height: 10px !important;
-  transform: translate(50%, 50%);
-}
-
-// unchecked
-::ng-deep .mat-slide-toggle-bar {
-  background-color: white;
-  border: 1px solid #D4D9E2;
-  border-radius: 15px !important;
-  height: 16px !important;
-}
-
-::ng-deep .mat-slide-toggle-thumb-container {
-  top: -2px !important;
-}
-
-//checked
-::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-  background-color: white;
-  border: 1px solid #D4D9E2;
-}
-
-::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-  background-color: #C80515;
-}
-*/
-
 // unchecked thumb circle
 ::ng-deep .mat-slide-toggle-thumb {
   box-shadow: none;
