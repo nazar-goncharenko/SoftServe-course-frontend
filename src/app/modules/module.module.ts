@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
     declarations: [HomeComponent,
@@ -43,6 +44,7 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         ReactiveFormsModule,
         MatListModule,
         MatRadioModule,
+        MatSlideToggleModule,
     ]
 })
 export class ModuleModule {

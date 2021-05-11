@@ -1,15 +1,85 @@
-<p>add-article works!</p>
-
-<div class="dropzone">
-    <input type="file" (change)="onFileChange($event)" id="fileDrop">
-    <img src="assets/img/dd_camera.svg" alt="Upload camera">
-    <label for="fileDrop"><span class="text-danger">+Add picture</span></label>
-    or drop it right here <br> You can add next formats: png. jpg. jpeg. tif
-</div>
-
+<!--<app-header></app-header>-->
 <form [formGroup]="formGroup" (ngSubmit)="addArticle()" action="">
-    <input type="file" (change)="onFileChange($event)">
-    <input type="text" formControlName="title">
-    <input type="text" formControlName="description">
-    <button type="submit">Save</button>
+    <p>Form value: {{ formGroup.value | json }}</p>
+
+    <div class="dnd-box">
+        <input type="file" (change)="onFileChange($event)" id="fileDrop">
+        <div class="dnd-msg">
+            <img src="assets/img/dd_camera.svg" alt="Upload camera">
+            <label for="fileDrop"><span class="text-danger">+Add picture</span></label>
+            or drop it right here <br> You can add next formats: png. jpg. jpeg. tif
+        </div>
+    </div>
+
+    <div class="container-fluid pb-5">
+        <div class="row">
+            <div class="col">
+                <label for="conferenceSelect">Conference</label>
+                <!-- TODO: ngFor options -->
+                <select name="conference" id="conferenceSelect">
+                    <option>Not Selected</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="teamSelect">Team</label>
+                <select name="team" id="teamSelect">
+                    <option>Not Selected</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="locationSelect">Location</label>
+                <select name="location" id="locationSelect">
+                    <option>Not Selected</option>
+                </select>
+            </div>
+        </div>
+
+
+        <!--    formControl-->
+        <label for="altImgName">Alt. *</label>
+        <input id="altImgName" type="text" placeholder="Alternative text for picture">
+
+        <label for="headline">Article Headline *</label>
+        <input id="headline" type="text" formControlName="title" placeholder="Name">
+
+        <!--    formControl-->
+        <label for="caption">Caption *</label>
+        <input id="caption" type="text" placeholder="Name">
+
+        <label for="description">Сontent *</label>
+        <div class="text-format-tool">
+            <ul class="hr">
+                <li>h1</li>
+                <li>h2</li>
+                <li>p</li>
+            </ul>
+            <ul class="hr">
+                <li class="font-weight-bold">b</li>
+                <li class="font-italic">i</li>
+                <li>u</li>
+            </ul>
+            <ul class="hr">
+                <li><img src="assets/img/left-text-alignment-option.svg" alt="Align left"
+                         class="filter-grey flip-hor"></li>
+                <li><img src="assets/img/centered-text-of-alignment-button.svg" alt="Align left"
+                         class="filter-grey flip-hor">
+                </li>
+                <li><img src="assets/img/right-text-alignment.svg" alt="Align left" class="filter-grey flip-hor"></li>
+            </ul>
+            <ul class="hr">
+                <li><img src="assets/img/bullets.svg" alt="Align left" class="filter-grey"></li>
+                <li><img src="assets/img/list.svg" alt="Align left" class="filter-grey"></li>
+            </ul>
+        </div>
+<!--        <input id="description" type="text" formControlName="description" placeholder="Please add text here">-->
+
+        <textarea name="description" id="description" placeholder="Please add text here"></textarea>
+
+        <div class="commentSwitch align-middle">Comments: <span class="text-dark pr-2">Show</span>
+            <mat-slide-toggle
+                    color="warn" checked></mat-slide-toggle>
+        </div>
+
+        <!--    <button type="submit">Save</button>-->
+    </div>
 </form>

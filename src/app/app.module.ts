@@ -11,6 +11,7 @@ import {UserService} from '@services/user.service';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
         NoopAnimationsModule,
         MatListModule,
         MatRadioModule,
+        MatSlideToggleModule,
     ],
     providers: [
         UserService,
