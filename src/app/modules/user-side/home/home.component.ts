@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../../../services/article.service';
-import { Article } from '../../../shared/interfaces/article';
+import { ArticleService } from '@services/article.service';
+import { Article } from '@shared/interfaces/article';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

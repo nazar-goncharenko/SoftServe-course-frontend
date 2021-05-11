@@ -4,6 +4,9 @@ import {FooterComponent} from './user-side/templates/footer/footer.component';
 import {NavigationComponent} from './user-side/templates/navigation/navigation.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {LoginComponent} from './user-side/login/login.component';
+import {Forgot_passwordComponent} from './user-side/forgot_password/forgot_password.component';
+import {RegistrationComponent} from './user-side/registration/registration.component';
 import { HomeComponent } from './user-side/home/home.component';
 import {UserProfileComponent} from './user-side/user-profile/user-profile.component';
 import {UserListComponent} from './user-side/user-list/user-list.component';
@@ -11,21 +14,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { AddArticleComponent } from './admin-side/add-article/add-article.component';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-
+import {ResetComponent} from './user-side/reset_password/reset.component';
+import {AddArticleComponent} from './admin-side/add-article/add-article.component';
 
 @NgModule({
-    declarations: [HomeComponent
-        , HeaderComponent
-        , NavigationComponent
-        , FooterComponent
-        , UserProfileComponent
-        , UserListComponent,
-        AddArticleComponent
+    declarations: [HomeComponent,
+        LoginComponent,
+        Forgot_passwordComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FooterComponent,
+        RegistrationComponent,
+        UserProfileComponent,
+        ResetComponent,
+        UserListComponent,
+        AddArticleComponent,
     ],
-    exports: [
-    ],
+    exports: [],
     imports: [
         CommonModule,
         RouterModule,
@@ -34,7 +39,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
-        FontAwesomeModule,
     ]
 })
-export class ModuleModule { }
+export class ModuleModule {
+}

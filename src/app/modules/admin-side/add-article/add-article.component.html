@@ -1,5 +1,12 @@
 <p>add-article works!</p>
 
+<div class="dropzone">
+    <input type="file" (change)="onFileChange($event)" id="fileDrop">
+    <img src="assets/img/dd_camera.svg" alt="Upload camera">
+    <label for="fileDrop"><span class="text-danger">+Add picture</span></label>
+    or drop it right here <br> You can add next formats: png. jpg. jpeg. tif
+</div>
+
 <form [formGroup]="formGroup" (ngSubmit)="addArticle()" action="">
     <input type="file" (change)="onFileChange($event)">
     <input type="text" formControlName="title">

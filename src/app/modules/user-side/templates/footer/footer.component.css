@@ -3,6 +3,7 @@
 }
 
 .footer-page {
+  position: fixed;
   bottom: 0;
 }
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UserService} from '../../../services/user.service';
+import {UserService} from '@services/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 declare function checkNames(): any;
