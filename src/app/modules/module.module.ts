@@ -4,13 +4,20 @@ import {FooterComponent} from './user-side/templates/footer/footer.component';
 import {NavigationComponent} from './user-side/templates/navigation/navigation.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {LoginComponent} from './user-side/login/login.component';
+import {Forgot_passwordComponent} from './user-side/forgot_password/forgot_password.component';
+import {RegistrationComponent} from './user-side/registration/registration.component';
 import { HomeComponent } from './user-side/home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {AddPhotoComponent} from './admin-side/photo/add-photo.component';
-
+import {UserProfileComponent} from './user-side/user-profile/user-profile.component';
+import {UserListComponent} from './user-side/user-list/user-list.component';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+import {ResetComponent} from './user-side/reset_password/reset.component';
 
 @NgModule({
     declarations: [HomeComponent
@@ -18,7 +25,13 @@ import {AddPhotoComponent} from './admin-side/photo/add-photo.component';
         , NavigationComponent
         , FooterComponent
         , AddPhotoComponent
-    ],
+        , LoginComponent
+        , Forgot_passwordComponent
+        , RegistrationComponent
+        , UserProfileComponent
+        , ResetComponent
+        , UserListComponent, ],
+    exports: [],
     imports: [
         CommonModule,
         RouterModule,
@@ -27,6 +40,8 @@ import {AddPhotoComponent} from './admin-side/photo/add-photo.component';
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
+        MatListModule,
+        MatRadioModule,
     ]
 })
 export class ModuleModule { }

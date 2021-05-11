@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: 25%;
+}
+
+.example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 8px;
+  height: 350px;
+  width: 400px;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+// tabs color
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #d62130;
+}
+
+// child tabs of survey
+.survey ::ng-deep .mat-tab-group.mat-primary .mat-tab-label, .mat-tab-nav-bar.mat-primary .mat-tab-label {
+  height: 30px !important;
+  margin-left: 1%;
+}
+
+.survey-boxes {
+  width: 50%;
+  float: left;
+}
+
+.two {
+  border-style: solid;
+  border-color: #fafafa;
+  background-color: #fafafa;
+}
+
+//option view
+.questions {
+  background-color: #f1f1f1;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+.solid {
+  font-weight: bold;
+}
+
+// input forms
+input {
+  width: 300px;
+  margin-left: 8px;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+// container for button row
+.example-container .container {
+  width: 300px;
+  margin-left: 8px;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+// buttons
+.example-container .container .btn {
+  margin-left: 8px;
+  width: 300px;
+}
+
+.btn-outline-danger:hover {
+  background-color: #d62130 !important;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active {
+  background-color: #d62130 !important;
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #d62130;
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  color: #d62130;
+  background-color: #d62130;
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: #d62130;
+}
+
+
+// avatar placing
+.example-container .image-upload img {
+  border-radius: 50%;
+  width: 90px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.image-upload > input {
+  display: none;
+}
+
