@@ -1,10 +1,9 @@
-import {User} from '../shared/interfaces/user';
 import {Observable, throwError} from 'rxjs';
-import {ResponseData} from '../modules/user-side/response-data';
+import {ResponseData} from '@modules/user-side/response-data';
 import {catchError, retry} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Reset_entity} from '../modules/user-side/reset_entity';
+import {Reset_entity} from '@modules/user-side/reset_entity';
 
 const httpOptions = {
     headers: new HttpHeaders(
@@ -19,8 +18,8 @@ const httpOptions = {
 })
 export class ResetService {
 
-    baseUrl = "http://localhost:8082";
-    resetUrl = "/reset_password";
+    baseUrl = 'http://localhost:8082';
+    resetUrl = '/reset_password';
     constructor(
         private http: HttpClient
     ) { }
@@ -32,11 +31,11 @@ export class ResetService {
         ).pipe(
             retry(1),
             catchError(this.handleError)
-        )
+        );
     }
 
     handleError(error) {
-        let errorMessage = `Error Code: ${error.status} - ${error.error.error} \nMessage: ${error.error.message}`;
+        const errorMessage = `Error Code: ${error.status} - ${error.error.error} \nMessage: ${error.error.message}`;
         window.alert(errorMessage);
         return throwError(errorMessage);
     }

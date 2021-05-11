@@ -8,7 +8,7 @@ export class RoleGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (localStorage.getItem('role') == 'ROLE_ADMIN') {
+        if (localStorage.getItem('role') === 'ROLE_ADMIN') {
             return true;
         } else {
             this.router.navigate(['/']);

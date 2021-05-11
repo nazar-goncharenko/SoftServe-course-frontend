@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthentificationService} from '../../../services/authentification.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Reset_entity} from '../reset_entity';
 import {ResponseData} from '../response-data';
-import {ResetService} from '../../../services/reset.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {SendEmailService} from '../../../services/SendEmail.service';
+import {SendEmailService} from '@services/SendEmail.service';
 import {User} from '../user';
 
 @Component({
@@ -25,7 +22,7 @@ export class Forgot_passwordComponent implements OnInit {
     }
 
 
-    enableForm(enable: boolean) {
+    enableForm(enable: boolean): void {
         if (enable) {
             this.forgotForm.get('email').enable();
 
@@ -37,7 +34,7 @@ export class Forgot_passwordComponent implements OnInit {
     }
 
     sendMail() {
-        document.getElementById("text").innerHTML = "Email sent successfully";
+        document.getElementById('text').innerHTML = 'Email sent successfully';
         this.submitted = true;
         if (this.forgotForm.invalid) {
             return;
@@ -47,29 +44,29 @@ export class Forgot_passwordComponent implements OnInit {
             console.log(this.user.getEmail());
             this.sendEmailService.send(this.user).subscribe((data: ResponseData) => {
                 console.log('RESPONSE DATA ' + JSON.stringify(data));
-                if (data.responseCode == '200') {
+                if (data.responseCode === '200') {
                     window.alert(data.responseMsg);
                     this.visible = true;
                     this.enableForm(false);
                 } else {
                     this.enableForm(true);
                 }
-            }), error => {
+            }, error => {
                 console.log('An Error Occured ' + error);
-            };
+            });
 
       //      this.router.navigateByUrl('/');
         }
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.forgotForm = new FormGroup({
             //   token: new FormControl('', [Validators.required]),
             email: new FormControl('', [Validators.required, Validators.email]),
         });
     }
 
-    setSubmitted(submitted: boolean) {
+    setSubmitted(submitted: boolean): void {
         this.submitted = submitted;
     }
 }

@@ -14,18 +14,25 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
+import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
-    declarations: [HomeComponent, LoginComponent,
-        Forgot_passwordComponent, HeaderComponent,
-        NavigationComponent, FooterComponent,
+    declarations: [HomeComponent,
+        LoginComponent,
+        Forgot_passwordComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FooterComponent,
         RegistrationComponent,
         UserProfileComponent,
         ResetComponent,
-        UserListComponent,],
+        UserListComponent,
+        AddArticleComponent,
+    ],
     exports: [],
     imports: [
         CommonModule,
@@ -37,6 +44,7 @@ import {ResetComponent} from './user-side/reset_password/reset.component';
         ReactiveFormsModule,
         MatListModule,
         MatRadioModule,
+        MatSlideToggleModule,
     ]
 })
 export class ModuleModule {

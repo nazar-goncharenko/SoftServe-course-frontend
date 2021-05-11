@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '@services/article.service';
+import { Article } from '@shared/interfaces/article';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  articles: Article[];
+  arrowRightIco = faArrowRight;
+
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.getArticles();
   }
 
+  getArticles(): void {
+    this.articleService.getArticles()
+        .subscribe(data => {
+          this.articles = data;
+        });
+  }
 }
