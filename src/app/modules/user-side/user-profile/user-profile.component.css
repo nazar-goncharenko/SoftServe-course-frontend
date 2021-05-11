@@ -17,7 +17,33 @@
 }
 
 ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #d40000;
+  background-color: #d62130;
+}
+
+.survey ::ng-deep .mat-tab-group.mat-primary .mat-tab-label, .mat-tab-nav-bar.mat-primary .mat-tab-label {
+  height: 30px !important;
+  margin-left: 1%;
+}
+
+.survey-boxes {
+  width: 50%;
+  float: left;
+}
+
+.two {
+  border-style: solid;
+  border-color: #fafafa;
+  background-color: #fafafa;
+}
+
+.questions {
+  background-color: #f1f1f1;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+.solid {
+  font-weight: bold;
 }
 
 input {
@@ -44,6 +70,27 @@ label {
 .example-container .container .btn {
   margin-left: 8px;
   width: 300px;
+}
+
+.btn-outline-danger:hover {
+  background-color: #d62130 !important;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active {
+  background-color: #d62130 !important;
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #d62130;
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  color: #d62130;
+  background-color: #d62130;
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: #d62130;
 }
 
 .example-container .image-upload img {

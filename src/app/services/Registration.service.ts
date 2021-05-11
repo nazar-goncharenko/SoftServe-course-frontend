@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import {ResponseData} from '../modules/user-side/response-data';
-import {User} from '../modules/user-side/user';
+import {ResponseData} from '@modules/user-side/response-data';
+import {User} from '@modules/user-side/user';
 
 
 const httpOptions = {

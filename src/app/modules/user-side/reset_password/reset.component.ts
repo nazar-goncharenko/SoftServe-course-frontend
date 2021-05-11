@@ -58,16 +58,16 @@ export class ResetComponent implements OnInit {
             console.log(this.resetData.getConfirmPassword());
             this.resetService.reset(this.resetData).subscribe((data: ResponseData) => {
                 console.log('RESPONSE DATA ' + JSON.stringify(data));
-                if (data.responseCode == '200') {
+                if (data.responseCode === '200') {
                     window.alert(data.responseMsg);
                     this.visible = true;
                     this.enableForm(false);
                 } else {
                     this.enableForm(true);
                 }
-            }), error => {
+            }, error => {
                 console.log('An Error Occured ' + error);
-            };
+            });
 
             this.router.navigateByUrl('/');
         }

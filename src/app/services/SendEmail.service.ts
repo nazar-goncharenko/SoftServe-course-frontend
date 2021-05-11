@@ -1,10 +1,9 @@
 import {Observable, throwError} from 'rxjs';
-import {ResponseData} from '../modules/user-side/response-data';
+import {ResponseData} from '@modules/user-side/response-data';
 import {catchError, retry} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Reset_entity} from '../modules/user-side/reset_entity';
-import {User} from '../modules/user-side/user';
+import {User} from '@modules/user-side/user';
 
 
 const httpOptions = {
@@ -20,8 +19,8 @@ const httpOptions = {
 })
 export class SendEmailService {
 
-    baseUrl = "http://localhost:8082";
-    forgotUrl = "/forgot_password";
+    baseUrl = 'http://localhost:8082';
+    forgotUrl = '/forgot_password';
     constructor(
         private http: HttpClient
     ) { }
@@ -33,7 +32,7 @@ export class SendEmailService {
         ).pipe(
             retry(1),
             catchError(this.handleError)
-        )
+        );
     }
 
     handleError(error) {

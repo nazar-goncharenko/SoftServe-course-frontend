@@ -8,8 +8,8 @@ describe('RegistrationFormComponent', () => {
   let component: ResetComponent;
   let fixture: ComponentFixture<ResetComponent>;
 
-  let httpClient : HttpClient;
-  let httpTestingController : HttpTestingController;
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

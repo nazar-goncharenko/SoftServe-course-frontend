@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         //  console.log(this.router.getCurrentNavigation().extras.state);
     }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.loginForm = new FormGroup({
             userName: new FormControl('', [Validators.required, Validators.email]),
             password: new FormControl('', Validators.required),
