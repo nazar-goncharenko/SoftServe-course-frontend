@@ -10,7 +10,14 @@ export class PhotoService {
 
   constructor(private http: HttpClient) { }
 
-  postPhoto(formData: FormData): Observable<object> {
+  postPhoto(photo: PhotoDTO, img: File): Observable<object> {
+    const formData: FormData = new FormData();
+
+    formData.append('photoDTO', JSON.stringify(photo));
+
+    if (img != null) {
+      formData.append('img', img);
+    }
     return this.http.post('http://localhost:8082/admin', formData);
   }
 

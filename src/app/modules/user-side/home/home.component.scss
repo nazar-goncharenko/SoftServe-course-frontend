@@ -1,5 +1,4 @@
 .photo {
-  position: relative;
   width: 815px;
   height: 577px;
 }
@@ -9,55 +8,34 @@
   height: 577px;
   background-repeat: no-repeat;
   background-size: 815px 577px;
+
+  .upload-icon {
+    background: url("../../../../assets/Triangle.svg") no-repeat top left;
+    width: 169px;
+    height: 123px;
+    top: -20px;
+    left: -20px;
+  }
+
 }
 
-ul {
+.info {
   list-style-type: none;
   color: #FFFFFF;
+  bottom: -350px;
 }
 
 #photoTitle {
-  font-style: normal;
-  font-weight: bold;
   font-size: 22px;
   line-height: 30px;
 }
 
 #description {
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
   line-height: 19px;
 }
 
 #author {
-  font-style: italic;
-  font-weight: bold;
   font-size: 14px;
   line-height: 19px;
-}
-
-#lowerleft {
-  padding: 0;
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  font-size: 18px;
-}
-
-.upload-icon {
-  background: url("../../../../assets/Triangle.svg") no-repeat top left;
-  width: 169px;
-  height: 123px;
-  margin: -10px;
-  padding: -10px;
-}
-
-.upload-icon p {
-  line-height: 123px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #FFFFFF;
 }

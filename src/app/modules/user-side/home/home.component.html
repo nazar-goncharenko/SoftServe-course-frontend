@@ -2,14 +2,17 @@
 <app-navigation></app-navigation>
 <app-footer></app-footer>
 <div class="container-fluid m-auto photo" *ngIf="photo.isShown">
-    <div [ngStyle]="{'background-image': 'url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}" class="image">
-        <div class="upload-icon">
-            <p>photo of the day</p>
-        </div>
+    <div class="rectangle">
+        <img src="../../../../assets/Rectangle.svg" alt=""/>
+        <br>
+        <br>
     </div>
-    <ul id="lowerleft">
-        <li id="photoTitle">{{photo.photoTitle}}</li>
-        <li id="description">{{photo.description}}</li>
-        <li id="author">{{photo.author}}</li>
-    </ul>
+    <div [ngStyle]="{'background-image': 'url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}" class="image">
+        <div class="position-relative upload-icon"></div>
+        <ul class="col align-self-end info">
+            <li class="font-weight-bold" id="photoTitle">{{photo.photoTitle}}</li>
+            <li id="description">{{photo.description}}</li>
+            <li class="font-weight-bold font-italic" id="author">{{photo.author}}</li>
+        </ul>
+    </div>
 </div>

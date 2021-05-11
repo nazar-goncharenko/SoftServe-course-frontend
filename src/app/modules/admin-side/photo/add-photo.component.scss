@@ -20,7 +20,6 @@
 
 
 .upload-input {
-  position: relative;
   top: -80px;
   left: 0;
   width: 813px;
@@ -36,17 +35,16 @@
 
 .form-control {
   border-radius: 0;
+  width: 814px;
 }
 
 .form-group label {
-  font-family: Roboto;
-  font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 11px;
   letter-spacing: 0.9px;
-  text-transform: uppercase;
   color: #7F8899;
+  margin-top: 20px;
 }
 
 .form-check {
@@ -56,8 +54,6 @@
 }
 
 .form-check label {
-  font-family: Roboto;
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;

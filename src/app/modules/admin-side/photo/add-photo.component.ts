@@ -13,10 +13,10 @@ export class AddPhotoComponent implements OnInit {
     constructor(private photoService: PhotoService) { }
 
     photo: PhotoDTO = {
-        alt: '',
-        photoTitle: '',
-        description: '',
-        author: '',
+        alt: null,
+        photoTitle: null,
+        description: null,
+        author: null,
         isShown: false
     };
     img: File = null;
@@ -28,11 +28,7 @@ export class AddPhotoComponent implements OnInit {
 
     // tslint:disable-next-line:typedef
     uploadFile(form: NgForm) {
-        const formData: FormData = new FormData();
-        formData.append('photoDTO', JSON.stringify(this.photo));
-        formData.append('img', this.img);
-
-        this.photoService.postPhoto(formData).subscribe(data => {
+        this.photoService.postPhoto(this.photo, this.img).subscribe(data => {
             console.log(data);
             },
             error => console.log(error));
@@ -43,5 +39,6 @@ export class AddPhotoComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 
 }
