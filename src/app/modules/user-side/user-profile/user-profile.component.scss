@@ -10,14 +10,14 @@
   justify-content: center;
   padding: 16px;
   border-radius: 8px;
-  height: 350px;
+  height: 400px;
   width: 400px;
   margin-left: 25%;
   margin-top: 2%;
 }
 
 // tabs color
-::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.container ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: #d62130;
 }
 
@@ -78,24 +78,24 @@ label {
   width: 300px;
 }
 
-.btn-outline-danger:hover {
+.survey .btn-outline-danger:hover {
   background-color: #d62130 !important;
 }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active {
+.survey .btn-danger, .btn-danger:hover, .btn-danger:active {
   background-color: #d62130 !important;
 }
 
-::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+.survey ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: #d62130;
 }
 
-::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
+.survey ::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
   color: #d62130;
   background-color: #d62130;
 }
 
-::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+.survey ::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #d62130;
 }
 
@@ -103,7 +103,7 @@ label {
 // avatar placing
 .example-container .image-upload img {
   border-radius: 50%;
-  width: 90px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
 }
