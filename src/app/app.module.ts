@@ -14,6 +14,8 @@ import {UserService} from './services/user.service';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 @NgModule({
     declarations: [
@@ -37,5 +39,6 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
     ],
     bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
