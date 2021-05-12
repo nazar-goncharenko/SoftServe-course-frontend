@@ -1,6 +1,6 @@
-.photo {
-  width: 815px;
-  height: 577px;
+.container-fluid {
+  width: max-content;
+  margin-left: 253px;
 }
 
 .image {
@@ -14,13 +14,17 @@
     top: -20px;
     left: -20px;
   }
-
 }
 
 .info {
   list-style-type: none;
   color: #FFFFFF;
   bottom: -350px;
+}
+
+.bottom-left {
+  bottom: 8px;
+  left: 16px;
 }
 
 #photoTitle {
