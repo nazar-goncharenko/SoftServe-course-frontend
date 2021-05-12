@@ -1,13 +1,12 @@
 <app-header></app-header>
 <app-navigation></app-navigation>
-<app-footer></app-footer>
 <div class="container-fluid m-auto photo" *ngIf="photo.isShown">
     <div class="rectangle">
         <img src="../../../../assets/Rectangle.svg" alt=""/>
         <br>
         <br>
     </div>
-    <div [ngStyle]="{'background-image': 'url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}" class="image">
+    <div [ngStyle]="{'background-image': 'linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) ), url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}" class="image">
         <div class="position-relative upload-icon"></div>
         <ul class="col align-self-end info">
             <li class="font-weight-bold" id="photoTitle">{{photo.photoTitle}}</li>
@@ -16,3 +15,4 @@
         </ul>
     </div>
 </div>
+<app-footer></app-footer>
