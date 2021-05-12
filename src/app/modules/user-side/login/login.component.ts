@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         //  console.log(this.router.getCurrentNavigation().extras.state);
     }
 
+    // tslint:disable-next-line:typedef
     ngOnInit() {
         this.loginForm = new FormGroup({
             userName: new FormControl('', [Validators.required, Validators.email]),

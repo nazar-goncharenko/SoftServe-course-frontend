@@ -1,0 +1,28 @@
+<h1 mat-dialog-title class="text-center">Add new video</h1>
+<div mat-dialog-content class="container m-md-3">
+    <mat-label>
+        <h4 class="text-secondary mt-5">ADD URL</h4>
+        <label class="w-100 justify-content-center">
+            <input id="url-input" [(ngModel)]="formVideo.url" (change)="checkUrlInput()" type="text" placeholder="Add new url"/>
+        </label>
+    </mat-label>
+    <mat-label *ngIf="!formVideo.url">
+        <h4 class="text-secondary mt-4">UPLOAD</h4>
+        <label id="upload-label" class="w-80" for="upload-video">
+            <div class="upload-section">
+                <span *ngIf="file" class="file-input">{{ file.name }}</span>
+                <span *ngIf="!file" class="file-input"></span>
+                <span class="badge-danger file-button text-center align-items-center">Upload</span>
+            </div>
+        </label>
+        <label>
+            <input type="file" id="upload-video" (change)="handleFileInput($event.target.files)">
+        </label>
+
+    </mat-label>
+</div>
+<div mat-dialog-actions class="float-right mt-0">
+    <button mat-button class="text-danger border-0 text-center" (click)="onNoClick()">Cancel</button>
+    <button mat-button class="bg-danger border-0 text-white text-center" (click)="addVideo()" [disabled]="disable">Add</button>
+    <!--  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Ok</button>-->
+</div>

@@ -1,0 +1,99 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+<mat-card class="container-fluid col-6 m-auto mt-md-5 position-relative">
+    <h3>
+        <a href="/videos" class="text-secondary">
+            VIDEO
+        </a>
+        <mat-icon class="material-icons-outlined text-danger">
+            arrow_forward_ios
+        </mat-icon>
+        <span class="text-danger">
+            {{ video.title }}
+        </span>
+    </h3>
+    <video *ngIf="video.uploaded" class="mt-3" [src]="video | safe" controls>
+    </video>
+    <div *ngIf="video.uploaded == false" class="main-video-frame">
+        <iframe [src]="video | safe"></iframe>
+    </div>
+    <div class="row" *ngIf="!video.showComments">
+        <div class="col h-25 container-fluid" *ngFor="let subVideo of videos | slice:0:2">
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded" class="bg-black">
+                <video class="mt-3 video" [src]="subVideo | safe">
+                </video>
+                <h2 class="title">
+                    {{ subVideo.title }}
+                </h2>
+            </a>
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded == false" class="bg-black">
+                <div>
+                    <iframe [src]="subVideo | safe" class="mt-3 video"></iframe>
+                </div>
+                <h2 class="title">
+                    {{ subVideo.title }}
+                </h2>
+            </a>
+        </div>
+    </div>
+    <div class="row" *ngIf="!video.showComments">
+        <div class="col h-25 container-fluid" *ngFor="let subVideo of videos | slice:2:4">
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded" class="bg-black">
+                <video class="mt-3 video" [src]="subVideo | safe">
+                </video>
+                <h2 class="title">
+                    {{ subVideo.title }}
+                </h2>
+            </a>
+            <a [href]="'/videos/' + subVideo.id" *ngIf="subVideo.uploaded == false" class="bg-black">
+                <div class="m-0 p-0">
+                    <iframe [src]="subVideo | safe"></iframe>
+                </div>
+                <h2 class="title">
+                    {{ subVideo.title }}
+                </h2>
+            </a>
+        </div>
+    </div>
+
+    <mat-card class="comment-box" *ngIf="video.showComments">
+        <mat-card-title>
+            <h4>
+                <b>
+                    COMMENTS ({{ video.comments.length}})
+                </b>
+            </h4>
+        </mat-card-title>
+        <mat-card class="comment-box-input">
+            <img src="favicon.ico">
+            <!--            <input type="text" placeholder="Write a comment">-->
+            <textarea matInput placeholder="Write a comment" rows="1" [(ngModel)]="text"></textarea>
+            <button class="comment-button text-secondary" (click)="sendComment(text)">Submit</button>
+        </mat-card>
+        {{ video.comments | json }}
+        <mat-card class="comment-box-content">
+            <mat-card-content *ngFor="let comment of video.comments">
+                <div class="text-secondary">
+                    <h4>
+                        <b>
+                            {{ comment.time | date:'MMM d'}}
+                        </b>
+                    </h4>
+                </div>
+                <h2>{{ comment.comment }}</h2>
+                <hr>
+                <mat-icon class="material-icons-outlined">
+                thumb_up
+                </mat-icon>
+                {{ comment.likes }}
+                <mat-icon class="material-icons-outlined">
+                thumb_down
+                </mat-icon>
+                {{ comment.dislikes }}
+            </mat-card-content>
+        </mat-card>
+    </mat-card>
+</mat-card>
+
+
+<app-footer></app-footer>

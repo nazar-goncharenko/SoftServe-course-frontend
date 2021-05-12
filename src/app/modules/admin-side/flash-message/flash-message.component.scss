@@ -1,0 +1,45 @@
+
+.messages {
+  position: fixed;
+  right: -400px;
+  bottom: 15px;
+  z-index: 5;
+}
+
+.message {
+  border-radius: 7px;
+  margin-top: 10px;
+  animation: show 1.5s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+}
+
+@keyframes show{
+0%{
+transform: translateX(0);
+}
+100% {
+transform: translateX(-417px);
+}
+}
+
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  border: none;
+  background-color: transparent;
+
+  .mat-icon {
+    font-size: 15px;
+  }
+}
+
+.mat-icon {
+  font-size: 40px;
+}
+
+
+#success {
+  color: #229D1F;
+}
