@@ -121,10 +121,8 @@ $article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
     display: none;
   }
 
-}
-.container-fluid {
-  width: max-content;
-  margin-left: 253px;
+//  photo of the day
+
 }
 
 .image {
@@ -132,7 +130,7 @@ $article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
   height: 577px;
 
   .upload-icon {
-    background: url("../../../../assets/Triangle.svg") no-repeat top left;
+    background: url("../../../../assets/photo/photo-triangle.svg") no-repeat top left;
     width: 169px;
     height: 123px;
     top: -20px;

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '@services/article.service';
 import { Article } from '@shared/interfaces/article';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import {PhotoDTO} from '../../../shared/interfaces/photo';
-import {PhotoService} from '../../../services/photo.service';
+import {PhotoDTO} from '@shared/interfaces/photo';
+import {PhotoService} from '@services/photo.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   arrowRightIco = faArrowRight;
   photo: PhotoDTO;
 
-  constructor(private articleService: ArticleService, private photoService) { }
+  constructor(private articleService: ArticleService, private photoService: PhotoService) { }
 
   ngOnInit(): void {
     this.getArticles();

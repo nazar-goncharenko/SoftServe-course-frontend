@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoDTO } from '../../../shared/interfaces/photo';
-import { PhotoService } from '../../../services/photo.service';
+import { PhotoDTO } from '@shared/interfaces/photo';
+import { PhotoService } from '@services/photo.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class AddPhotoComponent implements OnInit {
         photoTitle: null,
         description: null,
         author: null,
-        isShown: false
+        isShown: true
     };
     img: File = null;
 
