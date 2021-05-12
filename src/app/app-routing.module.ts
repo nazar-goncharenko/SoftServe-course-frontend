@@ -35,7 +35,7 @@ const routes: Routes = [
             expectedRole: 'admin'
         }
     },
-    {path: 'videos', component: VideoComponent},
+    {path: 'videos', component: VideosComponent},
     {path: 'videos/:id', component: VideoComponent},
     {
         path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
