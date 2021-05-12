@@ -14,8 +14,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
 import {AdminVideoComponent} from './admin-side/video/video/video.component';
 import {VideoComponent} from './user-side/video/video/video.component';
@@ -36,11 +36,16 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+
 
 @NgModule({
-    declarations: [HomeComponent, LoginComponent,
-        Forgot_passwordComponent, HeaderComponent,
-        NavigationComponent, FooterComponent,
+    declarations: [HomeComponent,
+        LoginComponent,
+        Forgot_passwordComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FooterComponent,
         RegistrationComponent,
         UserProfileComponent,
         ResetComponent,
@@ -54,6 +59,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         VideoFormConfirmComponent,
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
+        AddArticleComponent,
     ],
     exports: [],
     imports: [

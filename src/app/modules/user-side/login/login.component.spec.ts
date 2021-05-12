@@ -9,8 +9,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let httpClient : HttpClient;
-  let httpTestingController : HttpTestingController;
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

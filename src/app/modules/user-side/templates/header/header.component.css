@@ -1,0 +1,19 @@
+.share-button {
+  margin: 5px;
+}
+
+.home-button {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  background: #d93434;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-radius: 0px;
+}
+.home-button:hover {
+  background: #d10808;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=header.component.css.map */

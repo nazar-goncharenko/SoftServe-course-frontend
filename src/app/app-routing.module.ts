@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './modules/user-side/home/home.component';
 import {LoginComponent} from './modules/user-side/login/login.component';
@@ -13,27 +14,36 @@ import {VideosComponent} from './modules/user-side/video/videos/videos.component
 import {AdminHomeComponent} from './modules/admin-side/home/home.component';
 import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-edit.component';
 import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
+import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
+
 
 
 const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: HomeComponent, pathMatch: 'full'},
+    {path: 'user/:user_id', component: UserProfileComponent},
+    {path: 'users', component: UserListComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forgot_password', component: Forgot_passwordComponent},
     {path: 'registration', component: RegistrationComponent},
-    {path: '', component: HomeComponent, pathMatch: 'full'},
     {path: 'user/:user_id', component: UserProfileComponent},
     {path: 'users', component: UserListComponent, canActivate: [RoleGuard]},
     {path: 'reset_password', component: ResetComponent},
-    {path: 'videos', component: VideosComponent},
+    {
+        path: 'admin/add-article',
+        component: AddArticleComponent,
+        data: {
+            expectedRole: 'admin'
+        }
+    },
+    {path: 'videos', component: VideoComponent},
     {path: 'videos/:id', component: VideoComponent},
-     {
+    {
         path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
             {path: 'videos', component: AdminVideoComponent},
             {path: 'videos/:id', component: VideoEditComponent}
         ]
     }
 ];
-
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

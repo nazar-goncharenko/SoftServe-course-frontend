@@ -1,0 +1,124 @@
+@import "../../../../../node_modules/bootstrap/scss/bootstrap.scss";
+$article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
+
+.header {
+  height: 83px;
+  margin-bottom: 83px;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.bg-caption {
+  position: absolute;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #CCD3E0;
+  opacity: 30%;
+  font-size: 141px;
+  left: 129px;
+  top: 134px;
+
+  transform: rotate(90deg);
+  z-index: -9999;
+}
+
+.main-article {
+  object-fit: cover;
+  width: min-content;
+  margin-bottom: 44px;
+
+  img {
+    width: 813px;
+    height: 460px;
+    object-fit: cover;
+  }
+
+  .img-container {
+    position: relative;
+    margin-left: 12.5px;
+
+    .corner-link {
+      text-align: center;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+      position: absolute;
+      width: 134px;
+      height: 39px;
+      left: 0;
+      top: 0;
+      background: #2F2F2F;
+
+      display: flex;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+}
+
+.content-container {
+  @extend .container-fluid;
+    width: max-content;
+    margin-left: 253px;
+}
+
+.article-col-container {
+  position: relative;
+  width: 202px;
+  height: 294px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: $article-common-shadow;
+    -moz-box-shadow: $article-common-shadow;
+    -webkit-box-shadow: $article-common-shadow;
+    cursor: pointer;
+  }
+
+  &:hover .a-c-ico {
+    display: block;
+  }
+
+  img {
+    object-fit: cover;
+    width: 177px;
+    height: 128px;
+  }
+
+  .img-container {
+    text-align: center;
+    padding: 11px 0 14px;
+  }
+
+  .title,
+  .description {
+    margin: 0 12.5px;
+  }
+
+  .title {
+    font-weight: 700;
+    color: #2B2F43;
+  }
+
+  .description {
+    font-weight: 400;
+    color: #7F7B7B;
+  }
+
+  .a-c-ico {
+    color: #C63638;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+    display: none;
+  }
+
+}

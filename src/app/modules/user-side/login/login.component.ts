@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthentificationService} from '../../../services/authentification.service';
+import {AuthentificationService} from '@services/authentification.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../user';
@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
         public loginClient: AuthentificationService,
         public router: Router
     ) {
-
         //  console.log(this.router.getCurrentNavigation().extras.state);
     }
 
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
         //this.loginForm=history.state;
     }
 
-    login() {
+    login(): void {
         let headers = new Headers();
         this.submitted = true;
         if (this.loginForm.invalid) {
@@ -56,16 +55,13 @@ export class LoginComponent implements OnInit {
                 //   }
                 this.router.navigateByUrl('/');
                 //   window.alert(data.responseMsg);
-            }), error => {
+            }, error => {
                 console.log('An Error Occured ' + error);
-            };
+            });
         }
     }
 
-
-    clearPass() {
+    clearPass(): void {
         this.loginForm.get('password').setValue('');
     }
-
 }
-
