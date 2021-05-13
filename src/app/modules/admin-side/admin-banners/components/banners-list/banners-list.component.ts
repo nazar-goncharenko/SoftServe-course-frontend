@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Banner, BannerStatusShort} from "../../../../../shared/interfaces/banner";
 import {BannerService} from "../../../../../services/banners.service";
+import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-banners-list',
@@ -13,6 +14,18 @@ export class BannersListComponent implements OnInit {
   public selectedBanner: Banner;
   @Output() selectedBannerChanged = new EventEmitter<Banner>();
   selectedStatus = 'open';
+  public keyword: String;
+  search = faSearch;
+  filter = faFilter;
+
+  isSearch = false;
+
+  input: any;
+  type = null;
+
+  toggleSearch(): void {
+    this.isSearch = !this.isSearch;
+  }
 
   constructor(private bannerService: BannerService){}
 
@@ -29,6 +42,10 @@ export class BannersListComponent implements OnInit {
       this.selectedStatus = newStatus;
       this.bannerService.getBannersByStatus(newStatus).subscribe(data => this.banners = data);
     }
+  }
+
+  searchBanners(keyword: String){
+    this.bannerService.bannersSearch(keyword).subscribe(data => this.banners = data );
   }
 
   get statuses() {

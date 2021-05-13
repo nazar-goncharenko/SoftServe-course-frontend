@@ -61,4 +61,12 @@ export class BannerService {
         return this.http.put<SportCategory>(`${this.apiServerUrl}/banners/${state}?category=${category.name}`, "");
     }
 
+    public getBannersByCategory(category: String): Observable<Banner[]> {
+        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/filterUserSide?category=${category}`);
+    }
+
+    public bannersSearch(keyword: String): Observable<Banner[]> {
+        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/search?title=${keyword}`);
+    }
+
 }

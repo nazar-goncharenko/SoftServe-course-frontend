@@ -5,6 +5,10 @@
            (click)="getBannersByStatus(status)">
        {{status | uppercase}}
    </button>
+    <div class="float-right banner-search-area">
+        <input type="text" [(ngModel)]="keyword" class="form-control search-input"  placeholder="Enter a banner name here">
+        <button class="search-button custom-svg-inline--fa ml-2 mr-2" (click)="searchBanners(keyword)"><fa-icon [icon]="search"></fa-icon></button>
+    </div>
 </div>
 <div class="container banner-list">
     <div class="banner-list-title h-100 pt-3 pb-4 mb-3">
@@ -14,6 +18,8 @@
         <div class="float-right w-50">
             <div class="width-45 d-inline-flex">
                 <p>STATUS</p>
+                <button class="filter-button ml-2 mr-2"><fa-icon [icon]="filter"></fa-icon> </button>
+
             </div>
             <div class="width-45 d-inline-flex">
                 <p>PUBLISHED IN</p>

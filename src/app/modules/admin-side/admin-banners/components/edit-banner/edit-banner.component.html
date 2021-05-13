@@ -5,7 +5,7 @@
                 <input type="text" [(ngModel)]="banner.title" name="title" class="form-control title-field" id="title"
                     placeholder="Name">
                 <div class="dropzone">
-<!--                    <img src="../../../../assets/images/{{banner.imgPath}}" alt="" />-->
+<!--                    <img src="../../../../assets/uploaded_images/{{banner.imgPath}}" alt="" />-->
                     <img src="../../../../assets/add_picture.svg" class="upload-icon" alt="" />
                     <input type="file" (change)="handleFileInput($event.target.files)" name="file" id="file"
                         class="upload-input" />
@@ -25,7 +25,7 @@
             <h6>{{banner.title | uppercase}} </h6>
         </div>
         <div class="img-container">
-            <img src="../../../../assets/images/{{banner.imgPath}}" alt="" />
+            <img src="../../../../assets/uploaded_images/{{banner.imgPath}}" alt="" />
         </div>
         <button class="save-button" (click)="isEditing = !isEditing; isEditingChange.emit(isEditing)">Edit</button>
         <div class="banner-date inside outside">
