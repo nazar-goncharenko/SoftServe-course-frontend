@@ -28,10 +28,12 @@ export class AddPhotoComponent implements OnInit {
 
     // tslint:disable-next-line:typedef
     uploadFile(form: NgForm) {
-        this.photoService.postPhoto(this.photo, this.img).subscribe(data => {
-            console.log(data);
-            },
-            error => console.log(error));
+        if (this.img != null || (this.img == null && !this.photo.isShown)) {
+            this.photoService.postPhoto(this.photo, this.img).subscribe(data => {
+                    console.log(data);
+                },
+                error => console.log(error));
+        }
 
         form.resetForm();
     }
