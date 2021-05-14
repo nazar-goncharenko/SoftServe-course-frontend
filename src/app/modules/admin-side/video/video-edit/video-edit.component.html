@@ -1,0 +1,48 @@
+<div class="col-12 pl-5 border-bottom">
+    <div class="container-fluid d-flex justify-content-between">
+        <h2 class="text-danger">Video</h2>
+        <div class="text-danger mr-md-4">
+            <a href="/admin/videos">
+                <button mat-raised-button color="warn" class="add-button text-danger bg-white">
+                    Cancel
+                </button>
+            </a>
+            <button mat-raised-button color="warn" class="add-button" id="save" (click)="save()">
+                Save
+            </button>
+        </div>
+    </div>
+</div>
+<app-admin-navigation></app-admin-navigation>
+<mat-card class="container-fluid col-6 m-auto mt-md-5 position-relative">
+    <div class="preview float-right">
+        <a [href]="'videos/'+id" class="preview-text text-danger" (click)="save()">
+        <span class="material-icons align-middle">
+            visibility
+        </span>
+            Preview
+        </a>
+    </div>
+    <video *ngIf="video.uploaded" class="mt-3 video" [src]="video | safe" (click)="changeVideo()">
+    </video>
+    <div *ngIf="video.uploaded == false">
+        <iframe id="frame" [src]="video | safe"></iframe>
+        <div class="text-right">
+            <button mat-raised-button color="warn" class="add-button" id="change-button" (click)="changeVideo()">
+                CHANGE
+            </button>
+        </div>
+    </div>
+    <div class="text-left m-3">
+        <h4 class="text-secondary">VIDEO TITLE</h4>
+        <label class="w-100 justify-content-center">
+            <input matInput [(ngModel)]="video.title" type="text" placeholder="Add title" required="true"/>
+        </label>
+    </div>
+    <mat-slide-toggle class="text-left w-100 ml-3" labelPosition="before" color="warn" [checked]="video.showComments"
+                      (toggleChange)="allowCommentChange()">
+        Comments: Show
+    </mat-slide-toggle>
+</mat-card>
+
+

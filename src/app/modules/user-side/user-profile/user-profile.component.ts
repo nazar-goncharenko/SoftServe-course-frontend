@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UserService} from '../../../services/user.service';
+import {UserService} from '@services/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Survey} from '../../../shared/interfaces/survey';
 import {SurveyService} from '../../../services/survey.service';

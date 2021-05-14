@@ -17,14 +17,6 @@ export class UserService {
 
     public findAll(): Observable<User[]> {          // only for ROLE = ADMIN
         return this.http.get<User[]>('http://localhost:8082/users',
-            {
-                headers: new HttpHeaders(
-                    {
-                        'Content-Type': 'application/json',
-                        'Authorization': sessionStorage.getItem('Authorization')
-                    }
-                )
-            }
         );
     }
 
@@ -66,4 +58,7 @@ export class UserService {
     }
 
 
+    public getByEmail(email: string): Observable<User> {
+        return this.http.get<User>(this.userUrl + 'email/' + email);
+    }
 }

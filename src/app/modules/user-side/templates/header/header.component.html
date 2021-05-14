@@ -1,26 +1,79 @@
-<header>
-		<nav class = "container-fluid row navbar">
-			<div class = "col-md-2">
-					<button hef = "#" class="home-button" >
-              Sport Hub
-					</button>
-			</div>
-			<div class = "col-md-4">
-				<input type="text" class="form-control" placeholder = "Search by">
-			</div>
-			<div class = "col-md-2 btn-block ">
-				<label>Share</label>
-				<div class = "btn-group share-group">
-					<a href="#" class="fa fa-facebook share-button"></a>
-          <a href="#" class="fa fa-twitter share-button"></a>
-          <a href="#" class="fa fa-instagram share-button"></a>
-				</div>
-			</div>
-			<div class = "col-md-2">
-				User
-			</div>
-			<div class = "col-md-2">
-				Language
-			</div>
-		</nav>
-  </header>
+<header class="mb-2">
+    <div class="container-fluid row m-0 p-0 border-bottom border-1">
+        <div class="col-md-2 bg-danger text-center">
+            <a href="/" class="text-white">
+                <h2 id="header-name">
+                    Sports Hub
+                </h2>
+            </a>
+        </div>
+        <div class="col-md-4 text-center border-right border-1">
+            <div class="search-box">
+                <span class="material-icons" id="search-icon">
+                    search
+                </span>
+                <input type="text" placeholder="Search by" [(ngModel)]="searchText" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option>23</mat-option>
+                    <mat-option>23</mat-option>
+                    <mat-option>23</mat-option>
+                </mat-autocomplete>
+            </div>
+        </div>
+        <div class="col-md-2 text-center border-right border-1">
+            <div class="share-box">
+                <label class="text-secondary">Share</label>
+                <div class="btn-group share-group">
+                    <a href="#" class="fa fa-facebook share-button text-dark icon"></a>
+                    <a href="#" class="fa fa-twitter share-button text-dark icon"></a>
+                    <a href="#" class="fa fa-google-plus share-button text-dark icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center text-center">
+            <div class="user-div" *ngIf="user">
+                <div class="user-image row justify-content-center">
+                    <div class="col-md-4 col-2 text-end p-0">
+                        <img src="favicon.ico">
+                    </div>
+                    <div class="col-md-8 col-10 text-start d-flex">
+                        <div class="col username-admin-div" *ngIf="user.role === 'ROLE_ADMIN'">
+                            <div class="row">
+                                {{ user.username }}
+                            </div>
+                            <div class="row text-secondary p-0">
+                                <h6 class="administrator-text">Administrator</h6>
+                            </div>
+                        </div>
+                        <div class="username-user-div" *ngIf="user.role === 'ROLE_USER'">
+                            {{ user.username }}
+                        </div>
+                        <div class="col p-0">
+                            <mat-form-field color="warn">
+                                <mat-select>
+                                    <mat-option (click)="router.navigate(['user/' + user.id])">
+                                        Profile
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!user" class="login-box flex-row">
+                <a href="/registration" class="bg-white btn text-danger sing-up-btn">Sign up</a>
+                <a href="/login" class="bg-white btn text-danger login-btn">Log in</a>
+            </div>
+        </div>
+        <div class="col-md-1 align-self-center text-end language">
+            <mat-form-field appearance="legacy" color="warn">
+                <mat-select [value]="language.viewValue">
+                    <mat-option *ngFor="let language_ of languageOptions" [value]="language_.viewValue"
+                                (click)="changeLanguage(language_)">
+                        {{ language_.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</header>

@@ -1,4 +1,34 @@
 <app-header></app-header>
+<!--<div class="header bg-danger">Sports Hub</div>-->
 <app-navigation></app-navigation>
-<app-banner-list-userside></app-banner-list-userside>
+
+<div class="bg-caption">
+    all
+</div>
+
+<div class="content-container">
+    <div class="main-article" *ngIf="articles[0]">
+        <div class="img-container">
+            <img src="assets/img/{{articles[0].imagePath}}" alt="">
+            <!--            <div class="corner-link">{{articles[0]?.category.name}}}</div>-->
+            <div class="corner-link">NBA</div>
+        </div>
+    </div>
+
+    <!--  REMOVE PADDING  -->
+    <div class="content pb-2">
+        <div class="article-col-container" *ngFor="let article of articles | slice:1:5">
+            <div class="img-container"><img src="assets/img/{{article.imagePath}}" alt=""></div>
+            <div class="title">{{article.title}}</div>
+            <div class="description">{{article.description}}</div>
+            <fa-icon class="a-c-ico" [icon]="arrowRightIco"></fa-icon>
+        </div>
+    </div>
+</div>
+
+<!--<div class="d-flex justify-content-center">
+    <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>-->
 <app-footer></app-footer>

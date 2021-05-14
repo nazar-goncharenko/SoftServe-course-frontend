@@ -1,0 +1,47 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+<mat-card class="m-auto col-md-8 col-12">
+    <div class="container-fluid text-end">
+        <div *ngIf="isSearch" class="search-div border border-1">
+            <div class="input-div">
+                    <span class="material-icons align-middle" (click)="toggleSearch()">
+                        search
+                    </span>
+                <input type="search" [(ngModel)]="input" placeholder="Type here to search">
+            </div>
+        </div>
+        <span class="material-icons" *ngIf="!isSearch" (click)="toggleSearch()">
+            search
+        </span>
+    </div>
+    <div class="d-md-flex justify-content-between">
+    </div>
+    <div *ngFor="let video of videos | VideoPipe: input:null" class="container-fluid">
+        <mat-card class="home-card container-fluid">
+            <mat-card-content>
+                <div class="home-container">
+                    <a class="text-danger" [routerLink]="video.id">
+                        <video *ngIf="video.uploaded" disabled="true">
+                            <source
+                                    src="assets/videos/{{video.url}}"
+                                    type='video/mp4'>
+                        </video>
+                        <iframe *ngIf="!video.uploaded" [src]="video | safe"></iframe>
+                    </a>
+                    <div class="content">
+                        <div class="video-option-menu">
+                            <div class="video-option">
+                            </div>
+                        </div>
+                        <a class="text-danger" [routerLink]="video.id">
+                            <div class="content-title">
+                                <h3>{{ video.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-card>
+<app-footer></app-footer>

@@ -1,0 +1,67 @@
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+  text-align: center;
+}
+
+
+.preview {
+  font-size: 16px;
+
+  span {
+    font-size: 18px;
+  }
+}
+
+iframe {
+  width: 100%;
+  cursor: pointer;
+  height: 400px;
+  border: 0;
+}
+
+video {
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  box-shadow: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+input[type=text] {
+  width: 80%;
+  outline: none;
+  border-bottom: 1px solid #999999;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border-bottom: 2px solid #229D1F;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+
+::ng-deep .mat-raised-button:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+#change-button {
+  margin-right: 0;
+}
+
+button {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#save {
+  width: 100px;
+}
