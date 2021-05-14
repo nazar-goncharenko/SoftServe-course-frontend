@@ -30,6 +30,8 @@ export class EditBannerComponent implements OnInit {
 
     editBanner(){
       if (!this.isNew) {
+          this.isEditing = true;
+          this.isEditingChange.emit(this.isEditing);
           this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
               data => console.log(data)
           );

@@ -18,15 +18,6 @@ export class BannersListComponent implements OnInit {
   search = faSearch;
   filter = faFilter;
 
-  isSearch = false;
-
-  input: any;
-  type = null;
-
-  toggleSearch(): void {
-    this.isSearch = !this.isSearch;
-  }
-
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
