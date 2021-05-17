@@ -3,6 +3,8 @@ import {ResponseData} from '../modules/user-side/response-data';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {User} from '../shared/interfaces/user';
+import {UserService} from './user.service';
 
 
 @Injectable({
@@ -14,7 +16,8 @@ export class AuthentificationService implements OnInit {
     private httpOptions: { headers: HttpHeaders };
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private userService: UserService
     ) {
     }
 
@@ -37,7 +40,7 @@ export class AuthentificationService implements OnInit {
             map(
                 userData => {
                     sessionStorage.setItem('email', requestLoginDTO.email);
-                    let authString = 'Basic ' + btoa(requestLoginDTO.email + ':' + requestLoginDTO.password);
+                    const authString = 'Basic ' + btoa(requestLoginDTO.email + ':' + requestLoginDTO.password);
                     sessionStorage.setItem('Authorization', authString);
                     return userData;
                 })
@@ -57,6 +60,10 @@ export class AuthentificationService implements OnInit {
 
     logOut() {
         sessionStorage.removeItem('email');
+    }
+
+    getLoggedUser(): Observable<User>{
+        return this.userService.getByEmail(sessionStorage.getItem('email'));
     }
 
     ngOnInit(): void {

@@ -14,26 +14,54 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
 import {AddPhotoComponent} from './admin-side/add-photo/add-photo.component';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import {AdminVideoComponent} from './admin-side/video/video/video.component';
+import {VideoComponent} from './user-side/video/video/video.component';
+import {AdminHomeComponent} from './admin-side/home/home.component';
+import {VideoEditComponent} from './admin-side/video/video-edit/video-edit.component';
+import {VideosComponent} from './user-side/video/videos/videos.component';
+import {VideoFormComponent} from './admin-side/video/video-form/video-form.component';
+import {VideoFormConfirmComponent} from './admin-side/video/video-form-confirm/video-form-confirm.component';
+import {AdminNavigationComponent} from './admin-side/navigation/navbar/admin-navigation.component';
+import {FlashMessageComponent} from './admin-side/flash-message/flash-message.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatOptionModule} from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {VideoPipe} from '../pipes/video.pipe';
+import {SafePipe} from '../pipes/safe.pipe';
+import {MatSelectModule} from '@angular/material/select';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
-    declarations: [HomeComponent
-        , HeaderComponent
-        , NavigationComponent
-        , FooterComponent
-        , AddPhotoComponent
-        , LoginComponent
-        , Forgot_passwordComponent
-        , RegistrationComponent
-        , UserProfileComponent
-        , ResetComponent
-        , UserListComponent
-        , AddArticleComponent
+    declarations: [HomeComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FooterComponent,
+        AddPhotoComponent,
+        LoginComponent,
+        Forgot_passwordComponent,
+        RegistrationComponent,
+        UserProfileComponent,
+        ResetComponent,
+        UserListComponent,
+        AddArticleComponent,
+        AdminVideoComponent,
+        VideoComponent,
+        AdminHomeComponent,
+        VideoEditComponent,
+        VideosComponent,
+        VideoFormComponent,
+        VideoFormConfirmComponent,
+        AdminNavigationComponent,
+        FlashMessageComponent, VideoPipe, SafePipe,
     ],
     exports: [],
     imports: [
@@ -46,7 +74,14 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         ReactiveFormsModule,
         MatListModule,
         MatRadioModule,
+        MatDialogModule,
+        MatOptionModule,
+        MatCardModule,
+        MatSelectModule,
+        MatIconModule,
+        IvyCarouselModule,
         MatSlideToggleModule,
+        MatAutocompleteModule
     ]
 })
 export class ModuleModule {

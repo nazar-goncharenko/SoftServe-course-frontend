@@ -1,0 +1,58 @@
+
+input{
+  width: 80%;
+}
+
+
+::ng-deep .mat-dialog-actions{
+  text-align: left;
+}
+
+
+#upload-video{
+  display: none;
+}
+
+#upload-label{
+  width: 80%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.file-input{
+  width: 80%;
+  display: block;
+  float: none;
+  overflow: hidden;
+  height: 26px;
+  border: solid 1px black;
+}
+
+.file-button{
+  padding-top: 2px;
+  width: 20%;
+  z-index: 1;
+  height: 26px;
+}
+
+#url-input{
+  width: 90%;
+}
+
+
+
+.upload-section{
+  cursor: pointer!important;
+  display: inline-flex;
+  margin-top: 10px;
+  width: 113%;
+}
+
+button{
+  border-radius: 0;
+}
+
+h4{
+  margin-bottom: 0;
+}

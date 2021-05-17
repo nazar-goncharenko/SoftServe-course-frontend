@@ -1,0 +1,113 @@
+$height: 200px;
+$main-height: 400px;
+iframe {
+  width: 100%;
+  cursor: pointer;
+  //height: $height;
+  border: 0;
+}
+
+video {
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  box-shadow: none;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+
+.material-icons {
+  margin: 0;
+  padding-top: 1px;
+  vertical-align: bottom;
+  font-size: 16px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+.main-video-frame {
+  height: 110%;
+  width: 100%;
+
+  iframe {
+    height: $main-height;
+  }
+}
+
+
+h2 {
+  &.title {
+    margin-top: -5px;
+    padding-left: 5px;
+    width: 100%;
+    background-color: black;
+    color: white;
+  }
+}
+
+a {
+  text-decoration: none;
+  line-height: 0;
+}
+
+.comment-box {
+  background-color: #F8F8F8;
+
+  .comment-box-input {
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+    display: inline-flex;
+    width: 100%;
+
+    input[type=text] {
+      margin-left: 10px;
+      width: 80%;
+      border: 0;
+
+    }
+
+    input[type=text]:focus {
+      outline: none;
+    }
+
+    .comment-button {
+      background-color: white;
+      border: 0;
+    }
+
+    textarea {
+      margin-left: 10px;
+      width: 80%;
+      border: 0;
+      resize: none;
+    }
+
+    textarea:focus {
+      outline: none;
+    }
+  }
+
+  .comment-box-content {
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+    width: 100%;
+
+    hr {
+      width: 100%;
+    }
+
+    mat-icon {
+      cursor: pointer;
+    }
+
+  }
+}
+
+
+
