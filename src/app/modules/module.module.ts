@@ -17,7 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
-import {AddPhotoComponent} from './admin-side/photo/add-photo.component';
+import {AddPhotoComponent} from './admin-side/add-photo/add-photo.component';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 

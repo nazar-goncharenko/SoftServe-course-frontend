@@ -9,7 +9,7 @@ import {UserListComponent} from '@modules/user-side/user-list/user-list.componen
 import {ResetComponent} from '@modules/user-side/reset_password/reset.component';
 import {RoleGuard} from '@modules/security/RoleGuard';
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
-import {AddPhotoComponent} from '@modules/admin-side/photo/add-photo.component';
+import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.component';
 
 
 const routes: Routes = [
