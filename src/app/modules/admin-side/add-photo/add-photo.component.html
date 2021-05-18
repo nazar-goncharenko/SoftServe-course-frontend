@@ -1,11 +1,8 @@
-<app-header></app-header>
 <div class="container-fluid pb-5 photo-info">
     <div class="rectangle">
         <img src="assets/photo/photo_header.svg" alt=""/>
-        <br>
-        <br>
     </div>
-    <form #addForm="ngForm" (submit)="uploadFile(addForm)">
+    <form #addForm="ngForm" (ngSubmit)="uploadFile(addForm)">
 
         <div class="dropzone">
             <img src="assets/photo/add_picture.svg" class="upload-icon"  alt=""/>
@@ -24,12 +21,11 @@
             <label for="author">author</label>
             <input type="text" [(ngModel)]="photo.author" name="author" class="form-control" id="author">
         </div>
-        <div class="form-check form-switch float-right">
-            <input class="form-check-input" type="checkbox" [checked]="photo.isShown" (change)="photo.isShown = !photo.isShown" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Show on the main page</label>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" [checked]="photo.isShown" (change)="photo.isShown = !photo.isShown" id="switch1">
+            <label class="custom-control-label" for="switch1">Show on the main page</label>
         </div>
 
-        <button type="submit" class="btn btn-success">Save all changes</button>
     </form>
 </div>
 

@@ -20,7 +20,6 @@ import {AdminVideoComponent} from './modules/admin-side/video/video/video.compon
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
-    {path: 'admin', component: AddPhotoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forgot_password', component: Forgot_passwordComponent},
     {path: 'registration', component: RegistrationComponent},
@@ -41,6 +40,13 @@ const routes: Routes = [
             {path: 'videos', component: AdminVideoComponent},
             {path: 'videos/:id', component: VideoEditComponent}
         ]
+    },
+    {
+        path: 'admin/home',
+        component: AdminHomeComponent,
+        data: {
+            expectedRole: 'admin'
+        }
     }
 ];
 

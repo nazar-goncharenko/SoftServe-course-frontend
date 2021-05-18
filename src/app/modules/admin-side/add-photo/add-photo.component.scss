@@ -47,22 +47,19 @@
   margin-top: 20px;
 }
 
-.form-check {
-  width: 175px;
-  height: 17px;
+.rectangle {
+  margin: 20px 0 20px 0;
 }
 
-.form-check label {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: right;
-  color: #2B2F43;
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #dc3545;
 }
 
-.btn {
-  border-radius: 0;
-  background: #D72130;
-  border: 1px solid #C63638;
-  box-sizing: border-box;
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #adb5bd;
+  background-color: #fff
+}
+
+.custom-control-input:disabled ~ .custom-control-label, .custom-control-input[disabled] ~ .custom-control-label {
+  color: #6c757d
 }
