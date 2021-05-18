@@ -8,7 +8,7 @@ import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.compone
 })
 export class AdminHomeComponent implements OnInit {
 
-  @ViewChild(AddPhotoComponent) child;
+  @ViewChild(AddPhotoComponent) addPhoto;
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class AdminHomeComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onClick() {
-    this.child.uploadFile();
+    this.addPhoto.uploadFile();
   }
 
 }
