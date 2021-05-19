@@ -20,10 +20,16 @@ export class AddPhotoComponent implements OnInit {
         isShown: true
     };
     img: File = null;
+    url = 'assets/photo/add_picture.svg';
 
     // tslint:disable-next-line:typedef
     handleFileInput(event) {
         this.img = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (e: any) => {
+            this.url = e.target.result;
+        };
     }
 
     // tslint:disable-next-line:typedef

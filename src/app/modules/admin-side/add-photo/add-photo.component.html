@@ -5,7 +5,7 @@
     <form #addForm="ngForm" (ngSubmit)="uploadFile(addForm)">
 
         <div class="dropzone">
-            <img src="assets/photo/add_picture.svg" class="upload-icon"  alt=""/>
+            <img [src]="url" class="upload-icon"  alt=""/>
             <input type="file" (change)="handleFileInput($event)" name="file" id="file" class="position-relative upload-input" />
         </div>
         <div class="text-uppercase form-group">
