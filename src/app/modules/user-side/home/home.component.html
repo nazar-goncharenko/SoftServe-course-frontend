@@ -35,8 +35,6 @@
     <div *ngIf="photo.isShown">
         <div class="rectangle">
             <img src="assets/photo/photo_header.svg" alt=""/>
-            <br>
-            <br>
         </div>
         <div [ngStyle]="{'background-image': 'linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) ), url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}" class="image">
             <div class="position-relative upload-icon"></div>

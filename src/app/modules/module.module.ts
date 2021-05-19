@@ -38,6 +38,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         MatIconModule,
         IvyCarouselModule,
         MatSlideToggleModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        FontAwesomeModule
     ]
 })
 export class ModuleModule {
