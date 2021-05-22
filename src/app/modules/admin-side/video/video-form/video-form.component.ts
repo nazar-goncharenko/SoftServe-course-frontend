@@ -18,6 +18,7 @@ export class VideoFormComponent implements OnInit {
         publish: false,
         uploaded: true,
         showComments: true,
+        comments: []
     };
 
     file: File;

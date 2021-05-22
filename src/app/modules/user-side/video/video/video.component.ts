@@ -44,9 +44,5 @@ export class VideoComponent implements OnInit {
         });
         });
     }
-
-    sendComment(text: string): void {
-        console.log(text);
-    }
 }
 

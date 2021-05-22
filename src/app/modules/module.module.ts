@@ -37,6 +37,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import { CommentsComponent } from './user-side/comments/comments.component';
+import {UserPhotoPipe} from '@app/pipes/userPhoto.pipe';
+import {CommentPipe} from '@app/pipes/comment.pipe';
 
 
 @NgModule({
@@ -60,6 +63,7 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
         AddArticleComponent,
+        CommentsComponent, UserPhotoPipe, CommentPipe
     ],
     exports: [],
     imports: [

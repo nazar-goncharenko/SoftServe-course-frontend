@@ -1,0 +1,108 @@
+
+.comment-box {
+
+  background-color: #F8F8F8;
+  border: 1px solid #D8D8D8;
+  border-radius: 0;
+  box-shadow: none;
+
+  ::ng-deep .mat-card {
+    border: none;
+    box-shadow: none;
+  }
+
+  .box-border {
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+
+  }
+
+  .sort-menu {
+    right: 0;
+    font-size: 14px;
+
+    ::ng-deep .mat-select {
+      width: 70px;
+    }
+
+    ::ng-deep .mat-select-value {
+      color: #d32f2f;
+    }
+
+    ::ng-deep .mat-select-arrow {
+      color: #d32f2f;
+    }
+  }
+
+  .comment-box-input {
+    display: inline-flex;
+    width: 100%;
+
+    input[type=text] {
+      margin-left: 10px;
+      width: 80%;
+      border: 0;
+
+    }
+
+    input[type=text]:focus {
+      outline: none;
+    }
+
+    .comment-button {
+      background-color: white;
+      border: 0;
+    }
+
+    textarea {
+      margin-left: 10px;
+      margin-top: 5px;
+      width: 80%;
+      border: 0;
+      resize: none;
+    }
+
+    textarea:focus {
+      outline: none;
+    }
+  }
+
+  .comment-box-content {
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+    width: 100%;
+
+    hr {
+      width: 100%;
+    }
+
+    mat-icon {
+      cursor: pointer;
+      font-size: 20px;
+      width: 26px;
+    }
+
+  }
+
+  .show-more {
+    background-color: #F8F8F8;
+    border-radius: 0;
+    box-shadow: none;
+
+    .show-more-btn {
+      cursor: pointer;
+    }
+  }
+
+  .image {
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+}

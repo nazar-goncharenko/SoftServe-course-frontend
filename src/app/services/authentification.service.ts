@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../shared/interfaces/user';
 import {UserService} from './user.service';
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -17,7 +18,8 @@ export class AuthentificationService implements OnInit {
 
     constructor(
         private http: HttpClient,
-        private userService: UserService
+        private userService: UserService,
+        private router: Router
     ) {
     }
 
@@ -52,8 +54,8 @@ export class AuthentificationService implements OnInit {
     //     window.alert(errorMessage);
     //     return throwError(errorMessage);
     // }
-    isUserLoggedIn() {
-        let user = sessionStorage.getItem('email');
+    isUserLoggedIn(): boolean {
+        const user = sessionStorage.getItem('email');
         console.log(!(user === null));
         return !(user === null);
     }
@@ -62,11 +64,15 @@ export class AuthentificationService implements OnInit {
         sessionStorage.removeItem('email');
     }
 
-    getLoggedUser(): Observable<User>{
+    getLoggedUser(): Observable<User> {
         return this.userService.getByEmail(sessionStorage.getItem('email'));
     }
 
     ngOnInit(): void {
+    }
+
+    redirectToLogin(): void {
+        this.router.navigate(['/login']);
     }
 
 }

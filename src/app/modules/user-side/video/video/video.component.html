@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-navigation></app-navigation>
-<mat-card class="container-fluid col-6 m-auto mt-md-5 position-relative">
+<mat-card class="container-fluid col-8 m-auto mt-md-5 position-relative">
     <h3>
         <a href="/videos" class="text-secondary">
             VIDEO
@@ -55,44 +55,7 @@
             </a>
         </div>
     </div>
-
-    <mat-card class="comment-box" *ngIf="video.showComments">
-        <mat-card-title>
-            <h4>
-                <b>
-                    COMMENTS ({{ video.comments.length}})
-                </b>
-            </h4>
-        </mat-card-title>
-        <mat-card class="comment-box-input">
-            <img src="favicon.ico">
-            <!--            <input type="text" placeholder="Write a comment">-->
-            <textarea matInput placeholder="Write a comment" rows="1" [(ngModel)]="text"></textarea>
-            <button class="comment-button text-secondary" (click)="sendComment(text)">Submit</button>
-        </mat-card>
-        {{ video.comments | json }}
-        <mat-card class="comment-box-content">
-            <mat-card-content *ngFor="let comment of video.comments">
-                <div class="text-secondary">
-                    <h4>
-                        <b>
-                            {{ comment.time | date:'MMM d'}}
-                        </b>
-                    </h4>
-                </div>
-                <h2>{{ comment.comment }}</h2>
-                <hr>
-                <mat-icon class="material-icons-outlined">
-                thumb_up
-                </mat-icon>
-                {{ comment.likes }}
-                <mat-icon class="material-icons-outlined">
-                thumb_down
-                </mat-icon>
-                {{ comment.dislikes }}
-            </mat-card-content>
-        </mat-card>
-    </mat-card>
+    <app-comments *ngIf="video.showComments" [video]="video"></app-comments>
 </mat-card>
 
 

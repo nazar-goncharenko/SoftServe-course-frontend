@@ -1,3 +1,5 @@
+import {Comment} from '@shared/interfaces/comment';
+
 export interface Video{
     id: number;
     title: string;
@@ -5,5 +7,6 @@ export interface Video{
     uploaded: boolean;
     publish: boolean;
     showComments: boolean;
+    comments: Array<Comment>;
     [key: string]: any;
 }

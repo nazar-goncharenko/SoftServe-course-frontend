@@ -1,0 +1,106 @@
+<mat-card class="comment-box" *ngIf="showComments">
+    <mat-card-title>
+        <div class="d-flex justify-content-between">
+            <h4>
+                <b>
+                    COMMENTS ({{ comments.length}})
+                </b>
+            </h4>
+            <div class="sort-menu text-danger">
+                <b>
+                    Sort by:
+                    <mat-select [(ngModel)]="sortType" disableOptionCentering>
+                        <mat-option *ngFor="let sortOption of sortOptions" [value]="sortOption">
+                            {{ sortOption.viewValue }}
+                        </mat-option>
+                    </mat-select>
+                </b>
+            </div>
+        </div>
+    </mat-card-title>
+    <mat-card class="box-border">
+        <div *ngIf="isLoggedIn" class="comment-box-input">
+            <img [src]="user | UserPhotoPipe">
+            <textarea matInput placeholder="Write a comment" rows="1" [(ngModel)]="text"></textarea>
+            <button class="comment-button text-secondary" (click)="sendVideoComment(text)">Submit</button>
+        </div>
+        <div *ngIf="!isLoggedIn" class="comment-box-input">
+            <img src="assets/icons/default.jpg">
+            <textarea matInput placeholder="Write a comment" rows="1"
+                      (click)="authenticationService.redirectToLogin()"></textarea>
+            <button class="comment-button text-secondary" (click)="authenticationService.redirectToLogin()">Submit
+            </button>
+        </div>
+    </mat-card>
+    <mat-card class="comment-box-content" id="comment-box-content" *ngIf="comments.length">
+        <mat-card-content *ngFor="let comment of comments | CommentPipe: sortType.value | slice: 0: sliceValue">
+            <div class="row">
+                <div class="col-md-1">
+                    <img [src]="comment.author | UserPhotoPipe" class="image">
+                </div>
+                <div class="col-md-11">
+                    <div class="text-secondary">
+                <span class="align-middle">
+                    {{ comment.author.username }}
+                </span>
+                        <h4>
+                            <b>
+                                {{ comment.time | date:'MMM d'}}
+                            </b>
+                        </h4>
+                    </div>
+                    <h3 class="mb-0">{{ comment.comment }}</h3>
+                    <hr class="mt-1 mb-1">
+                    <div class="row">
+                        <div class="col-1 text-primary d-flex" *ngIf="checkLike(comment)"
+                             (click)="likeComment(comment, true)">
+                            <mat-icon class="material-icons-outlined">
+                                thumb_up
+                            </mat-icon>
+                            {{ comment.likes.length }}
+                        </div>
+                        <div class="col-1 d-flex" *ngIf="!checkLike(comment)" (click)="likeComment(comment, true)">
+                            <mat-icon class="material-icons-outlined">
+                                thumb_up
+                            </mat-icon>
+                            {{ comment.likes.length }}
+                        </div>
+                        <div class="col-1 text-primary d-flex" *ngIf="checkDislike(comment)"
+                             (click)="likeComment(comment, false)">
+                            <mat-icon class="material-icons-outlined">
+                                thumb_down
+                            </mat-icon>
+                            {{ comment.dislikes.length }}
+                        </div>
+                        <div class="col-1 d-flex" *ngIf="!checkDislike(comment)" (click)="likeComment(comment, false)">
+                            <mat-icon class="material-icons-outlined">
+                                thumb_down
+                            </mat-icon>
+                            {{ comment.dislikes.length }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="comment-box-content text-secondary text-center align-middle" *ngIf="!comments.length">
+        No comments...
+    </mat-card>
+    <mat-card class="show-more text-center text-secondary" *ngIf="comments.length >= sliceValue">
+        <div class="show-more-btn w-100" (click)="showMoreComments()">
+            <div class="text-center">
+                Show more
+            </div>
+            <div class="mt-0 pt-0 text-center">
+                <mat-icon class="material-icons-outlined" *ngIf="sliceValue !== comments.length">
+                    expand_more
+                </mat-icon>
+                <mat-icon class="material-icons-outlined" *ngIf="sliceValue === comments.length">
+                    expand_less
+                </mat-icon>
+            </div>
+
+        </div>
+    </mat-card>
+</mat-card>
+<!--{{ video.comments | json}}-->

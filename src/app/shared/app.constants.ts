@@ -27,6 +27,11 @@ export class AppConstants {
         {value: 2, viewValue: 'UA'},
         {value: 2, viewValue: 'FR'},
         {value: 3, viewValue: 'DE'}
-    ]
+    ];
+
+    public static SortOptions = [
+        {value: 0, viewValue: 'Date'},
+        {value: 1, viewValue: 'Rating'}
+    ];
 
 }

@@ -22,7 +22,7 @@ export class VideoService {
     }
 
     getById(id: number): any {
-        return this.httpClient.get<Array<Video>>(AppConstants.API_URL + this.url + id);
+        return this.httpClient.get<Video>(AppConstants.API_URL + this.url + id);
     }
 
     getPublished(): any {

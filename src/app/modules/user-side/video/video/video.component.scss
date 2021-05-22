@@ -56,58 +56,5 @@ a {
   line-height: 0;
 }
 
-.comment-box {
-  background-color: #F8F8F8;
-
-  .comment-box-input {
-    border: 1px solid #D8D8D8;
-    border-radius: 0;
-    display: inline-flex;
-    width: 100%;
-
-    input[type=text] {
-      margin-left: 10px;
-      width: 80%;
-      border: 0;
-
-    }
-
-    input[type=text]:focus {
-      outline: none;
-    }
-
-    .comment-button {
-      background-color: white;
-      border: 0;
-    }
-
-    textarea {
-      margin-left: 10px;
-      width: 80%;
-      border: 0;
-      resize: none;
-    }
-
-    textarea:focus {
-      outline: none;
-    }
-  }
-
-  .comment-box-content {
-    border: 1px solid #D8D8D8;
-    border-radius: 0;
-    width: 100%;
-
-    hr {
-      width: 100%;
-    }
-
-    mat-icon {
-      cursor: pointer;
-    }
-
-  }
-}
-
 
 
