@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '@services/article.service';
 import { Article } from '@shared/interfaces/article';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {Config} from "@shared/interfaces/config";
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   articles: Article[];
   arrowRightIco = faArrowRight;
+  location: string = 'home';
+  config: Config;
 
   constructor(private articleService: ArticleService) { }
 

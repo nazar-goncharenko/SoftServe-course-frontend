@@ -37,6 +37,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import { MostPopularAdminComponent } from './admin-side/most-popular-admin/most-popular-admin.component';
+import { MostPopularUserComponent } from './user-side/most-popular-user/most-popular-user.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { SportCategoryComponent } from './user-side/sport-category/sport-category.component';
 
 
 @NgModule({
@@ -60,6 +64,9 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
         AddArticleComponent,
+        MostPopularAdminComponent,
+        MostPopularUserComponent,
+        SportCategoryComponent,
     ],
     exports: [],
     imports: [
@@ -79,7 +86,8 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         MatIconModule,
         IvyCarouselModule,
         MatSlideToggleModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        FontAwesomeModule
     ]
 })
 export class ModuleModule {

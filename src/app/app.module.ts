@@ -12,6 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {ConfigModule} from "@app/config/config.module";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatListModule,
         MatRadioModule,
         MatSlideToggleModule,
+        ConfigModule
     ],
     providers: [
         UserService,

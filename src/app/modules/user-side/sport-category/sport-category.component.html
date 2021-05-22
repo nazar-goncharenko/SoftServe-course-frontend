@@ -32,6 +32,6 @@
     </div>
 </div>-->
 
-<app-most-popular-user [location]="location"></app-most-popular-user>
+<app-most-popular-user [location]="this.activatedRoute.snapshot.params.id"></app-most-popular-user>
 
 <app-footer></app-footer>

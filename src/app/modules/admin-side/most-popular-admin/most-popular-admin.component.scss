@@ -1,0 +1,44 @@
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #dc3545;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #adb5bd;
+  background-color: #fff
+}
+
+.custom-control-input:disabled ~ .custom-control-label, .custom-control-input[disabled] ~ .custom-control-label {
+  color: #6c757d
+}
+
+.most-popular-title {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.most-popular-title-options {
+  font-size: 14px;
+}
+
+//option:hover{
+//  background-color: gold;
+//  color: aqua;
+//}
+
+//select:hover{
+//  background-color: red;
+//  color: green;
+//}
+
+//.most-popular-period:hover{
+//  background-color: gold;
+//  color: #000;
+//}
+
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #f3969a;
+}

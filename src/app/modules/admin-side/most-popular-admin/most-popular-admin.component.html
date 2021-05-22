@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row bg-light align-items-center p-2">
+        <span class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 most-popular-title">MOST POPULAR</span>
+        <div class="custom-control custom-switch text-sm-end text-md-end text-lg-end text-xl-end col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <input (click)="toggleShow()" type="checkbox" class="custom-control-input" id="mostPopularDisabler" [checked]="isShow">
+            <label class="custom-control-label most-popular-disabler-label" for="mostPopularDisabler">Show</label>
+        </div>
+    </div>
+    <div class="row">
+        <form>
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label class="text-muted most-popular-title-options m-0 p-0" for="inlineFormCustomSelect">FROM THE
+                        PERIOD</label>
+                    <select [value]="period" (change)="changePeriod($event.target.value)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option class="most-popular-period" value="Day">Day</option>
+                        <option class="most-popular-period" value="Week">Week</option>
+                        <option class="most-popular-period" value="Month">Month</option>
+                        <option class="most-popular-period" value="Year">Year</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="isShow" class="container bg-danger">
+        <p class="text-white">Думаєш?</p>
+    </div>
+
+    {{config | json}}
+</div>

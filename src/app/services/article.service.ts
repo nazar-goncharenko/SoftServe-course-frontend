@@ -9,14 +9,24 @@ import { AppConstants } from '@shared/app.constants';
 })
 export class ArticleService {
 
+  private currentLocation: string = 'home';
+
   constructor(private http: HttpClient) { }
 
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(AppConstants.API_URL + '/articles');
+  // getArticles(): Observable<Article[]> {
+  //   return this.http.get<Article[]>(AppConstants.API_URL + '/articles');
+  // }
+
+  public setCurrentLocation(currentLocation: string): void{
+    this.currentLocation = currentLocation;
   }
 
   addArticle(formData): Observable<any> {
     return this.http.post(`${AppConstants.API_URL}/articles`, formData,
         { responseType: 'text'});
+  }
+
+  public getArticles(): Observable<Article[]>{
+    return this.http.get<Article[]>(AppConstants.API_URL + '/articles/' + this.currentLocation);
   }
 }

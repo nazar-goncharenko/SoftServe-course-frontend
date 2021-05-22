@@ -1,10 +1,10 @@
-
-import {AppConstants} from '../../../../shared/app.constants';
+// import {AppConstants} from '../../../../shared/app.constants';
 import {Component, OnInit, Renderer2} from '@angular/core';
 import {SportCategory} from '@shared/interfaces/sportCategory';
 import {SportCategoryService} from '@services/sportCategory.service';
-
-
+import {AppConstants} from "@shared/app.constants";
+import {MostPopularCommentedService} from "@services/most-popular-commented.service";
+import {ArticleService} from "@services/article.service";
 
 @Component({
         selector: 'app-navigation',
@@ -22,7 +22,9 @@ export class NavigationComponent implements OnInit {
     sportCategories: Array<SportCategory>;
 
 
-    constructor(private sportCategoryService: SportCategoryService) {
+    constructor(private sportCategoryService: SportCategoryService,
+                private mostPopularCommentedService: MostPopularCommentedService,
+                private articleService: ArticleService) {
     }
 
 
@@ -48,16 +50,18 @@ export class NavigationComponent implements OnInit {
     }
 
 
-    private check_double_click(sportCategory: SportCategory): void {
+    private check_double_click(sportCategory: SportCategory): boolean {
         for (const layer of this.layers) {
             for (const layerElement of layer) {
                 for (const layerCategory of layerElement) {
                     if (layerCategory.parent === sportCategory.id) {
                         this.layers = this.layers.slice(0, this.layers.indexOf(layer) + 1);
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
 
@@ -92,13 +96,13 @@ export class NavigationComponent implements OnInit {
             });
         } else {
             this.last_layer_action();
+            this.articleService.setCurrentLocation(sportCategory.id.toString());
             return;
         }
         if (!copy) {
             this.layers.push([sportCategory.children]);
         } else {
             this.clearLayers();
-            // this.layers = this.layers.slice(0, index + 1);
         }
     }
 
@@ -108,20 +112,17 @@ export class NavigationComponent implements OnInit {
     }
 
     getChild(sportCategory: SportCategory): void {
-        console.log(this.sportCategories);
-        console.log(this.layers);
-
-        // first layer
         this.generate_first_layer(sportCategory);
 
-        this.check_double_click(sportCategory);
-
-        // for layer from previous
-        this.check_previous_layer(sportCategory);
-
-        // for double click layer
-        this.click_layer_action(sportCategory);
-
+        if(!this.check_double_click(sportCategory)){
+            this.check_previous_layer(sportCategory);
+            this.click_layer_action(sportCategory);
+        } else {
+            //this.currentCategoryID = sportCategory.id;
+            //this.currentCategoryID.emit(sportCategory.id);
+            this.articleService.setCurrentLocation(sportCategory.id.toString());
+            this.clearLayers();
+        }
         return;
     }
 

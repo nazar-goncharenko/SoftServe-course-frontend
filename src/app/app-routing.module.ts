@@ -15,11 +15,11 @@ import {AdminHomeComponent} from './modules/admin-side/home/home.component';
 import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-edit.component';
 import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
-
-
+import {SportCategoryComponent} from "@modules/user-side/sport-category/sport-category.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
+    {path: 'admin', /*canActivate: [RoleGuard], */component: AdminHomeComponent},
     {path: 'user/:user_id', component: UserProfileComponent},
     {path: 'users', component: UserListComponent},
     {path: 'login', component: LoginComponent},
@@ -42,7 +42,9 @@ const routes: Routes = [
             {path: 'videos', component: AdminVideoComponent},
             {path: 'videos/:id', component: VideoEditComponent}
         ]
-    }
+    },
+    {path: ':nameCategory', component: HomeComponent},
+    {path: 'sportCategory/:id', component: SportCategoryComponent}
 ];
 
 @NgModule({
