@@ -108,6 +108,9 @@ select {
   top: 0;
   left: 0;
 }
+.dnd-box input:hover {
+  cursor: pointer;
+}
 .commentSwitch {
   text-transform: none;
   font-size: 12px;
@@ -169,6 +172,20 @@ ul.hr li img {
 }
 ul.hr li:hover {
   color: #7F8899;
+}
+
+.when-uploaded {
+  height: 448px;
+  width: 811px;
+}
+.when-uploaded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#picture-label {
+  padding-left: 15px;
 }
 
 /*# sourceMappingURL=add-article.component.css.map */

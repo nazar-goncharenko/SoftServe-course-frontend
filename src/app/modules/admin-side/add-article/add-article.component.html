@@ -5,9 +5,13 @@
     <!--    <p>Form errors: {{ formGroup.errors | json }}</p>-->
     <!--    <p>Form value: {{ formGroup.value | json }}</p>-->
 
+    <label id="picture-label" for="altImgName">Picture *</label>
     <div class="dnd-box">
         <input type="file" (change)="onFileChange($event)" id="fileDrop">
-        <div class="dnd-msg">
+        <div class="when-uploaded" *ngIf="isUploaded">
+            <img [src]="uploadedImgUrl" class="upload-icon"  alt=""/>
+        </div>
+        <div *ngIf="!isUploaded" class="dnd-msg">
             <img src="assets/img/dd_camera.svg" alt="Upload camera">
             <p>
                 <label class="text-danger" for="fileDrop">+Add picture</label> or drop it right here

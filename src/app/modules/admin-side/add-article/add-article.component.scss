@@ -116,6 +116,10 @@ select {
     height: 100%;
     top: 0;
     left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   label {
@@ -189,4 +193,19 @@ ul.hr li {
   &:hover {
     color: #7F8899;
   }
+}
+
+.when-uploaded {
+  height: 448px;
+  width: 811px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#picture-label {
+  padding-left: 15px;
 }

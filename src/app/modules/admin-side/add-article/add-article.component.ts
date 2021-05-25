@@ -14,6 +14,8 @@ export class AddArticleComponent implements OnInit {
 
   formGroup: FormGroup;
   categories = ['Not Selected'];
+  isUploaded = false;
+  uploadedImgUrl = null;
 
   constructor(public fb: FormBuilder,
               private articleService: ArticleService,
@@ -34,7 +36,7 @@ export class AddArticleComponent implements OnInit {
             title: ['', [Validators.required]],
             caption: ['', [Validators.required]],
             description: ['', [Validators.required]],
-            showComments: [''],
+            showComments: [false],
         }
     );
   }
@@ -42,6 +44,13 @@ export class AddArticleComponent implements OnInit {
   onFileChange(event): void {
       if (event.target.files && event.target.files.length) {
           const uploadedFile = event.target.files[0];
+          this.isUploaded = true;
+
+          const reader = new FileReader();
+          reader.readAsDataURL(event.target.files[0]);
+          reader.onload = (e: any) => {
+              this.uploadedImgUrl = e.target.result;
+          };
 
           this.formGroup.patchValue({
               file: uploadedFile
@@ -57,10 +66,10 @@ export class AddArticleComponent implements OnInit {
         formData.append('file', file, file.name);
     }
     formData.append('articleDto', JSON.stringify(this.formGroup.value));
-    for (const pair of formData.entries()) {
-          console.log(pair[0] +  ', ' + pair[1]);
-    }
-    /*this.articleService.addArticle(formData)
+    // for (const pair of formData.entries()) {
+    //       console.log(pair[0] +  ', ' + pair[1]);
+    // }
+    this.articleService.addArticle(formData)
         .subscribe(
             (response) => {
                 console.log(response);
@@ -68,7 +77,7 @@ export class AddArticleComponent implements OnInit {
             (error: HttpErrorResponse) => {
                 console.log(error);
             }
-        );*/
+        );
   }
 
   ngOnInit(): void {
