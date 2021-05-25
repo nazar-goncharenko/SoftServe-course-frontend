@@ -17,6 +17,7 @@ export class BannersListComponent implements OnInit {
   public keyword: String;
   search = faSearch;
   filter = faFilter;
+  isSearch = false;
 
   constructor(private bannerService: BannerService){}
 
@@ -52,5 +53,13 @@ export class BannersListComponent implements OnInit {
     this.banners = this.banners.filter((_, i) => i !== index);
     this.selectedBanner = null;
     this.selectedBannerChanged.emit();
+  }
+
+  toggleSearch(): void {
+    this.isSearch = !this.isSearch;
+  }
+
+  sortBy(status: String){
+    this.bannerService.sortOpenByStatus(status).subscribe(data => this.banners = data );
   }
 }

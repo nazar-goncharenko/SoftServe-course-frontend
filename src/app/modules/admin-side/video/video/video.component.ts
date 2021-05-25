@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {VideoFormComponent} from '../video-form/video-form.component';
 import {Router} from '@angular/router';
-import {VideoService} from '../../../../services/video.service';
-import {Video} from '../../../../shared/interfaces/video';
+import {VideoService} from '@services/video.service';
+import {Video} from '@shared/interfaces/video';
 import {VideoFormConfirmComponent} from '../video-form-confirm/video-form-confirm.component';
-import {FlashMessage} from '../../../../shared/interfaces/flashMessage';
-import {MessagesEnum} from '../../../../shared/interfaces/messagesEnum';
+import {FlashMessage} from '@shared/interfaces/flashMessage';
+import {MessagesEnum} from '@shared/interfaces/messagesEnum';
 
 @Component({
     selector: 'app-video',

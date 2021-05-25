@@ -1,3 +1,5 @@
+$cbg-color: white;
+
 .banner-list{
   background-color: #f2f2f2;
   width: 55%;
@@ -25,7 +27,7 @@
 .open-closed-button{
   right: 5%;
   bottom: 9%;
-  background: white;
+  background: $cbg-color;
   color: #7f8899;
   border: 0;
   height: 33px;
@@ -79,33 +81,45 @@
   border: solid 1px #d4d9e2;
 }
 
-//.search-div {
-//  padding: 5px;
-//  width: 60%;
-//  text-align: right;
-//  animation: show 0.4s;
-//
-//  .input-div {
-//    padding: 0;
-//    vertical-align: center;
-//
-//    input[type=search] {
-//      width: 90%;
-//      outline: none;
-//      border: none;
-//    }
-//
-//    span {
-//      color: #999999;
-//    }
-//  }
-//
-//  @keyframes show {
-//    0% {
-//      transform: scale(0, 0);
-//    }
-//    100% {
-//      transform: scale(1, 1);
-//    }
-//  }
-//}
+.select-form{
+  width: auto;
+}
+
+.mat-select {
+  width: 10%;
+}
+
+.mat-option.mat-active {
+  color: red;
+  background-color: #fbe7e8;
+}
+
+.sort-by-title{
+  margin: 4px;
+  font-weight: bolder;
+} hr {
+  margin: 4px 0;
+  height: 1px;
+  border-top: none;
+}
+
+.search-div {
+  padding: 5px;
+  width: 45%;
+
+  .input-div {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    vertical-align: center;
+
+    input[type=search] {
+      width: 90%;
+      outline: none;
+      border: none;
+    }
+    span{
+      color: #999999;
+    }
+  }
+}

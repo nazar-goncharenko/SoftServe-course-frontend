@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {Banner, BannerStatusShort} from "../shared/interfaces/banner";
-import {SportCategory} from "../shared/interfaces/sportCategory";
+import {Observable, of} from 'rxjs';
+import {Banner, BannerStatusShort} from "@shared/interfaces/banner";
+import {SportCategory} from "@shared/interfaces/sportCategory";
+import {catchError} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class BannerService {
@@ -37,10 +38,10 @@ export class BannerService {
         return this.http.put<Banner>(`${this.apiServerUrl}/banners/update/${banner.id}`, formData);
     }
 
-    public createBanner(banner: Banner, file: File): Observable<Banner> {
+    public createBanner(banner: Banner, file: File): Observable<any> {
         const formData: FormData = new FormData();
         formData.append('file', file);
-        formData.append('title', banner.title)
+        formData.append('title', banner.title);
         return this.http.post<Banner>(`${this.apiServerUrl}/banners`, formData);
     }
 
@@ -65,8 +66,16 @@ export class BannerService {
         return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/filterUserSide?category=${category}`);
     }
 
+    public getUserSide(categoryId: number): Observable<Banner[]> {
+        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/userside/${categoryId}`);
+    }
+
     public bannersSearch(keyword: String): Observable<Banner[]> {
         return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/search?title=${keyword}`);
+    }
+
+    public sortOpenByStatus(status: String): Observable<Banner[]>{
+        return this.http.get<Banner[]>(`${this.apiServerUrl}/banners/sortByStatus?status=${status}`)
     }
 
 }

@@ -1,1 +1,7 @@
-<p>banner-list-userside works!</p>
+<div class="container banner-list">
+    <div class="row d-block">
+        <div *ngFor="let b of banners; let i = index" class="pl-0 pr-0">
+            <app-banner  [banner]="b"></app-banner>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
 import { BannerComponent } from './user-side/banners/banner/banner.component';
-import { BannerListUsersideComponent } from './user-side/banners/banner-list-userside/banner-list-userside.component';
+import {BannersListUsersideComponent} from './user-side/banners/banner-list-userside/banner-list-userside.component';
 import {AdminVideoComponent} from './admin-side/video/video/video.component';
 import {VideoComponent} from './user-side/video/video/video.component';
 import {AdminHomeComponent} from './admin-side/home/home.component';
@@ -39,6 +39,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import { SportCategoryComponent } from './user-side/sport-category/sport-category.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -63,11 +65,14 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         FlashMessageComponent, VideoPipe, SafePipe,
         AddArticleComponent,
         BannerComponent,
-        BannerListUsersideComponent
+        SportCategoryComponent,
+        BannersListUsersideComponent
     ],
     exports: [
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        AdminNavigationComponent,
+        FlashMessageComponent
     ],
     imports: [
         CommonModule,
@@ -86,7 +91,8 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         MatIconModule,
         IvyCarouselModule,
         MatSlideToggleModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        FontAwesomeModule
     ]
 })
 export class ModuleModule {

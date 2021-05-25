@@ -10,6 +10,10 @@ import {BannersHeaderComponent} from "./components/banners-header/banners-header
 import {CategoryItemComponent} from "./components/category-item/category-item.component";
 import {ModuleModule} from "../../module.module";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         ReactiveFormsModule,
         FormsModule,
         ModuleModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatIconModule,
+        Ng2SearchPipeModule
     ]
 })
 export class AdminBannersModule { }

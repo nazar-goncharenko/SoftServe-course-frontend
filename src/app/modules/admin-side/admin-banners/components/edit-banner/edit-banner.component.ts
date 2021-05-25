@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Banner} from "../../../../../shared/interfaces/banner";
 import {BannerService} from "../../../../../services/banners.service";
+import {subscribeOn} from "rxjs/operators";
+import {error} from "@angular/compiler/src/util";
 
 
 class HttpErrorResponse {
@@ -19,6 +21,9 @@ export class EditBannerComponent implements OnInit {
   uploadFile: File = null;
   @Input() isEditing: boolean;
   @Output() isEditingChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  response: String;
+
+
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
@@ -33,14 +38,19 @@ export class EditBannerComponent implements OnInit {
           this.isEditing = true;
           this.isEditingChange.emit(this.isEditing);
           this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
-              data => console.log(data)
+              data => this.response,
           );
-          this.isEditing = false;
       } else {
+          // this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(
+          //     data => this.response
+          // )
           this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(
-              data => console.log(data)
-          )
-          this.isEditing = false;
+              () => {
+              },
+              (error: HttpErrorResponse) => {
+                  console.log(error)
+              })
+
       }
     }
 

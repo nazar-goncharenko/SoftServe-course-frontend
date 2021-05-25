@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Banner, BannerStatusShort} from "../../../../../shared/interfaces/banner";
-import {BannerService} from "../../../../../services/banners.service";
-import {SportCategory} from "../../../../../shared/interfaces/sportCategory";
+import {Banner, BannerStatusShort} from "@shared/interfaces/banner";
+import {BannerService} from "@services/banners.service";
+import {SportCategory} from "@shared/interfaces/sportCategory";
 
 @Component({
   selector: 'app-banners-management',
@@ -14,6 +14,7 @@ export class BannersManagementComponent implements OnInit {
   selectedBanner: Banner;
   isSelectedBannerNew: boolean = true;
   isEditing: boolean;
+  messages: any;
 
   constructor(private bannerService: BannerService) { }
 
@@ -34,5 +35,6 @@ export class BannersManagementComponent implements OnInit {
 
   addBanner() {
     this.setSelectedBanner({title: ''}, true);
+    this.isEditing = true;
   }
 }

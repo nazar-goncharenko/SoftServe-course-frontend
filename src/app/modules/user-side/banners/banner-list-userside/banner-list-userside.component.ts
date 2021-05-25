@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {BannerService} from "@services/banners.service";
+import {Banner} from "@shared/interfaces/banner";
 
 @Component({
   selector: 'app-banner-list-userside',
   templateUrl: './banner-list-userside.component.html',
   styleUrls: ['./banner-list-userside.component.scss']
 })
-export class BannerListUsersideComponent implements OnInit {
+export class BannersListUsersideComponent implements OnInit {
 
-  constructor() { }
+  @Input() banners: Banner[];
+  @Output() selectedBannerChanged = new EventEmitter<Banner>();
+  @Input() categoryId: number;
 
-  ngOnInit(): void {
+  constructor(private bannerService: BannerService){}
+
+  ngOnInit() {
+    this.bannerService.getUserSide(this.categoryId).subscribe(data => this.banners = data);
   }
 
 }

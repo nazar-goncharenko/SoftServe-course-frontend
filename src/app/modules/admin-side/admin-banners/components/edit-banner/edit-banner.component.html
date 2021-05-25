@@ -1,4 +1,4 @@
-<div class="banner-card test" *ngIf="banner">
+<div class="banner-card" *ngIf="banner">
     <div *ngIf="isEditing else preview">
         <form #editForm="ngForm" (ngSubmit)="editBanner()">
             <div class="form-group">
@@ -15,6 +15,18 @@
                 <button (click)="isEditing = !isEditing; isEditingChange.emit(isEditing)" type="reset" class="cancel-button">Cancel</button>
                 <button type="submit" class="save-button" >Save</button>
             </div>
+            <div>{{response}}</div>
+
+
+<!--            <div *ngIf="!newNameValid"-->
+<!--                 class="alert">-->
+
+<!--                <div *ngIf="!newNameValid">-->
+<!--                    Name cannot be {{banner.title}}-->
+<!--                </div>-->
+
+<!--            </div>-->
+
         </form>
         <div class="banner-date inside outside">
             <p>Last updated {{banner.lastUpdated}} </p>

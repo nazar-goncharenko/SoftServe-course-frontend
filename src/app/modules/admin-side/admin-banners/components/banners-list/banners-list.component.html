@@ -5,11 +5,18 @@
            (click)="getBannersByStatus(status)">
        {{status | uppercase}}
    </button>
-    <div class="float-right banner-search-area">
+<!--    <div class="float-right banner-search-area">-->
+<!--        <input type="text" [(ngModel)]="keyword" class="form-control search-input"  placeholder="Enter a banner name here">-->
+<!--        <button class="search-button custom-svg-inline&#45;&#45;fa ml-2 mr-2" (click)="searchBanners(keyword)"><fa-icon [icon]="search"></fa-icon></button>-->
+<!--    </div>-->
+    <div *ngIf="!isSearch" class=" custom-svg-inline--fa mr-2 mb-0 pb-0 float-right" (click)="toggleSearch()"><fa-icon [icon]="search"></fa-icon></div>
+    <div *ngIf="isSearch" class="float-right banner-search-area">
         <input type="text" [(ngModel)]="keyword" class="form-control search-input"  placeholder="Enter a banner name here">
-        <button class="search-button custom-svg-inline--fa ml-2 mr-2" (click)="searchBanners(keyword)"><fa-icon [icon]="search"></fa-icon></button>
+        <div class=" custom-svg-inline--fa ml-2 mr-2" (click)="toggleSearch()"><fa-icon [icon]="search"></fa-icon></div>
     </div>
+
 </div>
+
 <div class="container banner-list">
     <div class="banner-list-title h-100 pt-3 pb-4 mb-3">
         <div class="float-left w-50">
@@ -18,8 +25,17 @@
         <div class="float-right w-50">
             <div class="width-45 d-inline-flex">
                 <p>STATUS</p>
-                <button class="filter-button ml-2 mr-2"><fa-icon [icon]="filter"></fa-icon> </button>
-
+<!--                <button class="filter-button ml-2 mr-2"><fa-icon [icon]="filter"></fa-icon></button>-->
+                <mat-select>
+                    <p class="sort-by-title">Sort by</p>
+                    <hr class="sort-by-title">
+                    <mat-option (click)="sortBy('PUBLISHED')">
+                        published
+                    </mat-option>
+                    <mat-option (click)="sortBy('NOT_PUBLISHED')">
+                        not published
+                    </mat-option>
+                </mat-select>
             </div>
             <div class="width-45 d-inline-flex">
                 <p>PUBLISHED IN</p>
@@ -27,7 +43,7 @@
         </div>
     </div>
     <div class="row d-block">
-        <div *ngFor="let b of banners; let i = index" class="pl-0 pr-0">
+        <div *ngFor="let b of banners | filter:keyword; let i = index" class="pl-0 pr-0">
             <app-banner-item (bannerDeleted)="onBannerDeleted(i)" [banner]="b" (bannerChange)="configureBanner($event)" (click)="selectBannerAt(i)"></app-banner-item>
         </div>
     </div>
