@@ -32,10 +32,10 @@ export class AddArticleComponent implements OnInit {
           {
             file: [null],
             // category: ['', Validators.required],
-            altImgName: ['', [Validators.required]],
-            title: ['', [Validators.required]],
-            caption: ['', [Validators.required]],
-            description: ['', [Validators.required]],
+            altImgName: ['', [Validators.required, Validators.minLength(3)]],
+            title: ['', [Validators.required, Validators.minLength(3)]],
+            caption: ['', [Validators.required, Validators.minLength(3)]],
+            description: ['', [Validators.required, Validators.minLength(3)]],
             showComments: [false],
         }
     );

@@ -10,44 +10,33 @@ import {ResetComponent} from '@modules/user-side/reset_password/reset.component'
 import {RoleGuard} from '@modules/security/RoleGuard';
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
 import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.component';
-import {VideoComponent} from './modules/user-side/video/video/video.component';
-import {VideosComponent} from './modules/user-side/video/videos/videos.component';
-import {AdminHomeComponent} from './modules/admin-side/home/home.component';
-import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-edit.component';
-import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
+import {VideoComponent} from '@modules/user-side/video/video/video.component';
+import {VideosComponent} from '@modules/user-side/video/videos/videos.component';
+import {AdminHomeComponent} from '@modules/admin-side/home/home.component';
+import {VideoEditComponent} from '@modules/admin-side/video/video-edit/video-edit.component';
+import {AdminVideoComponent} from '@modules/admin-side/video/video/video.component';
+import {AuthGuard} from '@modules/security/AuthGuard';
 
 
 
 const routes: Routes = [
-    {path: '', component: HomeComponent, pathMatch: 'full'},
-    {path: 'login', component: LoginComponent},
-    {path: 'forgot_password', component: Forgot_passwordComponent},
-    {path: 'registration', component: RegistrationComponent},
-    {path: 'user/:user_id', component: UserProfileComponent},
-    {path: 'users', component: UserListComponent, canActivate: [RoleGuard]},
-    {path: 'reset_password', component: ResetComponent},
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'login', component: LoginComponent },
+    { path: 'forgot_password', component: Forgot_passwordComponent },
+    { path: 'registration', component: RegistrationComponent },
+    { path: 'user/:user_id', component: UserProfileComponent },
+    { path: 'users', component: UserListComponent, canActivate: [RoleGuard] },
+    { path: 'reset_password', component: ResetComponent },
+    { path: 'videos', component: VideosComponent },
+    { path: 'videos/:id', component: VideoComponent },
     {
-      path: 'admin/add-article',
-      component: AddArticleComponent,
-      data: {
-        expectedRole: 'admin'
-      }
-    },
-    {path: 'videos', component: VideosComponent},
-    {path: 'videos/:id', component: VideoComponent},
-    {
-        path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
-            {path: 'videos', component: AdminVideoComponent},
-            {path: 'videos/:id', component: VideoEditComponent}
+        path: 'admin', canActivate: [RoleGuard, AuthGuard], children: [
+            { path: '', component: AdminHomeComponent },
+            { path: 'videos', component: AdminVideoComponent },
+            { path: 'videos/:id', component: VideoEditComponent },
+            { path: 'add-article', component: AddArticleComponent },
         ]
     },
-    {
-        path: 'admin/home',
-        component: AdminHomeComponent,
-        data: {
-            expectedRole: 'admin'
-        }
-    }
 ];
 
 @NgModule({

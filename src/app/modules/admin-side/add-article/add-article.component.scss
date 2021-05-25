@@ -30,6 +30,7 @@ select, input {
   &:focus, &:active {
     outline: none !important;
     border-color: #7F8899;
+    transition: border-color .8s ease;
   }
 
   &::placeholder {
@@ -62,6 +63,7 @@ textarea {
   &:focus, &:active {
     outline: none !important;
     border-color: #7F8899;
+    transition: border-color .8s ease;
   }
 }
 
