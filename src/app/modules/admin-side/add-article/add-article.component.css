@@ -17,6 +17,10 @@ label, .commentSwitch {
   text-transform: uppercase;
 }
 
+.custom-control-label {
+  padding-top: 7px;
+}
+
 select, input {
   width: 100%;
   padding: 13px 0 13px 22px;
@@ -63,13 +67,6 @@ select {
   font-weight: 500;
 }
 
-.dnd-msg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .dnd-box {
   background-color: rgba(196, 196, 196, 0.08);
   width: 813px;
@@ -80,9 +77,23 @@ select {
   border: 1px dashed #D1D1D1;
 }
 .dnd-box .dnd-msg {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+}
+.dnd-box .dnd-msg p {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.dnd-box .dnd-msg label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: none;
 }
 .dnd-box img {
   width: 63px;
@@ -102,37 +113,17 @@ select {
   font-size: 12px;
 }
 
-::ng-deep .mat-slide-toggle-thumb {
-  box-shadow: none;
-  background-color: #D4D9E2;
-  width: 10px !important;
-  height: 10px !important;
-  transform: translate(50%, 50%);
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #dc3545;
 }
 
-::ng-deep .mat-slide-toggle-bar {
-  border-radius: 15px !important;
-  height: 16px !important;
-  background-color: white;
-  -webkit-box-shadow: 0 0 0 1px #d4d9e2;
-  -moz-box-shadow: 0 0 0 1px #d4d9e2;
-  box-shadow: 0 0 0 1px #d4d9e2;
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #adb5bd;
+  background-color: #fff;
 }
 
-::ng-deep .mat-slide-toggle-thumb-container {
-  top: -2px !important;
-}
-
-::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-  background-color: white;
-  -webkit-box-shadow: 0 0 0 1px #d4d9e2;
-  -moz-box-shadow: 0 0 0 1px #d4d9e2;
-  box-shadow: 0 0 0 1px #d4d9e2;
-}
-
-::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-  background-color: #C80515;
-  box-shadow: none;
+.custom-control-input:disabled ~ .custom-control-label, .custom-control-input[disabled] ~ .custom-control-label {
+  color: #6c757d;
 }
 
 .text-format-tool {

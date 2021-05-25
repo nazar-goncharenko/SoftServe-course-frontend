@@ -1,13 +1,18 @@
-<!--<app-header></app-header>-->
+<app-header></app-header>
+<app-admin-navigation></app-admin-navigation>
 <form [formGroup]="formGroup" (ngSubmit)="addArticle()" action="">
-    <p>Form value: {{ formGroup.value | json }}</p>
+    <!--    <p>Form status: {{ formGroup.status | json }}</p>-->
+    <!--    <p>Form errors: {{ formGroup.errors | json }}</p>-->
+    <!--    <p>Form value: {{ formGroup.value | json }}</p>-->
 
     <div class="dnd-box">
         <input type="file" (change)="onFileChange($event)" id="fileDrop">
         <div class="dnd-msg">
             <img src="assets/img/dd_camera.svg" alt="Upload camera">
-            <label for="fileDrop"><span class="text-danger">+Add picture</span></label>
-            or drop it right here <br> You can add next formats: png. jpg. jpeg. tif
+            <p>
+                <label class="text-danger" for="fileDrop">+Add picture</label> or drop it right here
+            </p>
+            <p>You can add next formats: png. jpg. jpeg. tif</p>
         </div>
     </div>
 
@@ -15,7 +20,6 @@
         <div class="row">
             <div class="col">
                 <label for="conferenceSelect">Conference</label>
-                <!-- TODO: ngFor options -->
                 <select name="conference" id="conferenceSelect">
                     <option>Not Selected</option>
                 </select>
@@ -23,7 +27,10 @@
             <div class="col">
                 <label for="teamSelect">Team</label>
                 <select name="team" id="teamSelect">
-                    <option>Not Selected</option>
+                    <!-- <option>Not Selected</option> -->
+                    <option *ngFor="let category of categories">
+                        {{category}}
+                    </option>
                 </select>
             </div>
             <div class="col">
@@ -34,17 +41,17 @@
             </div>
         </div>
 
-
-        <!--    formControl-->
         <label for="altImgName">Alt. *</label>
-        <input id="altImgName" type="text" placeholder="Alternative text for picture">
+        <input id="altImgName" type="text" formControlName="altImgName" placeholder="Alternative text for picture">
 
         <label for="headline">Article Headline *</label>
         <input id="headline" type="text" formControlName="title" placeholder="Name">
+        <div *ngIf="f.title.touched && f.title.errors" class="validation-danger">
+            <!--            <div *ngIf="f.title.errors.required">This field is required</div>-->
+        </div>
 
-        <!--    formControl-->
         <label for="caption">Caption *</label>
-        <input id="caption" type="text" placeholder="Name">
+        <input id="caption" type="text" formControlName="caption" placeholder="Name">
 
         <label for="description">Сontent *</label>
         <div class="text-format-tool">
@@ -71,15 +78,16 @@
                 <li><img src="assets/img/list.svg" alt="Align left" class="filter-grey"></li>
             </ul>
         </div>
-<!--        <input id="description" type="text" formControlName="description" placeholder="Please add text here">-->
 
-        <textarea name="description" id="description" placeholder="Please add text here"></textarea>
+        <textarea name="description" id="description" formControlName="description"
+                  placeholder="Please add text here"></textarea>
 
-        <div class="commentSwitch align-middle">Comments: <span class="text-dark pr-2">Show</span>
-            <mat-slide-toggle
-                    color="warn" checked></mat-slide-toggle>
+        <div class="custom-control custom-switch align-middle">
+            <input type="checkbox" class="custom-control-input" id="commentsSwitch" formControlName="showComments">
+            <label class="custom-control-label" for="commentsSwitch">Show comments</label>
         </div>
-
-        <!--    <button type="submit">Save</button>-->
+        <div class="text-center">
+            <button [disabled]="formGroup.invalid" class="btn btn-danger rounded-0" type="submit">Save</button>
+        </div>
     </div>
 </form>
