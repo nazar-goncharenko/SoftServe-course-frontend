@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
+  @ViewChild(AddPhotoComponent) addPhoto;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // tslint:disable-next-line:typedef
+  onClick() {
+    this.addPhoto.uploadFile();
   }
 
 }

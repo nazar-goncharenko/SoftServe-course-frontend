@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from '@modules/user-side/home/home.component';
 import {LoginComponent} from '@modules/user-side/login/login.component';
@@ -17,12 +16,22 @@ import {AdminVideoComponent} from '@modules/admin-side/video/video/video.compone
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
 import {SurveyComponent} from '@modules/admin-side/survey/survey.component';
 
+import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
+import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.component';
+import {VideoComponent} from './modules/user-side/video/video/video.component';
+import {VideosComponent} from './modules/user-side/video/videos/videos.component';
+import {AdminHomeComponent} from './modules/admin-side/home/home.component';
+import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-edit.component';
+import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
+
+
 
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
 
     {path: 'registration', component: RegistrationComponent},
+
     {path: 'login', component: LoginComponent},
 
     {path: 'forgot_password', component: Forgot_passwordComponent},
@@ -35,11 +44,11 @@ const routes: Routes = [
     {path: 'adm/surveys', component: SurveyComponent},
 
     {
-        path: 'admin/add-article',
-        component: AddArticleComponent,
-        data: {
-            expectedRole: 'admin'
-        }
+      path: 'admin/add-article',
+      component: AddArticleComponent,
+      data: {
+        expectedRole: 'admin'
+      }
     },
     {path: 'videos', component: VideosComponent},
     {path: 'videos/:id', component: VideoComponent},
@@ -50,6 +59,13 @@ const routes: Routes = [
 
 
         ]
+    },
+    {
+        path: 'admin/home',
+        component: AdminHomeComponent,
+        data: {
+            expectedRole: 'admin'
+        }
     }
 ];
 

@@ -1,6 +1,6 @@
 <app-header></app-header>
-<!--<div class="header bg-danger">Sports Hub</div>-->
 <app-navigation></app-navigation>
+
 
 <div class="bg-caption">
     all
@@ -24,11 +24,30 @@
             <fa-icon class="a-c-ico" [icon]="arrowRightIco"></fa-icon>
         </div>
     </div>
-</div>
 
-<!--<div class="d-flex justify-content-center">
+    <!--<div class="d-flex justify-content-center">
     <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-</div>-->
+    </div>-->
+
+    <!-- PHOTO OF THE DAY -->
+    <div *ngIf="photo">
+        <div *ngIf="photo.isShown">
+            <div class="rectangle">
+                <img src="assets/photo/photo_header.svg" alt=""/>
+            </div>
+            <div [ngStyle]="{'background-image': 'linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) ), url(' + '../../../../assets/photo/' + photo.photoUrl + ')'}"
+                 class="image">
+                <div class="position-relative upload-icon"></div>
+                <ul class="col align-self-end info">
+                    <li class="font-weight-bold" id="photoTitle">{{photo.photoTitle}}</li>
+                    <li id="description">{{photo.description}}</li>
+                    <li class="font-weight-bold font-italic" id="author">{{photo.author}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>

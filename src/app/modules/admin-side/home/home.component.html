@@ -1,3 +1,18 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<div class="panel panel-default border-bottom border-1">
+    <div class="panel-heading">
+        <div class="panel-title pull-left">
+            home
+        </div>
+        <div class="panel-title pull-right">
+            <button class="btn btn-danger"
+                    (click)="onClick()">Save all changes</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<app-admin-navigation></app-admin-navigation>
+
+<app-photo></app-photo>

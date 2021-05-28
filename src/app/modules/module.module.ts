@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {LoginComponent} from './user-side/login/login.component';
 import {Forgot_passwordComponent} from './user-side/forgot_password/forgot_password.component';
 import {RegistrationComponent} from './user-side/registration/registration.component';
-import {HomeComponent} from './user-side/home/home.component';
+import { HomeComponent } from './user-side/home/home.component';
 import {UserProfileComponent} from './user-side/user-profile/user-profile.component';
 import {UserListComponent} from './user-side/user-list/user-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -17,6 +17,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import {ResetComponent} from './user-side/reset_password/reset.component';
+import {AddPhotoComponent} from './admin-side/add-photo/add-photo.component';
+import {AddArticleComponent} from './admin-side/add-article/add-article.component';
 import {AdminVideoComponent} from './admin-side/video/video/video.component';
 import {VideoComponent} from './user-side/video/video/video.component';
 import {AdminHomeComponent} from './admin-side/home/home.component';
@@ -36,22 +38,28 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
 import { SurveyComponent } from './admin-side/survey/survey.component';
 import {MatTableModule} from '@angular/material/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
+
 @NgModule({
     declarations: [HomeComponent,
-        LoginComponent,
-        Forgot_passwordComponent,
         HeaderComponent,
         NavigationComponent,
         FooterComponent,
+        AddPhotoComponent,
+        LoginComponent,
+        Forgot_passwordComponent,
         RegistrationComponent,
         UserProfileComponent,
         ResetComponent,
         UserListComponent,
+        AddArticleComponent,
         AdminVideoComponent,
         VideoComponent,
         AdminHomeComponent,
@@ -61,8 +69,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         VideoFormConfirmComponent,
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
+
         AddArticleComponent,
         SurveyComponent
+
     ],
     exports: [],
     imports: [
@@ -85,6 +95,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         MatAutocompleteModule,
         MatTableModule,
         NgbModule,
+        FontAwesomeModule
     ]
 })
 export class ModuleModule {

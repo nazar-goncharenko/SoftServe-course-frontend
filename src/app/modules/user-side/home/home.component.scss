@@ -122,3 +122,48 @@ $article-common-shadow: 0 2px 24px rgba(0, 0, 0, 0.110932);
   }
 
 }
+
+//  photo of the day
+
+.rectangle {
+  margin: 20px 0 20px 0;
+}
+
+.image {
+  width: 815px;
+  height: 577px;
+
+  .upload-icon {
+    background: url("../../../../assets/photo/photo-triangle.svg") no-repeat top left;
+    width: 169px;
+    height: 123px;
+    top: -20px;
+    left: -20px;
+  }
+}
+
+.info {
+  list-style-type: none;
+  color: #FFFFFF;
+  bottom: -350px;
+}
+
+.bottom-left {
+  bottom: 8px;
+  left: 16px;
+}
+
+#photoTitle {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+#description {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+#author {
+  font-size: 14px;
+  line-height: 19px;
+}

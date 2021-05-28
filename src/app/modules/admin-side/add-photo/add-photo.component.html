@@ -1,0 +1,32 @@
+<div class="container-fluid pb-5 photo-info">
+    <div class="rectangle">
+        <img src="assets/photo/photo_header.svg" alt=""/>
+    </div>
+    <form #addForm="ngForm" (ngSubmit)="uploadFile(addForm)">
+
+        <div class="dropzone">
+            <img [src]="url" class="upload-icon"  alt=""/>
+            <input type="file" (change)="handleFileInput($event)" name="file" id="file" class="position-relative upload-input" />
+        </div>
+        <div class="text-uppercase form-group">
+            <label for="alt">alt.</label>
+            <input type="text" [(ngModel)]="photo.alt" name="alt" class="form-control" id="alt">
+
+            <label for="photoTitle">photo title</label>
+            <input type="text" [(ngModel)]="photo.photoTitle" name="photoTitle" class="form-control" id="photoTitle">
+
+            <label for="description">short description</label>
+            <input type="text" [(ngModel)]="photo.description" name="description" class="form-control" id="description">
+
+            <label for="author">author</label>
+            <input type="text" [(ngModel)]="photo.author" name="author" class="form-control" id="author">
+        </div>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" [checked]="photo.isShown" (change)="photo.isShown = !photo.isShown" id="switch1">
+            <label class="custom-control-label" for="switch1">Show on the main page</label>
+        </div>
+
+    </form>
+</div>
+
+
