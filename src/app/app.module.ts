@@ -12,6 +12,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SurveyService } from './services/survey.service';
 
 
 @NgModule({
@@ -28,8 +31,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatListModule,
         MatRadioModule,
         MatSlideToggleModule,
+        MatTableModule,
+        NgbModule,
     ],
     providers: [
+        SurveyService,
         UserService,
         AuthentificationService,
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

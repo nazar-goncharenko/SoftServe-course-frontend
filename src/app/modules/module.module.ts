@@ -37,7 +37,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AddArticleComponent} from './admin-side/add-article/add-article.component';
-
+import { SurveyComponent } from './admin-side/survey/survey.component';
+import {MatTableModule} from '@angular/material/table';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [HomeComponent,
@@ -60,6 +62,7 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
         AddArticleComponent,
+        SurveyComponent
     ],
     exports: [],
     imports: [
@@ -79,7 +82,9 @@ import {AddArticleComponent} from './admin-side/add-article/add-article.componen
         MatIconModule,
         IvyCarouselModule,
         MatSlideToggleModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatTableModule,
+        NgbModule,
     ]
 })
 export class ModuleModule {

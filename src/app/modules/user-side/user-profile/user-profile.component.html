@@ -76,7 +76,7 @@
                         </div>
                         <div class="container">
                             <button type="button" class="btn btn-success" id="password_butt" disabled
-                                    (click)="updateUser()">Update
+                                    (click)="updateUser()">Change password
                             </button>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
         </form>
 
         <mat-tab label="My surveys">
-            <form [formGroup]="updateSurveyForm" name="test">
+
                 <div class="example-container survey">
                     <mat-tab-group>
 
@@ -112,19 +112,15 @@
                                             {{cb.text}} ({{cb.responses_count}} votes)
                                         </mat-radio-button>
                                     </mat-list-item>
+
                                 </mat-list>
 
-                                <div class="container">
+                                <div class="container"> <!-- if is admin! !-->
                                     <button type="button" class="btn btn-outline-danger"
-                                            (click)="updateSurvey()">
-                                        Close survey
-                                    </button>
-                                    <button type="button" class="btn btn-danger"
-                                            (click)="deleteSurvey()">
-                                        Delete
+                                            (click)="manageSurvey()">
+                                        Manage surveys
                                     </button>
                                 </div>
-
                             </div>
                         </mat-tab>
 
@@ -153,25 +149,21 @@
                                     </mat-list-item>
                                 </mat-list>
 
-                                <div class="container">
+                                <div class="container"> <!-- if is admin! !-->
                                     <button type="button" class="btn btn-outline-danger"
-                                            (click)="updateSurvey()">
-                                        Open survey
-                                    </button>
-                                    <button type="button" class="btn btn-danger"
-                                            (click)="deleteSurvey()">
-                                        Delete
+                                            (click)="manageSurvey()">
+                                        Manage surveys
                                     </button>
                                 </div>
 
                             </div>
 
                         </mat-tab>
-                        btn-info
+
 
                     </mat-tab-group>
                 </div>
-            </form>
+
         </mat-tab>
 
         <mat-tab label="Favourite">
