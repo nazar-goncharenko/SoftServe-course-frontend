@@ -2,9 +2,9 @@
 <!--<div class="header bg-danger">Sports Hub</div>-->
 <app-navigation></app-navigation>
 
-<div class="bg-caption">
-    all
-</div>
+<!--<div class="bg-caption">-->
+<!--    all-->
+<!--</div>-->
 
 <div class="content-container">
 <!--    <div class="main-article" *ngIf="articles[0]">-->
@@ -16,14 +16,6 @@
 <!--    </div>-->
 
     <!--  REMOVE PADDING  -->
-    <div class="content pb-2">
-        <div class="article-col-container" *ngFor="let article of articles | slice:1:5">
-            <div class="img-container"><img src="assets/img/{{article.imagePath}}" alt=""></div>
-            <div class="title">{{article.title}}</div>
-            <div class="description">{{article.description}}</div>
-            <fa-icon class="a-c-ico" [icon]="arrowRightIco"></fa-icon>
-        </div>
-    </div>
 </div>
 
 <!--<div class="d-flex justify-content-center">

@@ -34,16 +34,16 @@ export class MostPopularAdminComponent implements OnInit {
 
   changePeriod(value: string): void{
     switch(value) {
-      case "period-1":
+      case "Day":
         this.period = "Day";
         break;
-      case "period-2":
+      case "Week":
         this.period = "Week";
         break;
-      case "period-3":
+      case "Month":
         this.period = "Month";
         break;
-      case "period-4":
+      case "Year":
         this.period = "Year";
         break;
     }

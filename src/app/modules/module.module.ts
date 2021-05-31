@@ -41,6 +41,7 @@ import { MostPopularAdminComponent } from './admin-side/most-popular-admin/most-
 import { MostPopularUserComponent } from './user-side/most-popular-user/most-popular-user.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { SportCategoryComponent } from './user-side/sport-category/sport-category.component';
+import { AdminSideHomeComponent } from './admin-side/admin-side-home/admin-side-home.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { SportCategoryComponent } from './user-side/sport-category/sport-categor
         MostPopularAdminComponent,
         MostPopularUserComponent,
         SportCategoryComponent,
+        AdminSideHomeComponent,
     ],
     exports: [],
     imports: [

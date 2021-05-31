@@ -5,6 +5,7 @@ import {SportCategoryService} from '@services/sportCategory.service';
 import {AppConstants} from "@shared/app.constants";
 import {MostPopularCommentedService} from "@services/most-popular-commented.service";
 import {ArticleService} from "@services/article.service";
+import {Router} from "@angular/router";
 
 @Component({
         selector: 'app-navigation',
@@ -24,7 +25,8 @@ export class NavigationComponent implements OnInit {
 
     constructor(private sportCategoryService: SportCategoryService,
                 private mostPopularCommentedService: MostPopularCommentedService,
-                private articleService: ArticleService) {
+                private articleService: ArticleService,
+                private router: Router) {
     }
 
 
@@ -97,6 +99,7 @@ export class NavigationComponent implements OnInit {
         } else {
             this.last_layer_action();
             this.articleService.setCurrentLocation(sportCategory.id.toString());
+            this.router.navigate(['/sportCategory/' + sportCategory.id]);
             return;
         }
         if (!copy) {
@@ -121,6 +124,7 @@ export class NavigationComponent implements OnInit {
             //this.currentCategoryID = sportCategory.id;
             //this.currentCategoryID.emit(sportCategory.id);
             this.articleService.setCurrentLocation(sportCategory.id.toString());
+            this.router.navigate(['/sportCategory/' + sportCategory.id]);
             this.clearLayers();
         }
         return;

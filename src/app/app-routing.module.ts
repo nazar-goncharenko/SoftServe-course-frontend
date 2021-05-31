@@ -16,10 +16,12 @@ import {VideoEditComponent} from './modules/admin-side/video/video-edit/video-ed
 import {AdminVideoComponent} from './modules/admin-side/video/video/video.component';
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
 import {SportCategoryComponent} from "@modules/user-side/sport-category/sport-category.component";
+import {AdminSideHomeComponent} from "@modules/admin-side/admin-side-home/admin-side-home.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
-    {path: 'admin', /*canActivate: [RoleGuard], */component: AdminHomeComponent},
+    {path: 'admin', /*canActivate: [RoleGuard], */component: AdminSideHomeComponent},
+    {path: 'sportCategory/:id', component: SportCategoryComponent},
     {path: 'user/:user_id', component: UserProfileComponent},
     {path: 'users', component: UserListComponent},
     {path: 'login', component: LoginComponent},
@@ -38,13 +40,13 @@ const routes: Routes = [
     {path: 'videos', component: VideosComponent},
     {path: 'videos/:id', component: VideoComponent},
     {
-        path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
+        path: 'admin', component: AdminHomeComponent, /*canActivate: [RoleGuard],*/ children: [
             {path: 'videos', component: AdminVideoComponent},
-            {path: 'videos/:id', component: VideoEditComponent}
+            {path: 'videos/:id', component: VideoEditComponent},
+            {path: 'home', component: AdminHomeComponent}
         ]
     },
-    {path: ':nameCategory', component: HomeComponent},
-    {path: 'sportCategory/:id', component: SportCategoryComponent}
+    {path: ':nameCategory', component: HomeComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,13 @@
-<div class="container-fluid">
-    <div *ngFor="let a of articles" class="container">
-        {{a | json}}
-        <p>____________________________________________________</p>
+<div class="container-body" *ngIf="isShow">
+    <p class="font-weight-bold text-center text-lg-left text-md-left text-sm-left text-xl-center">MOST POPULAR</p>
+    <div class="row card-group m-2 justify-content-center">
+        <div class="p-2 card col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 bg-light" *ngFor="let a of articles">
+            <img class="card-img-top most-popular-user-img" src="assets/img/{{a.imagePath}}" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">{{a.title}}</h3>
+                <p class="card-text">{{a.description}}</p>
+            </div>
+        </div>
     </div>
 </div>
+
