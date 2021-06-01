@@ -1,5 +1,21 @@
 .banner-list{
-  width: 20vh;
+  width: 300px;
   float: right;
-  margin-right: 100px;
+  margin-bottom: 100px;
+  display: inline;
+  position: relative;
+  top: -102%;
+  height: 87%;
+  overflow: scroll;
+  overflow-x: hidden;
+  right: 1%;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
 }

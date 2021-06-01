@@ -1,3 +1,30 @@
+<!--<div class="position-absolute w-18 pt-3">-->
+<!--    <div class="navbar pl-5 pr-5 w-18 float-left align-items-baseline">-->
+<!--        <div class="nav-item">-->
+<!--            <div *ngFor="let category of beforeCategories">-->
+<!--                <a class="link text-danger" [href]="category.ulr">{{category.name | uppercase}}</a>-->
+<!--            </div>-->
+<!--            <div *ngFor="let category of sportCategories" class="nav-item text-danger">-->
+<!--                <a class="link text-danger" (click)="getChild(category)">-->
+<!--                    {{ category.name }}-->
+<!--                </a>-->
+<!--            </div>-->
+
+
+<!--            <div *ngFor="let category of afterCategories">-->
+<!--                <a class="link text-danger" [href]="category.ulr">{{category.name | uppercase}}</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="navbar p-4 w-18 float-left bg-light align-items-baseline" *ngFor="let layer of layers">-->
+<!--        <div class="nav-item" *ngFor="let comp of layer">-->
+<!--            <div class="text-danger" *ngFor="let t of comp" (click)="getChild(t)">-->
+<!--                <a class="nav-link text-danger">{{ t.name }}</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
 <div class="position-absolute w-18 pt-3">
     <div class="navbar pl-5 pr-5 w-18 float-left align-items-baseline">
         <div class="nav-item">
@@ -33,14 +60,13 @@
     <div class="navbar pl-5 pr-5 w-18 float-left align-items-baseline">
         <div class="nav-item">
 
-
             <div *ngFor="let category of beforeCategories">
                 <a class="link text-danger" [href]="category.ulr">{{category.name | uppercase}}</a>
             </div>
 
 
             <div *ngFor="let category of sportCategories" class="nav-item text-danger">
-                <a class="link text-danger" (click)="getChild(category)">
+                <a class="link text-danger" (click)="getChild(category)" href="/sportCategory/{{category.id}}">
                     {{ category.name }}
                 </a>
             </div>
@@ -51,3 +77,28 @@
         </div>
     </div>
 </div>
+
+<!--&lt;!&ndash;copy&ndash;&gt;-->
+
+<!--<div class="position-relative d-print-none pt-3">-->
+<!--    <div class="navbar pl-5 pr-5 w-18 float-left align-items-baseline">-->
+<!--        <div class="nav-item">-->
+
+
+<!--            <div *ngFor="let category of beforeCategories">-->
+<!--                <a class="link text-danger" [href]="category.ulr">{{category.name | uppercase}}</a>-->
+<!--            </div>-->
+
+
+<!--            <div *ngFor="let category of sportCategories" class="nav-item text-danger">-->
+<!--                <a class="link text-danger" (click)="getChild(category)">-->
+<!--                    {{ category.name }}-->
+<!--                </a>-->
+<!--            </div>-->
+
+<!--            <div *ngFor="let category of afterCategories">-->
+<!--                <a class="link text-danger" [href]="category.ulr">{{category.name | uppercase}}</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

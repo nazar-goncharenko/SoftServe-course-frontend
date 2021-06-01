@@ -1,9 +1,6 @@
 <div class="banner-card" *ngIf="banner">
-    <div class="img-container" *ngIf="banner.category.isPredefined">
-        <p>predefined</p>
-        <img src="../../../../assets/uploaded_images/{{banner.imgPath}}" alt="" />
-    </div>
-    <div class="img-container" *ngIf="!banner.category.isPredefined">
+    <div class="img-container">
+        <p>{{banner.title}}</p>
         <img src="../../../../assets/uploaded_images/{{banner.imgPath}}" alt="" />
     </div>
 </div>

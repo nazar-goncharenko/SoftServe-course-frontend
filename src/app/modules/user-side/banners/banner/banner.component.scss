@@ -1,16 +1,23 @@
 .img-container{
-  position: fixed;
+  position: relative;
   height: 200px;
+  margin-left: 3px;
 } img{
     width: 250px;
+    height: 175px;
     max-height: 200px;
   }
 
 .banner-card {
-  width: 250px;
+  background-color: #f2f2f2;
+  width: 256px;
   margin-right: 7%;
   float: right;
-  height: 200px;
+  height: 220px;
   right: 1%;
   margin-bottom: 25px;
-}
+} p{
+  margin-bottom: 2px;
+  font-weight: bolder;
+  text-align: center;
+  }
