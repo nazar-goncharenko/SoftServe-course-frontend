@@ -1,3 +1,9 @@
+<div *ngIf="!validInput" class="alert hide-alert alert-danger custom-alert alert-dismissible fade show" role="alert">
+    <strong>{{errorMessage}}</strong>
+    <button type="button" (click)="hideError()" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <div class="banner-card" *ngIf="banner">
     <div *ngIf="isEditing else preview">
         <form #editForm="ngForm" (ngSubmit)="editBanner()">
@@ -15,17 +21,6 @@
                 <button (click)="isEditing = !isEditing; isEditingChange.emit(isEditing)" type="reset" class="cancel-button">Cancel</button>
                 <button type="submit" class="save-button" >Save</button>
             </div>
-            <div>{{response}}</div>
-
-
-<!--            <div *ngIf="!newNameValid"-->
-<!--                 class="alert">-->
-
-<!--                <div *ngIf="!newNameValid">-->
-<!--                    Name cannot be {{banner.title}}-->
-<!--                </div>-->
-
-<!--            </div>-->
 
         </form>
         <div class="banner-date inside outside">

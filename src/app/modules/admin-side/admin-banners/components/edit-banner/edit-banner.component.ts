@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Banner} from "../../../../../shared/interfaces/banner";
 import {BannerService} from "../../../../../services/banners.service";
-import {subscribeOn} from "rxjs/operators";
+import {catchError, subscribeOn} from "rxjs/operators";
 import {error} from "@angular/compiler/src/util";
 
 
@@ -21,12 +21,25 @@ export class EditBannerComponent implements OnInit {
   uploadFile: File = null;
   @Input() isEditing: boolean;
   @Output() isEditingChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  response: String;
+  errorMessage: String;
+  validInput = true;
 
 
   constructor(private bannerService: BannerService){}
 
   ngOnInit() {
+  }
+
+  hideError(){
+      this.validInput = true;
+  }
+
+  showMessage(){
+      this.validInput = false;
+
+      setTimeout(()=>{
+          this.validInput = true;
+      }, 4000);
   }
 
   handleFileInput(files: FileList) {
@@ -37,23 +50,26 @@ export class EditBannerComponent implements OnInit {
       if (!this.isNew) {
           this.isEditing = true;
           this.isEditingChange.emit(this.isEditing);
-          this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(
-              data => this.response,
+          this.bannerService.updateBanner(this.banner, this.uploadFile).subscribe(data=> {
+              console.log(data);
+          },
+              (error) => {
+              this.errorMessage = error.error;
+              this.showMessage();
+              }
           );
-      } else {
-          // this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(
-          //     data => this.response
-          // )
-          this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(
-              () => {
-              },
-              (error: HttpErrorResponse) => {
-                  console.log(error)
-              })
-
+      }
+      else {
+          this.bannerService.createBanner(this.banner, this.uploadFile).subscribe(data => {
+              console.log(data);
+          },
+          (error) => {
+              this.errorMessage = error.error;
+              this.showMessage();
+              console.log(error.error)
+          })
       }
     }
-
 
     public getBanner(): void {
     this.bannerService.getBanner(2).subscribe(

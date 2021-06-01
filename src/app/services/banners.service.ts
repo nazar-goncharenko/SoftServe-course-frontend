@@ -4,10 +4,11 @@ import {Observable, of} from 'rxjs';
 import {Banner, BannerStatusShort} from "@shared/interfaces/banner";
 import {SportCategory} from "@shared/interfaces/sportCategory";
 import {catchError} from "rxjs/operators";
+import {AppConstants} from "@shared/app.constants";
 
 @Injectable({providedIn: 'root'})
 export class BannerService {
-    private apiServerUrl = "http://localhost:8082";
+    private apiServerUrl = AppConstants.API_URL;
 
     constructor(private http: HttpClient){}
 
