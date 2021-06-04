@@ -1,0 +1,167 @@
+<app-header></app-header>
+<app-admin-navigation></app-admin-navigation>
+
+<div class="col-12 pl-5 border-bottom">
+    <div class="container-fluid d-flex justify-content-between">
+        <h2>Surveys</h2>
+        <div class="text-danger mr-md-4">
+            <button mat-raised-button color="warn" class="add-button">
+                + New Survey
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="global-container">
+    <div class="example-container survey">
+        <mat-tab-group>
+
+            <mat-tab label="OPEN">
+                <div class="survey-boxes">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
+
+                        <ng-container matColumnDef="question">
+                            <th class="question-cell header-row" mat-header-cell *matHeaderCellDef>Question</th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-selection-list [multiple]="false" #clientValue>
+                                    <mat-list-option *ngFor="let so of openSurveys" [value]="so"
+                                                     (click)="getSelectedSurveyId(clientValue.selectedOptions.selected[0]?.value.id,
+                                    clientValue.selectedOptions.selected[0]?.value.question)">
+                                        {{so.question}}
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <th class="status-cell header-row" mat-header-cell *matHeaderCellDef>Status</th>
+                            <td mat-cell *matCellDef="let element">
+                                <div *ngFor="let so of openSurveys">
+                                    <div ngbDropdown class="d-inline-block status-cell">
+                                        <button class="btn btn-outline-primary" ngbDropdownToggle>
+                                            {{so.status}}
+                                        </button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                            <button ngbDropdownItem (click)="changeStatusSurvey(so.id)">Unpublished</button>
+                                            <button ngbDropdownItem (click)="changeStatusSurvey(so.id)">Published</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="responses_count">
+                            <th class="responses-cell header-row" mat-header-cell *matHeaderCellDef>Responses</th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-selection-list [multiple]="false" #clientValue>
+                                    <mat-list-option *ngFor="let so of openSurveys" [value]="so"
+                                                     (click)="getSelectedSurveyId(clientValue.selectedOptions.selected[0]?.value.id,
+                                    clientValue.selectedOptions.selected[0]?.value.question)">
+                                        {{so.responses_count}}
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsOpen"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumnsOpen;"></tr>
+                    </table>
+                </div>
+
+                <div class="survey-boxes two">
+                    <h3 class="questions">Reader poll</h3>
+                    <h4 class="questions solid">{{selectedSurveyQuestion}}</h4>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem" *ngFor="let cb of checkBoxes">
+                            <mat-radio-button [value]="cb">
+                                {{cb.text}} ({{cb.responses_count}} votes)
+                            </mat-radio-button>
+                        </mat-list-item>
+                    </mat-list>
+
+                    <div class="container">
+                        <button type="button" class="btn btn-outline-danger"
+                                (click)="closeSurvey()">
+                            Close survey
+                        </button>
+                        <button type="button" class="btn btn-danger"
+                                (click)="deleteSurvey()">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="CLOSED">
+                <div class="survey-boxes">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
+
+                        <ng-container matColumnDef="question">
+                            <th class="question-cell header-row" mat-header-cell *matHeaderCellDef>Question</th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-selection-list [multiple]="false" #clientValue>
+                                    <mat-list-option *ngFor="let sc of closedSurveys" [value]="sc"
+                                                     (click)="getSelectedSurveyId(clientValue.selectedOptions.selected[0]?.value.id,
+                                    clientValue.selectedOptions.selected[0]?.value.question)">
+                                        {{sc.question}}
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="closed_day">
+                            <th class="status-cell header-row" mat-header-cell *matHeaderCellDef>Closed day</th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-selection-list [multiple]="false" #clientValue>
+                                    <mat-list-option *ngFor="let sc of closedSurveys" [value]="sc"
+                                                     (click)="getSelectedSurveyId(clientValue.selectedOptions.selected[0]?.value.id,
+                                    clientValue.selectedOptions.selected[0]?.value.question)">
+                                        {{sc.closed_day}}
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="responses_count">
+                            <th class="responses-cell header-row" mat-header-cell *matHeaderCellDef>Responses</th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-selection-list [multiple]="false" #clientValue>
+                                    <mat-list-option *ngFor="let sc of closedSurveys" [value]="sc"
+                                                     (click)="getSelectedSurveyId(clientValue.selectedOptions.selected[0]?.value.id,
+                                    clientValue.selectedOptions.selected[0]?.value.question)">
+                                        {{sc.responses_count}}
+                                    </mat-list-option>
+                                </mat-selection-list>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsClose"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumnsClose;"></tr>
+                    </table>
+                </div>
+
+                <div class="survey-boxes two">
+                    <h3 class="questions">Reader poll</h3>
+                    <h4 class="questions solid">{{selectedSurveyQuestion}}</h4>
+
+                    <mat-list role="list">
+                        <mat-list-item role="listitem" *ngFor="let cb of checkBoxes">
+                            <mat-radio-button [value]="cb">
+                                {{cb.text}} ({{cb.responses_count}} votes)
+                            </mat-radio-button>
+                        </mat-list-item>
+                    </mat-list>
+
+                    <div class="container">
+                        <button type="button" class="btn btn-danger"
+                                (click)="deleteSurvey()">
+                            Delete survey
+                        </button>
+                    </div>
+                </div>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>
+

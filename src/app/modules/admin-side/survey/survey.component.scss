@@ -4,16 +4,16 @@
   margin-left: 25%;
 }
 
-.example-large-box {
-  display: flex;
+.global-container {
+  display: inline-block;
   align-items: center;
   justify-content: center;
   padding: 16px;
   border-radius: 8px;
-  height: 400px;
-  width: 400px;
-  margin-left: 25%;
+  margin-left: 15%;
   margin-top: 2%;
+  height: 600px;
+  width: 1100px;
 }
 
 // tabs color
@@ -21,9 +21,8 @@
   background-color: #d62130;
 }
 
-
 .survey-boxes {
-  width: 50%;
+  width: 70%;
   float: left;
 }
 
@@ -31,14 +30,19 @@
   border-style: solid;
   border-color: #fafafa;
   background-color: #fafafa;
+  width: 30%;
 }
 
 //option view
 .questions {
   background-color: #f1f1f1;
   text-transform: uppercase;
-  padding-left: 10px;
+  padding-left: 25px;
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
+
 
 // input forms
 input {
@@ -67,7 +71,6 @@ label {
 .example-container .container .btn {
   margin-left: 8px;
   width: 300px;
-  margin-bottom: 10px;
 }
 
 .survey .btn-outline-danger:hover {
@@ -91,15 +94,6 @@ label {
   background-color: #d62130;
 }
 
-
-// avatar placing
-.example-container .image-upload img {
-  border-radius: 50%;
-  width: 150px;
-  text-align: center;
-  cursor: pointer;
-}
-
 .form-group label {
   display: flex;
   align-items: center;
@@ -107,7 +101,27 @@ label {
   margin-top: 0;
 }
 
-.image-upload > input {
-  display: none;
+
+//table
+.header-row{
+  background-color: #f1f1f1;
+  text-transform: uppercase;
+  align-items: center;
+  font-weight: bold;
+  font-size: medium;
+  color: #000000;
+}
+
+.question-cell {
+  width: 350px;
+}
+
+.status-cell{
+    width: 200px;
+  margin: 2%;
+}
+
+.responses-cell{
+  width: 200px;
 }
 

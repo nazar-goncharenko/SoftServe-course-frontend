@@ -8,6 +8,14 @@ import {UserProfileComponent} from '@modules/user-side/user-profile/user-profile
 import {UserListComponent} from '@modules/user-side/user-list/user-list.component';
 import {ResetComponent} from '@modules/user-side/reset_password/reset.component';
 import {RoleGuard} from '@modules/security/RoleGuard';
+import {VideoComponent} from '@modules/user-side/video/video/video.component';
+import {VideosComponent} from '@modules/user-side/video/videos/videos.component';
+import {AdminHomeComponent} from '@modules/admin-side/home/home.component';
+import {VideoEditComponent} from '@modules/admin-side/video/video-edit/video-edit.component';
+import {AdminVideoComponent} from '@modules/admin-side/video/video/video.component';
+import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
+import {SurveyComponent} from '@modules/admin-side/survey/survey.component';
+
 import {AddArticleComponent} from '@modules/admin-side/add-article/add-article.component';
 import {AddPhotoComponent} from '@modules/admin-side/add-photo/add-photo.component';
 import {VideoComponent} from './modules/user-side/video/video/video.component';
@@ -18,14 +26,23 @@ import {AdminVideoComponent} from './modules/admin-side/video/video/video.compon
 
 
 
+
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
-    {path: 'login', component: LoginComponent},
-    {path: 'forgot_password', component: Forgot_passwordComponent},
+
     {path: 'registration', component: RegistrationComponent},
-    {path: 'user/:user_id', component: UserProfileComponent},
-    {path: 'users', component: UserListComponent, canActivate: [RoleGuard]},
+
+    {path: 'login', component: LoginComponent},
+
+    {path: 'forgot_password', component: Forgot_passwordComponent},
     {path: 'reset_password', component: ResetComponent},
+
+    {path: 'users', component: UserListComponent, canActivate: [RoleGuard]},
+    {path: 'user/:user_id', component: UserProfileComponent},
+
+
+    {path: 'adm/surveys', component: SurveyComponent},
+
     {
       path: 'admin/add-article',
       component: AddArticleComponent,
@@ -39,6 +56,8 @@ const routes: Routes = [
         path: 'admin', component: AdminHomeComponent, canActivate: [RoleGuard], children: [
             {path: 'videos', component: AdminVideoComponent},
             {path: 'videos/:id', component: VideoEditComponent}
+
+
         ]
     },
     {

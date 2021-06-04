@@ -38,6 +38,12 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+import {AddArticleComponent} from './admin-side/add-article/add-article.component';
+import { SurveyComponent } from './admin-side/survey/survey.component';
+import {MatTableModule} from '@angular/material/table';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
@@ -63,6 +69,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
         VideoFormConfirmComponent,
         AdminNavigationComponent,
         FlashMessageComponent, VideoPipe, SafePipe,
+
+        AddArticleComponent,
+        SurveyComponent
+
     ],
     exports: [],
     imports: [
@@ -83,6 +93,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
         IvyCarouselModule,
         MatSlideToggleModule,
         MatAutocompleteModule,
+        MatTableModule,
+        NgbModule,
         FontAwesomeModule
     ]
 })

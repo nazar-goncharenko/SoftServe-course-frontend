@@ -1,57 +1,57 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
-import {Survey} from '../shared/interfaces/survey';
-import {User} from "../shared/interfaces/user";
+import {Survey} from '@shared/interfaces/survey';
 
 @Injectable({providedIn: 'root'})
 export class SurveyService {
 
+    private readonly adminUrl: string;
     private readonly userUrl: string;
 
     constructor(
         private http: HttpClient) {
-        this.userUrl = 'http://localhost:8082/user/';
+        this.adminUrl = 'http://localhost:8082/admin/';
+        this.userUrl = 'http://localhost:8082/surveys/';
     }
 
-    public findAllByUserId(userId: number): Observable<Survey[]> {
-        const url = `${this.userUrl}${userId}/surveys`;
+    public findAllOpen(): Observable<Survey[]> {
+        const url = `${this.userUrl}/open`;
         return this.http.get<Survey[]>(url);
     }
 
-    public findOpenByUserId(userId: number): Observable<Survey[]> {
-        const url = `${this.userUrl}${userId}/surveys/open`;
+    public findAllClosed(): Observable<Survey[]> {
+        const url = `${this.userUrl}/closed`;
         return this.http.get<Survey[]>(url);
     }
 
-    public findClosedByUserId(userId: number): Observable<Survey[]> {
-        const url = `${this.userUrl}${userId}/surveys/closed`;
+    public findAllOpenAdmin(userId: number): Observable<Survey[]> {
+        const url = `${this.adminUrl}${userId}/surveys/open`;
         return this.http.get<Survey[]>(url);
     }
 
-    public updateSurvey(userId: number, surveyId: number, updData): any {
-
-        const url = `${this.userUrl}${userId}/surveys/${surveyId}`;
-        updData.id = surveyId;
-        console.log(updData);
-
-        const formData: FormData = new FormData();
-        formData.append('surveyDTO', JSON.stringify(updData));
-        return this.http.post<any>(url, formData).subscribe(data => {
-            console.log('Survey opened/closed successfully!');
-        }, error => {
-            console.log(JSON.stringify(error));
-        });
+    public findAllClosedAdmin(userId: number): Observable<Survey[]> {
+        const url = `${this.adminUrl}${userId}/surveys/closed`;
+        console.log('findAllClosedAdmin ' + userId);
+        return this.http.get<Survey[]>(url);
     }
 
-    public deleteSurvey(userId: number, surveyId: number): Subscription {
-        const url = `${this.userUrl}${userId}/surveys/${surveyId}`;
+    public closeSurvey(userId: number, surveyId: number): any {
+        const url = `${this.adminUrl}${userId}/surveys/${surveyId}`;
+        console.log('closeSurvey ' + surveyId);
+        return this.http.post<any>(url, surveyId);
+    }
 
-        return this.http.delete<Survey>(url).subscribe(data => {
-            console.log('Successful survey deleting!!!');
-        }, error => {
-            console.log(JSON.stringify(error));
-        });
+    public changeStatusSurvey(userId: number, surveyId: number): any {
+        const url = `${this.adminUrl}${userId}/surveys/${surveyId}/changeStatusSurvey`;
+        console.log('changeStatusSurvey ' + surveyId);
+        return this.http.post<any>(url, surveyId);
+    }
+
+    public deleteSurvey(userId: number, surveyId: number): any {
+        const url = `${this.adminUrl}${userId}/surveys/${surveyId}`;
+        console.log('deleteSurvey ' + surveyId);
+        return this.http.delete<Survey>(url);
     }
 
 }

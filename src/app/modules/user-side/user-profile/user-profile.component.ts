@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '@services/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Survey} from '../../../shared/interfaces/survey';
-import {SurveyService} from '../../../services/survey.service';
-import {CheckboxService} from '../../../services/checkbox.service';
-import {CheckBox} from "../../../shared/interfaces/checkBox";
+import {SurveyService} from '@services/survey.service';
+import {CheckboxService} from '@services/checkbox.service';
+import {CheckBox} from '@shared/interfaces/checkBox';
+
 
 declare function checkNames(): any;
 
@@ -19,7 +19,6 @@ export class UserProfileComponent implements OnInit {
     userIdFromRoute: number;
     uploadFile: File = null;
     updateUserForm: FormGroup;
-    updateSurveyForm: FormGroup;
     openSurveys;
     closedSurveys;
     selectedSurveyId: number;
@@ -42,12 +41,6 @@ export class UserProfileComponent implements OnInit {
             new_pass: new FormControl(null),
             new_pass_2: new FormControl(null)
         });
-
-        this.updateSurveyForm = new FormGroup({
-            id: new FormControl(this.selectedSurveyId),
-            question: new FormControl(null),
-            isOpen: new FormControl(null)
-        });
     }
 
     handleFileInput(files: FileList): void {
@@ -67,22 +60,9 @@ export class UserProfileComponent implements OnInit {
             });
     }
 
-    updateSurvey(): void {
-        this.surveyService.updateSurvey(this.userIdFromRoute, this.selectedSurveyId, this.updateSurveyForm.value);
-        this.router.navigate([`user/${this.userIdFromRoute}`])
-            .then(() => {
-                window.location.reload();
-            });
+    manageSurvey(): void {  // if is admin!
+        this.router.navigate([`adm/surveys`]);
     }
-
-    deleteSurvey(): void {
-        this.surveyService.deleteSurvey(this.userIdFromRoute, this.selectedSurveyId);
-        this.router.navigate([`user/${this.userIdFromRoute}`])
-            .then(() => {
-                window.location.reload();
-            });
-    }
-
 
     updateUser(): void {
         this.userService.updateAll(this.userIdFromRoute, this.uploadFile, this.updateUserForm.value);
@@ -108,17 +88,8 @@ export class UserProfileComponent implements OnInit {
                 this.user = data;
             });
 
-        this.surveyService.findOpenByUserId(this.userIdFromRoute)
-            .subscribe((data: Survey[]) => {
-                console.log(data);
-                this.openSurveys = data;
-            });
-
-        this.surveyService.findClosedByUserId(this.userIdFromRoute)
-            .subscribe((data: Survey[]) => {
-                console.log(data);
-                this.closedSurveys = data;
-            });
+        this.surveyService.findAllOpen();
+        this.surveyService.findAllClosed();
 
         this.createForm();
         checkNames();
